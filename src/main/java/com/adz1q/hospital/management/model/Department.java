@@ -15,7 +15,7 @@ public class Department {
         this.name = name;
     }
 
-    public void showDepartmentInfo() {
+    public void showDepartmentDetails() {
         System.out.println("------------------------- DEPARTMENT -------------------------");
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);

@@ -38,11 +38,11 @@ public class Patient extends Person {
 
     private void validateDiagnosis(String diagnosis) {
         if (diagnosis == null) {
-            throw new NullPointerException("Diagnostics cannot be null.");
+            throw new NullPointerException("Diagnosis cannot be null.");
         }
 
         if (diagnosis.isBlank()) {
-            throw new IllegalArgumentException("Diagnostics cannot be blank.");
+            throw new IllegalArgumentException("Diagnosis cannot be blank.");
         }
     }
 
