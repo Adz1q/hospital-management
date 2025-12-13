@@ -3,7 +3,6 @@ package com.adz1q.hospital.management.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Patient extends Person {
     private final List<String> documentation;
@@ -26,7 +25,7 @@ public class Patient extends Person {
     }
 
     @Override
-    public void showPersonalInfo() {
+    public void showPersonalDetails() {
         System.out.println("------------------------- PATIENT -------------------------");
         System.out.println("ID: " + super.getId());
         System.out.println("First Name: " + super.getFirstName());
@@ -37,11 +36,7 @@ public class Patient extends Person {
         System.out.println("-----------------------------------------------------------");
     }
 
-    public List<String> getDocumentation() {
-        return documentation;
-    }
-
-    public void addDiagnosis(String diagnosis) {
+    private void validateDiagnosis(String diagnosis) {
         if (diagnosis == null) {
             throw new NullPointerException("Diagnostics cannot be null.");
         }
@@ -49,27 +44,22 @@ public class Patient extends Person {
         if (diagnosis.isBlank()) {
             throw new IllegalArgumentException("Diagnostics cannot be blank.");
         }
+    }
 
+    public void addDiagnosis(String diagnosis) {
+        validateDiagnosis(diagnosis);
         documentation.add(diagnosis);
     }
 
     @Override
     public String toString() {
         return "Patient{" +
-                "documentation=" + documentation +
+                "person=" + super.toString() +
+                ", documentation=" + documentation +
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Patient patient = (Patient) o;
-        return Objects.equals(documentation, patient.documentation);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), documentation);
+    public List<String> getDocumentation() {
+        return documentation;
     }
 }

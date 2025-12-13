@@ -25,7 +25,7 @@ public class Nurse extends Person {
     }
 
     @Override
-    public void showPersonalInfo() {
+    public void showPersonalDetails() {
         System.out.println("------------------------- PATIENT -------------------------");
         System.out.println("ID: " + super.getId());
         System.out.println("First Name: " + super.getFirstName());
@@ -36,17 +36,29 @@ public class Nurse extends Person {
         System.out.println("-----------------------------------------------------------");
     }
 
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void changeDepartment(Department department) {
+    private void validateDepartment(Department department) {
         if (department == null) {
             throw new NullPointerException("Department cannot be null.");
         }
+    }
+
+    public void changeDepartment(Department department) {
+        validateDepartment(department);
 
         if (!this.department.equals(department)) {
             this.department = department;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "person=" + super.toString() +
+                ", department=" + department +
+                '}';
+    }
+
+    public Department getDepartment() {
+        return department;
     }
 }

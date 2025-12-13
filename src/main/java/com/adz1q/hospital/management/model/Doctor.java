@@ -2,7 +2,6 @@ package com.adz1q.hospital.management.model;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 
 public class Doctor extends Person {
     private final List<Specialization> specializations;
@@ -27,7 +26,7 @@ public class Doctor extends Person {
     }
 
     @Override
-    public void showPersonalInfo() {
+    public void showPersonalDetails() {
         System.out.println("------------------------- DOCTOR -------------------------");
         System.out.println("ID: " + super.getId());
         System.out.println("First Name: " + super.getFirstName());
@@ -38,14 +37,14 @@ public class Doctor extends Person {
         System.out.println("-----------------------------------------------------------");
     }
 
-    public List<Specialization> getSpecializations() {
-        return specializations;
-    }
-
-    public void addSpecialization(Specialization specialization) {
+    private void validateSpecialization(Specialization specialization) {
         if (specialization == null) {
             throw new NullPointerException("Specialization cannot be null.");
         }
+    }
+
+    public void addSpecialization(Specialization specialization) {
+        validateSpecialization(specialization);
 
         if (!specializations.contains(specialization)) {
             specializations.add(specialization);
@@ -54,21 +53,13 @@ public class Doctor extends Person {
 
     @Override
     public String toString() {
-        return "Doctor{" +
-                "specializations=" + specializations +
+        return "Patient{" +
+                "person=" + super.toString() +
+                ", specializations=" + specializations +
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Doctor doctor = (Doctor) o;
-        return Objects.equals(specializations, doctor.specializations);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), specializations);
+    public List<Specialization> getSpecializations() {
+        return specializations;
     }
 }

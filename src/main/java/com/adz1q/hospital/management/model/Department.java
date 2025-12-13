@@ -10,6 +10,7 @@ public class Department {
     private String name;
 
     public Department(String name) {
+        validateName(name);
         this.id = UUID.randomUUID();
         this.name = name;
     }
@@ -21,16 +22,31 @@ public class Department {
         System.out.println("--------------------------------------------------------------");
     }
 
-    public UUID getId() {
-        return id;
+    private void validateName(String name) {
+        if (name == null) {
+            throw new NullPointerException("Department name cannot be null.");
+        }
+
+        if (name.isBlank()) {
+            throw new IllegalArgumentException("Department name cannot be blank.");
+        }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void changeName(String name) {
+    public void rename(String name) {
+        validateName(name);
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 
     @Override
@@ -41,15 +57,11 @@ public class Department {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Department that = (Department) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name);
+    public UUID getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
+    public String getName() {
+        return name;
     }
 }

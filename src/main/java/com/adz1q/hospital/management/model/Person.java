@@ -6,20 +6,16 @@ import java.util.UUID;
 
 public abstract class Person {
     private final UUID id;
+    private String pesel;
     private String firstName;
     private String lastName;
     private final LocalDate birthDate;
-    private String pesel;
 
     public Person(
             String firstName,
             String lastName,
             LocalDate birthDate) {
-        this.id = UUID.randomUUID();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.pesel = null;
+        this(firstName, lastName, birthDate, null);
     }
 
     public Person(
@@ -27,11 +23,22 @@ public abstract class Person {
             String lastName,
             LocalDate birthDate,
             String pesel) {
-        this(firstName, lastName, birthDate);
+        validateFirstName(firstName);
+        validateLastName(lastName);
+        validateBirthDate(birthDate);
+
+        if (pesel != null) {
+            validatePesel(pesel);
+        }
+
+        this.id = UUID.randomUUID();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
         this.pesel = pesel;
     }
 
-    public void showPersonalInfo() {
+    public void showPersonalDetails() {
         System.out.println("------------------------- PERSON -------------------------");
         System.out.println("ID: " + id);
         System.out.println("First Name: " + firstName);
@@ -41,15 +48,21 @@ public abstract class Person {
         System.out.println("-----------------------------------------------------------");
     }
 
-    public UUID getId() {
-        return id;
+    private void validatePesel(String pesel) {
+        if (pesel == null) {
+            throw new NullPointerException("PESEL cannot be null.");
+        }
+
+        if (pesel.isBlank()) {
+            throw new IllegalArgumentException("PESEL cannot be blank.");
+        }
+
+        if (pesel.length() != 11) {
+            throw new IllegalArgumentException("PESEL must contain exactly 11 digits.");
+        }
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
+    private void validateFirstName(String firstName) {
         if (firstName == null) {
             throw new NullPointerException("First name cannot be null.");
         }
@@ -63,11 +76,7 @@ public abstract class Person {
         }
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
+    private void validateLastName(String lastName) {
         if (lastName == null) {
             throw new NullPointerException("Last name cannot be null.");
         }
@@ -79,32 +88,43 @@ public abstract class Person {
         if (!lastName.matches("^[\\p{L} .'-]+$")) {
             throw new IllegalArgumentException("Last name contains invalid characters.");
         }
+    }
 
+    private void validateBirthDate(LocalDate birthDate) {
+        if (birthDate == null) {
+            throw new NullPointerException("Birth date cannot be null.");
+        }
+
+        if (birthDate.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("Invalid birth date.");
+        }
+    }
+
+    public void updatePesel(String pesel) {
+        validatePesel(pesel);
+        this.pesel = pesel;
+    }
+
+    public void changeFirstName(String firstName) {
+        validateFirstName(firstName);
+        this.firstName = firstName;
+    }
+
+    public void changeLastName(String lastName) {
+        validateLastName(lastName);
         this.lastName = lastName;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id);
     }
 
-    public String getPesel() {
-        return pesel;
-    }
-
-    public void setPesel(String pesel) {
-        if (pesel == null) {
-            throw new NullPointerException("PESEL cannot be null.");
-        }
-
-        if (pesel.isBlank()) {
-            throw new IllegalArgumentException("PESEL cannot be blank.");
-        }
-
-        if (pesel.length() != 11) {
-            throw new IllegalArgumentException("PESEL must contain exactly 11 letters.");
-        }
-
-        this.pesel = pesel;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 
     @Override
@@ -118,19 +138,23 @@ public abstract class Person {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(id, person.id)
-                && Objects.equals(firstName, person.firstName)
-                && Objects.equals(lastName, person.lastName)
-                && Objects.equals(birthDate, person.birthDate)
-                && Objects.equals(pesel, person.pesel);
+    public UUID getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName, birthDate, pesel);
+    public String getPesel() {
+        return pesel;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 }
