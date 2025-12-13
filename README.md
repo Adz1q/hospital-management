@@ -1,4 +1,4 @@
 <h1>How to run?</h1>
-<p>Open terminal</p>
-<p>Use: ./gradlew build</p>
-<p>Use: ./gradlew run</p>
+<p>1.Open terminal</p>
+<p>2.Use:  ./gradlew build</p>
+<p>3.Use:  ./gradlew run</p>
