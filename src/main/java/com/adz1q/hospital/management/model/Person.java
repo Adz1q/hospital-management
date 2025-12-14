@@ -38,15 +38,7 @@ public abstract class Person {
         this.pesel = pesel;
     }
 
-    public void showPersonalDetails() {
-        System.out.println("------------------------- PERSON -------------------------");
-        System.out.println("ID: " + id);
-        System.out.println("First Name: " + firstName);
-        System.out.println("Last Name: " + lastName);
-        System.out.println("Birth Date: " + birthDate);
-        if (pesel != null) System.out.println("PESEL: " + pesel);
-        System.out.println("-----------------------------------------------------------");
-    }
+    public abstract void showPersonalDetails();
 
     private void validatePesel(String pesel) {
         if (pesel == null) {
