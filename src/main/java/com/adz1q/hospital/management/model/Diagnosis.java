@@ -4,14 +4,17 @@ import java.util.*;
 
 public class Diagnosis {
     private final UUID id;
-    private String description;
+    private final String description;
     private final Set<Treatment> treatments;
 
-    public Diagnosis(String description) {
+    public Diagnosis(
+            String description,
+            Set<Treatment> treatments) {
         validateDescription(description);
+        validateTreatments(treatments);
         this.id = UUID.randomUUID();
         this.description = description;
-        this.treatments = new HashSet<>();
+        this.treatments = treatments;
     }
 
     public void showDiagnosisDetails() {
@@ -32,20 +35,10 @@ public class Diagnosis {
         }
     }
 
-    private void validateTreatment(Treatment treatment) {
-        if (treatment == null) {
-            throw new NullPointerException("Treatment cannot be null.");
+    private void validateTreatments(Set<Treatment> treatments) {
+        if (treatments == null) {
+            throw new NullPointerException("Treatments cannot be null.");
         }
-    }
-
-    public void changeDescription(String description) {
-        validateDescription(description);
-        this.description = description;
-    }
-
-    public void addTreatment(Treatment treatment) {
-        validateTreatment(treatment);
-        treatments.add(treatment);
     }
 
     @Override

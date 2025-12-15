@@ -1,27 +1,35 @@
 package com.adz1q.hospital.management.model;
 
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 public class Room {
     private final UUID id;
     private String name;
     private Department department;
+    private final Set<Patient> patients;
+    private int availableSlots;
 
     public Room(
             String name,
-            Department department) {
+            Department department,
+            int availableSlots) {
         validateName(name);
         validateDepartment(department);
+        validateAvailableSlots(availableSlots);
         this.id = UUID.randomUUID();
         this.name = name;
         this.department = department;
+        this.patients = new HashSet<>();
+        this.availableSlots = availableSlots;
     }
 
     public void showRoomDetails() {
         System.out.println("------------------------- ROOM -------------------------");
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
+        System.out.println("Department: " + department);
+        System.out.println("Patients: " + patients);
+        System.out.println("Available Slots: " + availableSlots);
         System.out.println("---------------------------------------------------------");
     }
 
@@ -42,6 +50,18 @@ public class Room {
         }
     }
 
+    private void validatePatient(Patient patient) {
+        if (patient == null) {
+            throw new NullPointerException("Patient cannot be null.");
+        }
+    }
+
+    private void validateAvailableSlots(int availableSlots) {
+        if (availableSlots < 1) {
+            throw new IllegalArgumentException("Room must contain at least one available slot.");
+        }
+    }
+
     public void rename(String name) {
         validateName(name);
         this.name = name;
@@ -54,6 +74,21 @@ public class Room {
         if (!this.department.equals(department)) {
             this.department = department;
         }
+    }
+
+    public void addPatient(Patient patient) {
+        validatePatient(patient);
+
+        if (availableSlots > 0) {
+            patients.add(patient);
+            availableSlots--;
+        }
+    }
+
+    public void removePatient(Patient patient) {
+        validatePatient(patient);
+        patients.remove(patient);
+        availableSlots++;
     }
 
     @Override
@@ -73,7 +108,9 @@ public class Room {
         return "Room{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", department=" + department.getName() +
+                ", department=" + department +
+                ", patients=" + patients +
+                ", availableSlots=" + availableSlots +
                 '}';
     }
 
@@ -87,5 +124,13 @@ public class Room {
 
     public Department getDepartment() {
         return department;
+    }
+
+    public Set<Patient> getPatients() {
+        return Collections.unmodifiableSet(patients);
+    }
+
+    public int getAvailableSlots() {
+        return availableSlots;
     }
 }

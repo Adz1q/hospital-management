@@ -19,7 +19,6 @@ public class Appointment {
         validatePatient(patient);
         validateDoctor(doctor);
         validateDate(date);
-
         this.id = UUID.randomUUID();
         this.patient = patient;
         this.doctor = doctor;
@@ -97,6 +96,8 @@ public class Appointment {
 
         this.diagnosis = diagnosis;
         this.completed = true;
+
+        patient.addDiagnosis(diagnosis);
     }
 
     @Override
@@ -118,7 +119,7 @@ public class Appointment {
                 ", patient=" + patient +
                 ", doctor=" + doctor +
                 ", date=" + date +
-                ", diagnosis='" + diagnosis + '\'' +
+                ", diagnosis=" + diagnosis +
                 ", completed=" + completed +
                 '}';
     }

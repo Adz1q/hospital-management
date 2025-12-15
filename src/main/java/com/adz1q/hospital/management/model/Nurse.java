@@ -26,7 +26,7 @@ public class Nurse extends Person {
 
     @Override
     public void showPersonalDetails() {
-        System.out.println("------------------------- PATIENT -------------------------");
+        System.out.println("------------------------- NURSE ---------------------------");
         System.out.println("ID: " + super.getId());
         System.out.println("First Name: " + super.getFirstName());
         System.out.println("Last Name: " + super.getLastName());

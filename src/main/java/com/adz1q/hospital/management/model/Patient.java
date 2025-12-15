@@ -2,10 +2,11 @@ package com.adz1q.hospital.management.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Patient extends Person {
-    private final List<String> documentation;
+    private final List<Diagnosis> documentation;
 
     public Patient(
             String firstName,
@@ -36,17 +37,13 @@ public class Patient extends Person {
         System.out.println("-----------------------------------------------------------");
     }
 
-    private void validateDiagnosis(String diagnosis) {
+    private void validateDiagnosis(Diagnosis diagnosis) {
         if (diagnosis == null) {
             throw new NullPointerException("Diagnosis cannot be null.");
         }
-
-        if (diagnosis.isBlank()) {
-            throw new IllegalArgumentException("Diagnosis cannot be blank.");
-        }
     }
 
-    public void addDiagnosis(String diagnosis) {
+    public void addDiagnosis(Diagnosis diagnosis) {
         validateDiagnosis(diagnosis);
         documentation.add(diagnosis);
     }
@@ -59,7 +56,7 @@ public class Patient extends Person {
                 '}';
     }
 
-    public List<String> getDocumentation() {
-        return documentation;
+    public List<Diagnosis> getDocumentation() {
+        return Collections.unmodifiableList(documentation);
     }
 }

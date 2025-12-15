@@ -123,10 +123,10 @@ public abstract class Person {
     public String toString() {
         return "Person{" +
                 "id=" + id +
+                ", pesel='" + pesel + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
-                ", pesel='" + pesel + '\'' +
                 '}';
     }
 
