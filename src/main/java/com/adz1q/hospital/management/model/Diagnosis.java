@@ -1,20 +1,17 @@
 package com.adz1q.hospital.management.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 public class Diagnosis {
     private final UUID id;
     private String description;
-    private final List<Treatment> treatments;
+    private final Set<Treatment> treatments;
 
     public Diagnosis(String description) {
         validateDescription(description);
         this.id = UUID.randomUUID();
         this.description = description;
-        this.treatments = new ArrayList<>();
+        this.treatments = new HashSet<>();
     }
 
     public void showDiagnosisDetails() {
@@ -48,10 +45,7 @@ public class Diagnosis {
 
     public void addTreatment(Treatment treatment) {
         validateTreatment(treatment);
-
-        if (!treatments.contains(treatment)) {
-            treatments.add(treatment);
-        }
+        treatments.add(treatment);
     }
 
     @Override
@@ -83,7 +77,7 @@ public class Diagnosis {
         return description;
     }
 
-    public List<Treatment> getTreatments() {
-        return treatments;
+    public Set<Treatment> getTreatments() {
+        return Collections.unmodifiableSet(treatments);
     }
 }

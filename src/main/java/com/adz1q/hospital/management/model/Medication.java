@@ -1,4 +1,49 @@
 package com.adz1q.hospital.management.model;
 
-public class Medication {
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
+
+public class Medication extends Treatment {
+    private final List<String> medicines;
+
+    public Medication(
+            LocalDate prescriptionDate,
+            String description,
+            List<String> medicines) {
+        super(description, prescriptionDate);
+        validateMedicines(medicines);
+        this.medicines = medicines;
+    }
+
+    @Override
+    public void showTreatmentDetails() {
+        System.out.println("------------------------- MEDICATION -------------------------");
+        System.out.println("ID: " + super.getId());
+        System.out.println("Description: " + super.getDescription());
+        System.out.println("Prescription Date: " + super.getPrescriptionDate());
+        System.out.println("Medicines: " + medicines);
+        System.out.println("--------------------------------------------------------------");
+    }
+
+    private void validateMedicines(List<String> medicines) {
+        if (medicines == null) {
+            throw new NullPointerException("Medicines cannot be null.");
+        }
+
+        if (medicines.isEmpty()) {
+            throw new IllegalArgumentException("Medicines list cannot be empty.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Medication{" +
+                "medicines=" + medicines +
+                '}';
+    }
+
+    public List<String> getMedicines() {
+        return Collections.unmodifiableList(medicines);
+    }
 }

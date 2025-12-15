@@ -1,16 +1,17 @@
 package com.adz1q.hospital.management.model;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Collections;
+import java.util.Set;
 
 public class Doctor extends Person {
-    private final List<Specialization> specializations;
+    private final Set<Specialization> specializations;
 
     public Doctor(
             String firstName,
             String lastName,
             LocalDate birthDate,
-            List<Specialization> specializations) {
+            Set<Specialization> specializations) {
         super(firstName, lastName, birthDate);
         this.specializations = specializations;
     }
@@ -20,7 +21,7 @@ public class Doctor extends Person {
             String lastName,
             LocalDate birthDate,
             String pesel,
-            List<Specialization> specializations) {
+            Set<Specialization> specializations) {
         super(firstName, lastName, birthDate, pesel);
         this.specializations = specializations;
     }
@@ -45,21 +46,18 @@ public class Doctor extends Person {
 
     public void addSpecialization(Specialization specialization) {
         validateSpecialization(specialization);
-
-        if (!specializations.contains(specialization)) {
-            specializations.add(specialization);
-        }
+        specializations.add(specialization);
     }
 
     @Override
     public String toString() {
-        return "Patient{" +
+        return "Doctor{" +
                 "person=" + super.toString() +
                 ", specializations=" + specializations +
                 '}';
     }
 
-    public List<Specialization> getSpecializations() {
-        return specializations;
+    public Set<Specialization> getSpecializations() {
+        return Collections.unmodifiableSet(specializations);
     }
 }

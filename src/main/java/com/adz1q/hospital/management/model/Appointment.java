@@ -9,7 +9,7 @@ public class Appointment {
     private final Patient patient;
     private Doctor doctor;
     private LocalDate date;
-    private String diagnosis;
+    private Diagnosis diagnosis;
     private boolean completed;
 
     public Appointment(
@@ -56,13 +56,9 @@ public class Appointment {
         }
     }
 
-    private void validateDiagnosis(String diagnosis) {
+    private void validateDiagnosis(Diagnosis diagnosis) {
         if (diagnosis == null) {
             throw new NullPointerException("Diagnosis cannot be null.");
-        }
-
-        if (diagnosis.isBlank()) {
-            throw new IllegalArgumentException("Diagnosis cannot be blank.");
         }
     }
 
@@ -92,7 +88,7 @@ public class Appointment {
         this.date = date;
     }
 
-    public void completeAppointment(String diagnosis) {
+    public void completeAppointment(Diagnosis diagnosis) {
         if (completed) {
             throw new IllegalStateException("This appointment is already completed.");
         }
@@ -143,7 +139,7 @@ public class Appointment {
         return date;
     }
 
-    public String getDiagnosis() {
+    public Diagnosis getDiagnosis() {
         return diagnosis;
     }
 

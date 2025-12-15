@@ -6,17 +6,30 @@ import java.util.UUID;
 
 public abstract class Treatment {
     private final UUID id;
+    private final String description;
     private final LocalDate prescriptionDate;
-    private boolean completed;
 
-    public Treatment(LocalDate prescriptionDate) {
+    public Treatment(
+            String description,
+            LocalDate prescriptionDate) {
+        validateDescription(description);
         validatePrescriptionDate(prescriptionDate);
         this.id = UUID.randomUUID();
+        this.description = description;
         this.prescriptionDate = prescriptionDate;
-        this.completed = false;
     }
 
     public abstract void showTreatmentDetails();
+
+    private void validateDescription(String description) {
+        if (description == null) {
+            throw new NullPointerException("Description cannot be null.");
+        }
+
+        if (description.isBlank()) {
+            throw new IllegalArgumentException("Description cannot be blank.");
+        }
+    }
 
     private void validatePrescriptionDate(LocalDate prescriptionDate) {
         if (prescriptionDate == null) {
@@ -27,8 +40,6 @@ public abstract class Treatment {
             throw new IllegalArgumentException("Prescription date cannot be from future.");
         }
     }
-
-    public abstract void completeTreatment();
 
     @Override
     public boolean equals(Object o) {
@@ -46,8 +57,8 @@ public abstract class Treatment {
     public String toString() {
         return "Treatment{" +
                 "id=" + id +
+                ", description='" + description + '\'' +
                 ", prescriptionDate=" + prescriptionDate +
-                ", completed=" + completed +
                 '}';
     }
 
@@ -55,11 +66,11 @@ public abstract class Treatment {
         return id;
     }
 
-    public LocalDate getPrescriptionDate() {
-        return prescriptionDate;
+    public String getDescription() {
+        return description;
     }
 
-    public boolean isCompleted() {
-        return completed;
+    public LocalDate getPrescriptionDate() {
+        return prescriptionDate;
     }
 }
