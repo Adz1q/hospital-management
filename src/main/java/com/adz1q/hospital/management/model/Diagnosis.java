@@ -2,7 +2,7 @@ package com.adz1q.hospital.management.model;
 
 import java.util.*;
 
-public class Diagnosis {
+public class Diagnosis implements Identifiable<UUID> {
     private final UUID id;
     private final String description;
     private final Set<Treatment> treatments;
@@ -62,6 +62,7 @@ public class Diagnosis {
                 '}';
     }
 
+    @Override
     public UUID getId() {
         return id;
     }

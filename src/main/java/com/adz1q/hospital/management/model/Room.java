@@ -2,7 +2,7 @@ package com.adz1q.hospital.management.model;
 
 import java.util.*;
 
-public class Room {
+public class Room implements Identifiable<UUID> {
     private final UUID id;
     private String name;
     private Department department;
@@ -114,6 +114,7 @@ public class Room {
                 '}';
     }
 
+    @Override
     public UUID getId() {
         return id;
     }

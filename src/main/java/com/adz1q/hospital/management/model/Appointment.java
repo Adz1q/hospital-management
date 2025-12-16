@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Appointment {
+public class Appointment implements Identifiable<UUID> {
     private final UUID id;
     private final Patient patient;
     private Doctor doctor;
@@ -124,6 +124,7 @@ public class Appointment {
                 '}';
     }
 
+    @Override
     public UUID getId() {
         return id;
     }

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class Treatment {
+public abstract class Treatment implements Identifiable<UUID> {
     private final UUID id;
     private final String description;
     private final LocalDate prescriptionDate;
@@ -62,6 +62,7 @@ public abstract class Treatment {
                 '}';
     }
 
+    @Override
     public UUID getId() {
         return id;
     }

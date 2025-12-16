@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class Person {
+public abstract class Person implements Identifiable<UUID> {
     private final UUID id;
     private String pesel;
     private String firstName;
@@ -130,6 +130,7 @@ public abstract class Person {
                 '}';
     }
 
+    @Override
     public UUID getId() {
         return id;
     }
