@@ -11,6 +11,7 @@ public class Nurse extends Person {
             LocalDate birthDate,
             Department department) {
         super(firstName, lastName, birthDate);
+        validateDepartment(department);
         this.department = department;
     }
 
@@ -21,6 +22,7 @@ public class Nurse extends Person {
             String pesel,
             Department department) {
         super(firstName, lastName, birthDate, pesel);
+        validateDepartment(department);
         this.department = department;
     }
 

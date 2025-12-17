@@ -23,7 +23,11 @@ public class DoctorService {
             String lastName,
             LocalDate birthDate,
             Set<Specialization> specializations) {
-        Doctor newDoctor = new Doctor(firstName, lastName, birthDate, specializations);
+        Doctor newDoctor = new Doctor(
+                firstName,
+                lastName,
+                birthDate,
+                specializations);
         Logger.info("Hired doctor with ID: " + newDoctor.getId());
         return doctorRepository.save(newDoctor);
     }
@@ -38,7 +42,12 @@ public class DoctorService {
             throw new IllegalArgumentException("Doctor with this PESEL already exists.");
         }
 
-        Doctor newDoctor = new Doctor(firstName, lastName, birthDate, pesel, specializations);
+        Doctor newDoctor = new Doctor(
+                firstName,
+                lastName,
+                birthDate,
+                pesel,
+                specializations);
         Logger.info("Hired doctor with ID: " + newDoctor.getId());
         return doctorRepository.save(newDoctor);
     }
@@ -55,7 +64,7 @@ public class DoctorService {
     public void dismissDoctor(UUID id) throws DoctorNotFoundException {
         getDoctor(id);
         doctorRepository.deleteById(id);
-        Logger.info("Deleted doctor with ID: " + id);
+        Logger.info("Dismissed doctor with ID: " + id);
     }
 
     public void updateSpecializations(

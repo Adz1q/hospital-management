@@ -21,7 +21,10 @@ public class PatientService {
             String firstName,
             String lastName,
             LocalDate birthDate) {
-        Patient newPatient = new Patient(firstName, lastName, birthDate);
+        Patient newPatient = new Patient(
+                firstName,
+                lastName,
+                birthDate);
         Logger.info("Registered patient with ID: " + newPatient.getId());
         return patientRepository.save(newPatient);
     }
@@ -35,12 +38,17 @@ public class PatientService {
             throw new IllegalArgumentException("Patient with this PESEL already exists.");
         }
 
-        Patient newPatient = new Patient(firstName, lastName, birthDate, pesel);
+        Patient newPatient = new Patient(
+                firstName,
+                lastName,
+                birthDate,
+                pesel);
         Logger.info("Registered patient with ID: " + newPatient.getId());
         return patientRepository.save(newPatient);
     }
 
-    public Patient getPatient(UUID id) throws PatientNotFoundException {
+    public Patient getPatient(UUID id)
+            throws PatientNotFoundException {
         return patientRepository.findById(id)
                 .orElseThrow(() -> new PatientNotFoundException("Patient with ID: " + id + " does not exist."));
     }

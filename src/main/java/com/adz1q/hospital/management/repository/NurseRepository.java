@@ -3,6 +3,7 @@ package com.adz1q.hospital.management.repository;
 import com.adz1q.hospital.management.model.Nurse;
 
 import java.nio.file.Path;
+import java.util.Optional;
 import java.util.UUID;
 
 public class NurseRepository extends FileRepository<UUID, Nurse> {
@@ -16,4 +17,12 @@ public class NurseRepository extends FileRepository<UUID, Nurse> {
 
     @Override
     protected void saveToFile() {}
+
+    public Optional<Nurse> findByPesel(String pesel) {
+        return data.values()
+                .stream()
+                .filter(nurse -> nurse.getPesel() != null)
+                .filter(nurse -> nurse.getPesel().equals(pesel))
+                .findFirst();
+    }
 }
