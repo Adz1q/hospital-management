@@ -32,7 +32,7 @@ public class PatientService {
             LocalDate birthDate,
             String pesel) {
         if (patientRepository.findByPesel(pesel).isPresent()) {
-            throw new IllegalArgumentException("Patient with this PESEL already exists");
+            throw new IllegalArgumentException("Patient with this PESEL already exists.");
         }
 
         Patient newPatient = new Patient(firstName, lastName, birthDate, pesel);
@@ -41,15 +41,16 @@ public class PatientService {
     }
 
     public Patient getPatient(UUID id) throws PatientNotFoundException {
-        return patientRepository.findById(id).orElseThrow(
-                () -> new PatientNotFoundException("Patient with ID: " + id + " does not exist."));
+        return patientRepository.findById(id)
+                .orElseThrow(() -> new PatientNotFoundException("Patient with ID: " + id + " does not exist."));
     }
 
     public List<Patient> getAllPatients() {
         return patientRepository.findAll();
     }
 
-    public void deletePatient(UUID id) {
+    public void deletePatient(UUID id) throws PatientNotFoundException {
+        getPatient(id);
         patientRepository.deleteById(id);
         Logger.info("Deleted patient with ID: " + id);
     }

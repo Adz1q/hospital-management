@@ -3,8 +3,6 @@ package com.adz1q.hospital.management.model;
 import java.util.Objects;
 import java.util.UUID;
 
-// Make additional hashmap with "name" as a key in repository to make sure every department is unique
-// Make method in repo "findByNameOrCreate()"
 public class Department implements Identifiable<UUID> {
     private final UUID id;
     private String name;

@@ -20,7 +20,7 @@ Diagnosis:
 diagnosePatient()
 getDiagnosis()
 getAllDiagnoses()
-deleteDiagnosis() - prawdopodobnie do usunięcia
+deleteDiagnosis() - probably need to delete this
 
 
 Room:
@@ -39,15 +39,15 @@ hireDoctor()
 getDoctor()
 getAllDoctors()
 dismissDoctor()
-updateSpecializations()
-
+updateSpecializations() - for a single specialization / invoked in Application
+updateSpecializations() - for set of specialization
 
 Patient:
 registerPatient()
 getPatient()
 getAllPatients()
-deletePatient() - prawdopodobnie do usunięcia
-updateDocumentation()
+deletePatient() - probably need to delete this
+updateDocumentation() - invoked in AppointmentService.completeAppointment(), so it has access to the Patient filed
 
 
 Nurse:
@@ -62,21 +62,21 @@ Medication:
 prescribeMedication()
 getMedication()
 getAllMedications()
-deleteMedication() - prawdopodobnie do usunięcia
+deleteMedication() - probably need to delete this
 
 
 Rehabilitation:
 prescribeRehabilitation()
 getRehabilitation()
 getAllRehabilitations()
-deleteRehabilitation() - prawdopodobnie do usunięcia
+deleteRehabilitation() - probably need to delete this
 
 
 Therapy:
 prescribeTherapy()
 getTherapy()
 getAllTherapies()
-deleteTherapy() - prawdopodobnie do usunięcia
+deleteTherapy() - probably need to delete this
 
 
 Surgery:

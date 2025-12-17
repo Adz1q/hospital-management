@@ -43,7 +43,6 @@ public class Room implements Identifiable<UUID> {
         }
     }
 
-    // check if the dept. already exists
     private void validateDepartment(Department department) {
         if (department == null) {
             throw new NullPointerException("Department cannot be null.");
@@ -67,7 +66,6 @@ public class Room implements Identifiable<UUID> {
         this.name = name;
     }
 
-    // if the dept. had list of rooms, need to delete this room from the dept's room list
     public void changeDepartment(Department department) {
         validateDepartment(department);
 

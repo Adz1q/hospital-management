@@ -23,6 +23,7 @@ public class Doctor extends Person {
             String pesel,
             Set<Specialization> specializations) {
         super(firstName, lastName, birthDate, pesel);
+        validateSpecializations(specializations);
         this.specializations = specializations;
     }
 
@@ -41,6 +42,16 @@ public class Doctor extends Person {
     private void validateSpecialization(Specialization specialization) {
         if (specialization == null) {
             throw new NullPointerException("Specialization cannot be null.");
+        }
+    }
+
+    private void validateSpecializations(Set<Specialization> specializations) {
+        if (specializations == null) {
+            throw new NullPointerException("Specializations cannot be null.");
+        }
+
+        if (specializations.isEmpty()) {
+            throw new IllegalArgumentException("Specializations must contain at least one specialization.");
         }
     }
 
