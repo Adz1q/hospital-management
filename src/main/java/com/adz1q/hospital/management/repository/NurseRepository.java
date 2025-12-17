@@ -1,12 +1,12 @@
 package com.adz1q.hospital.management.repository;
 
-import com.adz1q.hospital.management.model.Person;
+import com.adz1q.hospital.management.model.Nurse;
 
 import java.nio.file.Path;
 import java.util.UUID;
 
-public class PersonRepository extends FileRepository<UUID, Person> {
-    public PersonRepository(Path filePath) {
+public class NurseRepository extends FileRepository<UUID, Nurse> {
+    public NurseRepository(Path filePath) {
         super(filePath);
         loadFromFile();
     }

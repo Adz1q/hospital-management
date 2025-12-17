@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Surgery extends Treatment {
     private final Doctor doctor;
-    private final LocalDate surgeryDate;
+    private LocalDate surgeryDate;
 
     public Surgery(
             String description,
@@ -39,6 +39,16 @@ public class Surgery extends Treatment {
         if (surgeryDate == null) {
             throw new NullPointerException("Surgery date cannot be null.");
         }
+    }
+
+    public void changeSurgeryDate(LocalDate surgeryDate) {
+        validateSurgeryDate(surgeryDate);
+
+        if (surgeryDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Surgery date cannot be from the past.");
+        }
+
+        this.surgeryDate = surgeryDate;
     }
 
     @Override
