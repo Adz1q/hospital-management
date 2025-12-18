@@ -14,7 +14,8 @@ import java.util.UUID;
 public class DoctorService {
     private final DoctorRepository doctorRepository;
 
-    public DoctorService(DoctorRepository doctorRepository) {
+    public DoctorService(
+            DoctorRepository doctorRepository) {
         this.doctorRepository = doctorRepository;
     }
 

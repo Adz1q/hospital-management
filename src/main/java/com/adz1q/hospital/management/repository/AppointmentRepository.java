@@ -3,6 +3,7 @@ package com.adz1q.hospital.management.repository;
 import com.adz1q.hospital.management.model.Appointment;
 
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class AppointmentRepository extends FileRepository<UUID, Appointment> {
@@ -16,4 +17,12 @@ public class AppointmentRepository extends FileRepository<UUID, Appointment> {
 
     @Override
     protected void saveToFile() {}
+
+    public boolean existsByDoctorIdAndDate(UUID doctorId, LocalDate date) {
+        return data.values()
+                .stream()
+                .anyMatch(appointment ->
+                        appointment.getDoctor().getId().equals(doctorId)
+                                && appointment.getDate().equals(date));
+    }
 }

@@ -13,7 +13,8 @@ import java.util.UUID;
 public class SurgeryService {
     private final SurgeryRepository surgeryRepository;
 
-    public SurgeryService(SurgeryRepository surgeryRepository) {
+    public SurgeryService(
+            SurgeryRepository surgeryRepository) {
         this.surgeryRepository = surgeryRepository;
     }
 
@@ -22,6 +23,12 @@ public class SurgeryService {
             LocalDate prescriptionDate,
             Doctor doctor,
             LocalDate surgeryDate) {
+        if (existsAnySurgeryByDoctorIdAndDate(
+                doctor.getId(),
+                surgeryDate)) {
+            throw new IllegalArgumentException("Doctor already has a surgery scheduled on this date.");
+        }
+
         Surgery newSurgery = new Surgery(
                 description,
                 prescriptionDate,
@@ -40,10 +47,27 @@ public class SurgeryService {
         return surgeryRepository.findAll();
     }
 
-    public void cancelSurgery(UUID id) throws SurgeryNotFoundException {
-        getSurgery(id);
-        surgeryRepository.deleteById(id);
+    public void cancelSurgery(UUID id)
+            throws SurgeryNotFoundException {
+        Surgery surgery = getSurgery(id);
+        surgery.cancelSurgery();
         Logger.info("Cancelled surgery with ID: " + id);
+    }
+
+    public void changeSurgeryDoctor(
+            UUID surgeryId,
+            Doctor newDoctor)
+            throws SurgeryNotFoundException {
+        Surgery surgery = getSurgery(surgeryId);
+
+        if (existsAnySurgeryByDoctorIdAndDate(
+                newDoctor.getId(),
+                surgery.getSurgeryDate())) {
+            throw new IllegalArgumentException("Doctor already has a surgery scheduled on this date.");
+        }
+
+        surgery.changeDoctor(newDoctor);
+        Logger.info("Changed doctor for surgery with ID: " + surgeryId);
     }
 
     public void rescheduleSurgery(
@@ -51,8 +75,28 @@ public class SurgeryService {
             LocalDate newSurgeryDate)
             throws SurgeryNotFoundException {
         Surgery surgery = getSurgery(id);
+
+        if (existsAnySurgeryByDoctorIdAndDate(
+                surgery.getDoctor().getId(),
+                newSurgeryDate)) {
+            throw new IllegalArgumentException("Doctor already has a surgery scheduled on this date.");
+        }
+
         surgery.changeSurgeryDate(newSurgeryDate);
         surgeryRepository.save(surgery);
         Logger.info("Rescheduled surgery with ID: " + id);
+    }
+
+    public void completeSurgery(UUID id)
+            throws SurgeryNotFoundException {
+        Surgery surgery = getSurgery(id);
+        surgery.completeSurgery();
+        Logger.info("Completed surgery with ID: " + id);
+    }
+
+    public boolean existsAnySurgeryByDoctorIdAndDate(
+            UUID doctorId,
+            LocalDate date) {
+        return surgeryRepository.existsByDoctorIdAndSurgeryDate(doctorId, date);
     }
 }

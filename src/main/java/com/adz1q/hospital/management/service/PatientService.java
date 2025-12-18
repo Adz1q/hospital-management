@@ -13,7 +13,8 @@ import java.util.UUID;
 public class PatientService {
     private final PatientRepository patientRepository;
 
-    public PatientService(PatientRepository patientRepository) {
+    public PatientService(
+            PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
 

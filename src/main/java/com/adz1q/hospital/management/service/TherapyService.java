@@ -12,7 +12,8 @@ import java.util.UUID;
 public class TherapyService {
     private final TherapyRepository therapyRepository;
 
-    public TherapyService(TherapyRepository therapyRepository) {
+    public TherapyService(
+            TherapyRepository therapyRepository) {
         this.therapyRepository = therapyRepository;
     }
 

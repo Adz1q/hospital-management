@@ -3,9 +3,10 @@ scheduleAppointment()
 getAppointment()
 getAllAppointments()
 cancelAppointment()
-changeDoctor()
+changeAppointmentDoctor()
 rescheduleAppointment()
 completeAppointment()
+existsAnyAppointmentForDoctorIdAndDate()
 
 
 Department:
@@ -20,7 +21,6 @@ Diagnosis:
 diagnosePatient()
 getDiagnosis()
 getAllDiagnoses()
-deleteDiagnosis() - probably need to delete this | OK
 
 
 Room:
@@ -32,6 +32,7 @@ renameRoom()
 changeRoomDepartment()
 assignPatientToRoom()
 removePatientFromRoom()
+existsAnyRoomInDepartment()
 
 
 Doctor:
@@ -39,14 +40,15 @@ hireDoctor()
 getDoctor()
 getAllDoctors()
 dismissDoctor()
+rehireDoctor()
 updateSpecializations() - for a single specialization / invoked in Application
 updateSpecializations() - for set of specialization
+
 
 Patient:
 registerPatient()
 getPatient()
 getAllPatients()
-deletePatient() - probably need to delete this | OK
 updateDocumentation() - invoked in AppointmentService.completeAppointment(), so it has access to the Patient filed
 
 
@@ -56,20 +58,19 @@ getNurse()
 getAllNurses()
 dismissNurse()
 changeNurseDepartment()
+existsAnyNurseInDepartment()
 
 
 Medication:
 prescribeMedication()
 getMedication()
 getAllMedications()
-deleteMedication() - probably need to delete this | OK
 
 
 Rehabilitation:
 prescribeRehabilitation()
 getRehabilitation()
 getAllRehabilitations()
-deleteRehabilitation() - probably need to delete this | OK
 
 
 Therapy:
@@ -84,7 +85,7 @@ scheduleSurgery()
 getSurgery()
 getAllSurgeries()
 cancelSurgery()
+changeSurgeryDoctor()
 rescheduleSurgery()
-
-
-
+completeSurgery()
+existsByDoctorIdAndSurgeryDate()

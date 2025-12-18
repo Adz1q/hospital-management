@@ -3,8 +3,9 @@ package com.adz1q.hospital.management.model;
 import java.time.LocalDate;
 
 public class Surgery extends Treatment {
-    private final Doctor doctor;
+    private Doctor doctor;
     private LocalDate surgeryDate;
+    private SurgeryStatus status;
 
     public Surgery(
             String description,
@@ -16,6 +17,7 @@ public class Surgery extends Treatment {
         validateSurgeryDate(surgeryDate);
         this.doctor = doctor;
         this.surgeryDate = surgeryDate;
+        this.status = SurgeryStatus.SCHEDULED;
     }
 
     @Override
@@ -26,6 +28,7 @@ public class Surgery extends Treatment {
         System.out.println("Prescription Date: " + super.getPrescriptionDate());
         System.out.println("Doctor: " + doctor.getFullName());
         System.out.println("Surgery Date: " + surgeryDate);
+        System.out.println("Status: " + status.getStatus());
         System.out.println("-----------------------------------------------------------");
     }
 
@@ -41,14 +44,47 @@ public class Surgery extends Treatment {
         }
     }
 
+    public void changeDoctor(Doctor doctor) {
+        if (status == SurgeryStatus.COMPLETED
+                || status == SurgeryStatus.CANCELLED) {
+            throw new IllegalStateException("Cannot change doctor for a completed or cancelled surgery.");
+        }
+
+        validateDoctor(doctor);
+        this.doctor = doctor;
+    }
+
     public void changeSurgeryDate(LocalDate surgeryDate) {
+        if (status == SurgeryStatus.COMPLETED
+                || status == SurgeryStatus.CANCELLED) {
+            throw new IllegalStateException("Cannot change doctor for a completed or cancelled surgery.");
+        }
+
         validateSurgeryDate(surgeryDate);
 
         if (surgeryDate.isBefore(LocalDate.now())) {
-            throw new IllegalArgumentException("Surgery date cannot be from the past.");
+            throw new IllegalArgumentException("Invalid surgery date.");
         }
 
         this.surgeryDate = surgeryDate;
+    }
+
+    public void completeSurgery() {
+        if (status == SurgeryStatus.CANCELLED
+                || status == SurgeryStatus.COMPLETED) {
+            throw new IllegalStateException("Cannot complete a cancelled or already completed surgery.");
+        }
+
+        this.status = SurgeryStatus.COMPLETED;
+    }
+
+    public void cancelSurgery() {
+        if (status == SurgeryStatus.CANCELLED
+                || status == SurgeryStatus.COMPLETED) {
+            throw new IllegalStateException("Cannot cancel a cancelled or already completed surgery.");
+        }
+
+        this.status = SurgeryStatus.CANCELLED;
     }
 
     @Override
@@ -56,6 +92,7 @@ public class Surgery extends Treatment {
         return "Surgery{" +
                 "doctor=" + doctor +
                 ", surgeryDate=" + surgeryDate +
+                ", status=" + status +
                 '}';
     }
 
@@ -65,5 +102,9 @@ public class Surgery extends Treatment {
 
     public LocalDate getSurgeryDate() {
         return surgeryDate;
+    }
+
+    public SurgeryStatus getStatus() {
+        return status;
     }
 }

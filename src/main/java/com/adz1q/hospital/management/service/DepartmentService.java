@@ -2,7 +2,6 @@ package com.adz1q.hospital.management.service;
 
 import com.adz1q.hospital.management.exception.DepartmentNotFoundException;
 import com.adz1q.hospital.management.model.Department;
-import com.adz1q.hospital.management.model.Patient;
 import com.adz1q.hospital.management.repository.DepartmentRepository;
 import com.adz1q.hospital.management.util.Logger;
 
@@ -41,7 +40,7 @@ public class DepartmentService {
 
     public void closeDepartment(UUID id)
             throws DepartmentNotFoundException {
-        getDepartment(id);
+        Department department = getDepartment(id);
 
         if (roomService.existsAnyRoomInDepartment(id)) {
             throw new IllegalArgumentException("Cannot close department with assigned rooms.");
@@ -51,8 +50,8 @@ public class DepartmentService {
             throw new IllegalArgumentException("Cannot close department with assigned nurses.");
         }
 
-        departmentRepository.deleteById(id);
-        Logger.info("Deleted department with ID: " + id);
+        department.close();
+        Logger.info("Closed department with ID: " + id);
     }
 
     public void renameDepartment(

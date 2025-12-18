@@ -1,6 +1,9 @@
 package com.adz1q.hospital.management.model;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
 
 public class Diagnosis implements Identifiable<UUID> {
     private final UUID id;

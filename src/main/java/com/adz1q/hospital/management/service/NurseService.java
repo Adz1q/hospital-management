@@ -1,10 +1,8 @@
 package com.adz1q.hospital.management.service;
 
 import com.adz1q.hospital.management.exception.DepartmentNotFoundException;
-import com.adz1q.hospital.management.exception.DoctorNotFoundException;
 import com.adz1q.hospital.management.exception.NurseNotFoundException;
 import com.adz1q.hospital.management.model.Department;
-import com.adz1q.hospital.management.model.Doctor;
 import com.adz1q.hospital.management.model.Nurse;
 import com.adz1q.hospital.management.repository.NurseRepository;
 import com.adz1q.hospital.management.util.Logger;

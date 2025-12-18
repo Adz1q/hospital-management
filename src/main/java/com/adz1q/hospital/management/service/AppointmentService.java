@@ -24,6 +24,10 @@ public class AppointmentService {
             Doctor doctor,
             Patient patient,
             LocalDate date) {
+        if (existsAnyAppointmentForDoctorIdAndDate(doctor.getId(), date)) {
+            throw new IllegalArgumentException("Doctor already has an appointment on this date.");
+        }
+
         Appointment newAppointment = new Appointment(
                 patient,
                 doctor,
@@ -43,16 +47,23 @@ public class AppointmentService {
 
     public void cancelAppointment(UUID id)
             throws AppointmentNotFoundException {
-        getAppointment(id);
-        appointmentRepository.deleteById(id);
+        Appointment appointment = getAppointment(id);
+        appointment.cancelAppointment();
         Logger.info("Cancelled appointment with ID: " + id);
     }
 
-    public void changeDoctor(
+    public void changeAppointmentDoctor(
             UUID appointmentId,
             Doctor newDoctor)
             throws AppointmentNotFoundException {
         Appointment appointment = getAppointment(appointmentId);
+
+        if (existsAnyAppointmentForDoctorIdAndDate(
+                newDoctor.getId(),
+                appointment.getDate())) {
+            throw new IllegalArgumentException("New doctor already has an appointment on this date.");
+        }
+
         appointment.changeDoctor(newDoctor);
         Logger.info("Changed doctor for appointment with ID: " + appointmentId);
     }
@@ -62,6 +73,13 @@ public class AppointmentService {
             LocalDate newDate)
             throws AppointmentNotFoundException {
         Appointment appointment = getAppointment(appointmentId);
+
+        if (existsAnyAppointmentForDoctorIdAndDate(
+                appointment.getDoctor().getId(),
+                appointment.getDate())) {
+            throw new IllegalArgumentException("New doctor already has an appointment on this date.");
+        }
+
         appointment.changeDate(newDate);
         Logger.info("Rescheduled appointment with ID: " + appointmentId);
     }
@@ -74,5 +92,11 @@ public class AppointmentService {
         appointment.completeAppointment(diagnosis);
         appointment.getPatient().addDiagnosis(diagnosis);
         Logger.info("Completed appointment with ID: " + id);
+    }
+
+    public boolean existsAnyAppointmentForDoctorIdAndDate(
+            UUID doctorId,
+            LocalDate date) {
+        return appointmentRepository.existsByDoctorIdAndDate(doctorId, date);
     }
 }

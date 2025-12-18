@@ -10,7 +10,7 @@ public class Appointment implements Identifiable<UUID> {
     private Doctor doctor;
     private LocalDate date;
     private Diagnosis diagnosis;
-    private boolean completed;
+    private AppointmentStatus status;
 
     public Appointment(
             Patient patient,
@@ -23,7 +23,7 @@ public class Appointment implements Identifiable<UUID> {
         this.patient = patient;
         this.doctor = doctor;
         this.diagnosis = null;
-        this.completed = false;
+        this.status = AppointmentStatus.SCHEDULED;
     }
 
     public void showAppointmentDetails() {
@@ -33,7 +33,7 @@ public class Appointment implements Identifiable<UUID> {
         System.out.println("Doctor's name: " + doctor.getFullName());
         System.out.println("Date: " + date);
         if (diagnosis != null) System.out.println("Diagnosis: " + diagnosis);
-        System.out.println("Completed: " + completed);
+        System.out.println("Status: " + status.getStatus());
         System.out.println("---------------------------------------------------------------");
     }
 
@@ -62,7 +62,7 @@ public class Appointment implements Identifiable<UUID> {
     }
 
     public void changeDoctor(Doctor doctor) {
-        if (completed) {
+        if (status == AppointmentStatus.COMPLETED) {
             throw new IllegalStateException("Cannot change the doctor after the appointment is completed.");
         }
 
@@ -74,7 +74,7 @@ public class Appointment implements Identifiable<UUID> {
     }
 
     public void changeDate(LocalDate date) {
-        if (completed) {
+        if (status == AppointmentStatus.COMPLETED) {
             throw new IllegalStateException("Cannot reschedule a completed appointment.");
         }
 
@@ -88,16 +88,26 @@ public class Appointment implements Identifiable<UUID> {
     }
 
     public void completeAppointment(Diagnosis diagnosis) {
-        if (completed) {
+        if (status == AppointmentStatus.COMPLETED
+                || status == AppointmentStatus.CANCELLED) {
             throw new IllegalStateException("This appointment is already completed.");
         }
 
         validateDiagnosis(diagnosis);
 
         this.diagnosis = diagnosis;
-        this.completed = true;
+        this.status = AppointmentStatus.COMPLETED;
 
         patient.addDiagnosis(diagnosis);
+    }
+
+    public void cancelAppointment() {
+        if (status == AppointmentStatus.COMPLETED
+                || status == AppointmentStatus.CANCELLED) {
+            throw new IllegalStateException("This appointment is already completed or cancelled.");
+        }
+
+        this.status = AppointmentStatus.CANCELLED;
     }
 
     @Override
@@ -120,7 +130,7 @@ public class Appointment implements Identifiable<UUID> {
                 ", doctor=" + doctor +
                 ", date=" + date +
                 ", diagnosis=" + diagnosis +
-                ", completed=" + completed +
+                ", status=" + status +
                 '}';
     }
 
@@ -145,7 +155,7 @@ public class Appointment implements Identifiable<UUID> {
         return diagnosis;
     }
 
-    public boolean isCompleted() {
-        return completed;
+    public AppointmentStatus getStatus() {
+        return status;
     }
 }
