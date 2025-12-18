@@ -6,6 +6,7 @@ import java.util.UUID;
 public class Department implements Identifiable<UUID> {
     private final UUID id;
     private String name;
+    private boolean active;
 
     public Department(String name) {
         validateName(name);
@@ -17,6 +18,7 @@ public class Department implements Identifiable<UUID> {
         System.out.println("------------------------- DEPARTMENT -------------------------");
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
+        System.out.println("Active: " + active);
         System.out.println("--------------------------------------------------------------");
     }
 
@@ -33,6 +35,22 @@ public class Department implements Identifiable<UUID> {
     public void rename(String name) {
         validateName(name);
         this.name = name;
+    }
+
+    public void close() {
+        if (!active) {
+            throw new IllegalStateException("Department is already closed.");
+        }
+
+        this.active = false;
+    }
+
+    public void reopen() {
+        if (active) {
+            throw new IllegalStateException("Department is already active.");
+        }
+
+        this.active = true;
     }
 
     @Override
@@ -52,6 +70,7 @@ public class Department implements Identifiable<UUID> {
         return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", active=" + active +
                 '}';
     }
 
@@ -62,5 +81,9 @@ public class Department implements Identifiable<UUID> {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 }

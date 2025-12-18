@@ -61,10 +61,18 @@ public class DoctorService {
         return doctorRepository.findAll();
     }
 
-    public void dismissDoctor(UUID id) throws DoctorNotFoundException {
-        getDoctor(id);
-        doctorRepository.deleteById(id);
+    public void dismissDoctor(UUID id)
+            throws DoctorNotFoundException {
+        Doctor doctor = getDoctor(id);
+        doctor.dismiss();
         Logger.info("Dismissed doctor with ID: " + id);
+    }
+
+    public void rehireDoctor(UUID id)
+            throws DoctorNotFoundException {
+        Doctor doctor = getDoctor(id);
+        doctor.rehire();
+        Logger.info("Rehired doctor with ID: " + id);
     }
 
     public void updateSpecializations(

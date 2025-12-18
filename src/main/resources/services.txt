@@ -12,7 +12,7 @@ Department:
 createDepartment()
 getDepartment()
 getAllDepartments()
-deleteDepartment()
+closeDepartment()
 renameDepartment()
 
 
@@ -20,7 +20,7 @@ Diagnosis:
 diagnosePatient()
 getDiagnosis()
 getAllDiagnoses()
-deleteDiagnosis() - probably need to delete this
+deleteDiagnosis() - probably need to delete this | OK
 
 
 Room:
@@ -46,7 +46,7 @@ Patient:
 registerPatient()
 getPatient()
 getAllPatients()
-deletePatient() - probably need to delete this
+deletePatient() - probably need to delete this | OK
 updateDocumentation() - invoked in AppointmentService.completeAppointment(), so it has access to the Patient filed
 
 
@@ -62,21 +62,21 @@ Medication:
 prescribeMedication()
 getMedication()
 getAllMedications()
-deleteMedication() - probably need to delete this
+deleteMedication() - probably need to delete this | OK
 
 
 Rehabilitation:
 prescribeRehabilitation()
 getRehabilitation()
 getAllRehabilitations()
-deleteRehabilitation() - probably need to delete this
+deleteRehabilitation() - probably need to delete this | OK
 
 
 Therapy:
 prescribeTherapy()
 getTherapy()
 getAllTherapies()
-deleteTherapy() - probably need to delete this
+deleteTherapy() - probably need to delete this | OK
 
 
 Surgery:

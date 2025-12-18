@@ -38,10 +38,4 @@ public class MedicationService {
     public List<Medication> getAllMedications() {
         return medicationRepository.findAll();
     }
-
-    public void deleteMedication(UUID id) throws MedicationNotFoundException {
-        getMedication(id);
-        medicationRepository.deleteById(id);
-        Logger.info("Deleted medication with ID: " + id);
-    }
 }

@@ -35,11 +35,4 @@ public class DiagnosisService {
     public List<Diagnosis> getAllDiagnoses() {
         return diagnosisRepository.findAll();
     }
-
-    public void removeDiagnosis(UUID id)
-            throws DiagnosisNotFoundException {
-        getDiagnosis(id);
-        diagnosisRepository.deleteById(id);
-        Logger.info("Removed diagnosis with ID: " + id);
-    }
 }

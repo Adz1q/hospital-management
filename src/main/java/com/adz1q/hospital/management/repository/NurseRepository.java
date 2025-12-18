@@ -3,6 +3,7 @@ package com.adz1q.hospital.management.repository;
 import com.adz1q.hospital.management.model.Nurse;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -24,5 +25,13 @@ public class NurseRepository extends FileRepository<UUID, Nurse> {
                 .filter(nurse -> nurse.getPesel() != null)
                 .filter(nurse -> nurse.getPesel().equals(pesel))
                 .findFirst();
+    }
+
+    public List<Nurse> findByDepartmentId(UUID departmentId) {
+        return data.values()
+                .stream()
+                .filter(nurse -> nurse.getDepartment() != null)
+                .filter(nurse -> nurse.getDepartment().getId().equals(departmentId))
+                .toList();
     }
 }

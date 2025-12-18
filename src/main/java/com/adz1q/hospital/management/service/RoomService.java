@@ -52,7 +52,12 @@ public class RoomService {
 
     public void deleteRoom(UUID roomId)
             throws RoomNotFoundException {
-        getRoom(roomId);
+        Room room = getRoom(roomId);
+
+        if (!room.getPatients().isEmpty()) {
+            throw new IllegalStateException("Cannot delete room with assigned patients.");
+        }
+
         roomRepository.deleteById(roomId);
         Logger.info("Deleted room with ID: " + roomId);
     }
@@ -96,5 +101,9 @@ public class RoomService {
         Patient patient = patientService.getPatient(patientId);
         room.removePatient(patient);
         Logger.info("Removed patient from room with ID: " + roomId);
+    }
+
+    public boolean existsAnyRoomInDepartment(UUID departmentId) {
+        return !roomRepository.findByDepartmentId(departmentId).isEmpty();
     }
 }

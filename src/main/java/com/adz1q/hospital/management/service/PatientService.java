@@ -57,12 +57,6 @@ public class PatientService {
         return patientRepository.findAll();
     }
 
-    public void deletePatient(UUID id) throws PatientNotFoundException {
-        getPatient(id);
-        patientRepository.deleteById(id);
-        Logger.info("Deleted patient with ID: " + id);
-    }
-
     public void updateDocumentation(
             Patient patient,
             Diagnosis diagnosis) {

@@ -37,11 +37,4 @@ public class TherapyService {
     public List<Therapy> getAllTherapies() {
         return therapyRepository.findAll();
     }
-
-    public void deleteTherapy(UUID id)
-            throws TherapyNotFoundException {
-        getTherapy(id);
-        therapyRepository.deleteById(id);
-        Logger.info("Deleted therapy with ID: " + id);
-    }
 }

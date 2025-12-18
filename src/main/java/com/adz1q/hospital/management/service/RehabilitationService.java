@@ -38,11 +38,4 @@ public class RehabilitationService {
     public List<Rehabilitation> getAllRehabilitations() {
         return rehabilitationRepository.findAll();
     }
-
-    public void deleteRehabilitation(UUID id)
-            throws RehabilitationNotFoundException {
-        getRehabilitation(id);
-        rehabilitationRepository.deleteById(id);
-        Logger.info("Deleted rehabilitation with ID: " + id);
-    }
 }

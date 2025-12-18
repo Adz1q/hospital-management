@@ -6,6 +6,7 @@ import java.util.Set;
 
 public class Doctor extends Person {
     private final Set<Specialization> specializations;
+    private boolean active;
 
     public Doctor(
             String firstName,
@@ -14,6 +15,7 @@ public class Doctor extends Person {
             Set<Specialization> specializations) {
         super(firstName, lastName, birthDate);
         this.specializations = specializations;
+        this.active = true;
     }
 
     public Doctor(
@@ -36,6 +38,7 @@ public class Doctor extends Person {
         System.out.println("Birth Date: " + super.getBirthDate());
         if (super.getPesel() != null) System.out.println("PESEL: " + super.getPesel());
         System.out.println("Specializations: " + specializations);
+        System.out.println("Active: " + active);
         System.out.println("-----------------------------------------------------------");
     }
 
@@ -60,15 +63,40 @@ public class Doctor extends Person {
         specializations.add(specialization);
     }
 
+    public void removeSpecialization(Specialization specialization) {
+        validateSpecialization(specialization);
+        specializations.remove(specialization);
+    }
+
+    public void rehire() {
+        if (active) {
+            throw new IllegalStateException("Doctor is already hired.");
+        }
+
+        this.active = true;
+    }
+
+    public void dismiss() {
+        if (!active) {
+            throw new IllegalStateException("Doctor is already dismissed.");
+        }
+
+        this.active = false;
+    }
+
     @Override
     public String toString() {
         return "Doctor{" +
-                "person=" + super.toString() +
-                ", specializations=" + specializations +
+                "specializations=" + specializations +
+                ", active=" + active +
                 '}';
     }
 
     public Set<Specialization> getSpecializations() {
         return Collections.unmodifiableSet(specializations);
+    }
+
+    public boolean isActive() {
+        return active;
     }
 }

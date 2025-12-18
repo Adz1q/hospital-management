@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Nurse extends Person {
     private Department department;
+    private boolean active;
 
     public Nurse(
             String firstName,
@@ -13,6 +14,7 @@ public class Nurse extends Person {
         super(firstName, lastName, birthDate);
         validateDepartment(department);
         this.department = department;
+        this.active = true;
     }
 
     public Nurse(
@@ -35,12 +37,17 @@ public class Nurse extends Person {
         System.out.println("Birth Date: " + super.getBirthDate());
         if (super.getPesel() != null) System.out.println("PESEL: " + super.getPesel());
         System.out.println("Department: " + department.getName());
+        System.out.println("Active: " + active);
         System.out.println("-----------------------------------------------------------");
     }
 
     private void validateDepartment(Department department) {
         if (department == null) {
             throw new NullPointerException("Department cannot be null.");
+        }
+
+        if (!department.isActive()) {
+            throw new IllegalArgumentException("Assigned department must be active.");
         }
     }
 
@@ -52,15 +59,35 @@ public class Nurse extends Person {
         }
     }
 
+    public void rehire() {
+        if (active) {
+            throw new IllegalStateException("Nurse is already hired.");
+        }
+
+        this.active = true;
+    }
+
+    public void dismiss() {
+        if (!active) {
+            throw new IllegalStateException("Nurse is already dismissed.");
+        }
+
+        this.active = false;
+    }
+
     @Override
     public String toString() {
-        return "Patient{" +
-                "person=" + super.toString() +
-                ", department=" + department +
+        return "Nurse{" +
+                "department=" + department +
+                ", active=" + active +
                 '}';
     }
 
     public Department getDepartment() {
         return department;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 }

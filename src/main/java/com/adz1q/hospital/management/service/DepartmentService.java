@@ -2,6 +2,7 @@ package com.adz1q.hospital.management.service;
 
 import com.adz1q.hospital.management.exception.DepartmentNotFoundException;
 import com.adz1q.hospital.management.model.Department;
+import com.adz1q.hospital.management.model.Patient;
 import com.adz1q.hospital.management.repository.DepartmentRepository;
 import com.adz1q.hospital.management.util.Logger;
 
@@ -10,9 +11,16 @@ import java.util.UUID;
 
 public class DepartmentService {
     private final DepartmentRepository departmentRepository;
+    private final RoomService roomService;
+    private final NurseService nurseService;
 
-    public DepartmentService(DepartmentRepository departmentRepository) {
+    public DepartmentService(
+            DepartmentRepository departmentRepository,
+            RoomService roomService,
+            NurseService nurseService) {
         this.departmentRepository = departmentRepository;
+        this.roomService = roomService;
+        this.nurseService = nurseService;
     }
 
     public Department createDepartment(String name) {
@@ -31,9 +39,18 @@ public class DepartmentService {
         return departmentRepository.findAll();
     }
 
-    public void deleteDepartment(UUID id)
+    public void closeDepartment(UUID id)
             throws DepartmentNotFoundException {
         getDepartment(id);
+
+        if (roomService.existsAnyRoomInDepartment(id)) {
+            throw new IllegalArgumentException("Cannot close department with assigned rooms.");
+        }
+
+        if (nurseService.existsAnyNurseInDepartment(id)) {
+            throw new IllegalArgumentException("Cannot close department with assigned nurses.");
+        }
+
         departmentRepository.deleteById(id);
         Logger.info("Deleted department with ID: " + id);
     }

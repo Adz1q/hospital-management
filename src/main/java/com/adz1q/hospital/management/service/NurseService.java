@@ -1,7 +1,10 @@
 package com.adz1q.hospital.management.service;
 
+import com.adz1q.hospital.management.exception.DepartmentNotFoundException;
+import com.adz1q.hospital.management.exception.DoctorNotFoundException;
 import com.adz1q.hospital.management.exception.NurseNotFoundException;
 import com.adz1q.hospital.management.model.Department;
+import com.adz1q.hospital.management.model.Doctor;
 import com.adz1q.hospital.management.model.Nurse;
 import com.adz1q.hospital.management.repository.NurseRepository;
 import com.adz1q.hospital.management.util.Logger;
@@ -25,7 +28,8 @@ public class NurseService {
             String firstName,
             String lastName,
             LocalDate birthDate,
-            Department department) {
+            Department department)
+            throws DepartmentNotFoundException {
         if (department == null) {
             throw new NullPointerException("Department cannot be null.");
         }
@@ -41,7 +45,8 @@ public class NurseService {
             String lastName,
             LocalDate birthDate,
             String pesel,
-            Department department) {
+            Department department)
+            throws DepartmentNotFoundException {
         if (nurseRepository.findByPesel(pesel).isPresent()) {
             throw new IllegalArgumentException("Nurse with this PESEL already exists.");
         }
@@ -70,10 +75,18 @@ public class NurseService {
         return nurseRepository.findAll();
     }
 
-    public void dismissNurse(UUID id) throws NurseNotFoundException {
-        getNurse(id);
-        nurseRepository.deleteById(id);
+    public void dismissNurse(UUID id)
+            throws NurseNotFoundException {
+        Nurse nurse = getNurse(id);
+        nurse.dismiss();
         Logger.info("Dismissed nurse with ID: " + id);
+    }
+
+    public void rehireNurse(UUID id)
+            throws NurseNotFoundException {
+        Nurse nurse = getNurse(id);
+        nurse.rehire();
+        Logger.info("Rehired nurse with ID: " + id);
     }
 
     public void changeNurseDepartment(
@@ -83,5 +96,9 @@ public class NurseService {
         Nurse nurse = getNurse(id);
         nurse.changeDepartment(department);
         Logger.info("Changed department for nurse with ID: " + id);
+    }
+
+    public boolean existsAnyNurseInDepartment(UUID departmentId) {
+        return !nurseRepository.findByDepartmentId(departmentId).isEmpty();
     }
 }
