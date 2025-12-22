@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Logger {
-    private static final String PATH = "src/main/resources/logs.txt";
+    private static final String PATH = "src/main/resources/logs/logs.txt";
     private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     private static void log(String level, String message) {

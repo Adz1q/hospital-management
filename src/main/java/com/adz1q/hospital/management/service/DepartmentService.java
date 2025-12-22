@@ -3,6 +3,8 @@ package com.adz1q.hospital.management.service;
 import com.adz1q.hospital.management.exception.DepartmentNotFoundException;
 import com.adz1q.hospital.management.model.Department;
 import com.adz1q.hospital.management.repository.DepartmentRepository;
+import com.adz1q.hospital.management.repository.NurseRepository;
+import com.adz1q.hospital.management.repository.RoomRepository;
 import com.adz1q.hospital.management.util.Logger;
 
 import java.util.List;
@@ -10,16 +12,16 @@ import java.util.UUID;
 
 public class DepartmentService {
     private final DepartmentRepository departmentRepository;
-    private final RoomService roomService;
-    private final NurseService nurseService;
+    private final RoomRepository roomRepository;
+    private final NurseRepository nurseRepository;
 
     public DepartmentService(
             DepartmentRepository departmentRepository,
-            RoomService roomService,
-            NurseService nurseService) {
+            RoomRepository roomRepository,
+            NurseRepository nurseRepository) {
         this.departmentRepository = departmentRepository;
-        this.roomService = roomService;
-        this.nurseService = nurseService;
+        this.roomRepository = roomRepository;
+        this.nurseRepository = nurseRepository;
     }
 
     public Department createDepartment(String name) {
@@ -42,11 +44,11 @@ public class DepartmentService {
             throws DepartmentNotFoundException {
         Department department = getDepartment(id);
 
-        if (roomService.existsAnyRoomInDepartment(id)) {
+        if (existsAnyRoomInDepartment(id)) {
             throw new IllegalArgumentException("Cannot close department with assigned rooms.");
         }
 
-        if (nurseService.existsAnyNurseInDepartment(id)) {
+        if (existsAnyNurseInDepartment(id)) {
             throw new IllegalArgumentException("Cannot close department with assigned nurses.");
         }
 
@@ -61,5 +63,13 @@ public class DepartmentService {
         Department department = getDepartment(id);
         department.rename(newName);
         Logger.info("Renamed department with ID: " + id);
+    }
+
+    public boolean existsAnyRoomInDepartment(UUID departmentId) {
+        return !roomRepository.findByDepartmentId(departmentId).isEmpty();
+    }
+
+    public boolean existsAnyNurseInDepartment(UUID departmentId) {
+        return !nurseRepository.findByDepartmentId(departmentId).isEmpty();
     }
 }

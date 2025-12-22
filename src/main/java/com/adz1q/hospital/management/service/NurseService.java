@@ -4,6 +4,7 @@ import com.adz1q.hospital.management.exception.DepartmentNotFoundException;
 import com.adz1q.hospital.management.exception.NurseNotFoundException;
 import com.adz1q.hospital.management.model.Department;
 import com.adz1q.hospital.management.model.Nurse;
+import com.adz1q.hospital.management.repository.DepartmentRepository;
 import com.adz1q.hospital.management.repository.NurseRepository;
 import com.adz1q.hospital.management.util.Logger;
 
@@ -13,13 +14,13 @@ import java.util.UUID;
 
 public class NurseService {
     private final NurseRepository nurseRepository;
-    private final DepartmentService departmentService;
+    private final DepartmentRepository departmentRepository;
 
     public NurseService(
             NurseRepository nurseRepository,
-            DepartmentService departmentService) {
+            DepartmentRepository departmentRepository) {
         this.nurseRepository = nurseRepository;
-        this.departmentService = departmentService;
+        this.departmentRepository = departmentRepository;
     }
 
     public Nurse hireNurse(
@@ -32,7 +33,7 @@ public class NurseService {
             throw new NullPointerException("Department cannot be null.");
         }
 
-        departmentService.getDepartment(department.getId());
+        getDepartment(department.getId());
         Nurse newNurse = new Nurse(firstName, lastName, birthDate, department);
         Logger.info("Hired nurse with ID: " + newNurse.getId());
         return nurseRepository.save(newNurse);
@@ -53,7 +54,7 @@ public class NurseService {
             throw new NullPointerException("Department cannot be null.");
         }
 
-        departmentService.getDepartment(department.getId());
+        getDepartment(department.getId());
         Nurse newNurse = new Nurse(
                 firstName,
                 lastName,
@@ -98,5 +99,11 @@ public class NurseService {
 
     public boolean existsAnyNurseInDepartment(UUID departmentId) {
         return !nurseRepository.findByDepartmentId(departmentId).isEmpty();
+    }
+
+    public Department getDepartment(UUID id)
+            throws DepartmentNotFoundException {
+        return departmentRepository.findById(id)
+                .orElseThrow(() -> new DepartmentNotFoundException("Department with this ID does not exist."));
     }
 }

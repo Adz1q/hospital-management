@@ -6,6 +6,8 @@ import com.adz1q.hospital.management.exception.RoomNotFoundException;
 import com.adz1q.hospital.management.model.Department;
 import com.adz1q.hospital.management.model.Patient;
 import com.adz1q.hospital.management.model.Room;
+import com.adz1q.hospital.management.repository.DepartmentRepository;
+import com.adz1q.hospital.management.repository.PatientRepository;
 import com.adz1q.hospital.management.repository.RoomRepository;
 import com.adz1q.hospital.management.util.Logger;
 
@@ -14,16 +16,16 @@ import java.util.UUID;
 
 public class RoomService {
     private final RoomRepository roomRepository;
-    private final DepartmentService departmentService;
-    private final PatientService patientService;
+    private final DepartmentRepository departmentRepository;
+    private final PatientRepository patientRepository;
 
     public RoomService(
             RoomRepository roomRepository,
-            DepartmentService departmentService,
-            PatientService patientService) {
+            DepartmentRepository departmentRepository,
+            PatientRepository patientRepository) {
         this.roomRepository = roomRepository;
-        this.departmentService = departmentService;
-        this.patientService = patientService;
+        this.departmentRepository = departmentRepository;
+        this.patientRepository = patientRepository;
     }
 
     public Room createRoom(
@@ -31,7 +33,7 @@ public class RoomService {
             UUID departmentId,
             int availableSlots)
             throws DepartmentNotFoundException {
-        Department department = departmentService.getDepartment(departmentId);
+        Department department = getDepartment(departmentId);
         Room newRoom = new Room(
                 name,
                 department,
@@ -76,7 +78,7 @@ public class RoomService {
             UUID newDepartmentId)
             throws RoomNotFoundException, DepartmentNotFoundException {
         Room room = getRoom(roomId);
-        Department newDepartment = departmentService.getDepartment(newDepartmentId);
+        Department newDepartment = getDepartment(newDepartmentId);
         room.changeDepartment(newDepartment);
         Logger.info("Changed department of room with ID: " + roomId);
     }
@@ -87,7 +89,7 @@ public class RoomService {
             throws RoomNotFoundException,
             PatientNotFoundException {
         Room room = getRoom(roomId);
-        Patient patient = patientService.getPatient(patientId);
+        Patient patient = getPatient(patientId);
         room.addPatient(patient);
         Logger.info("Assigned new patient to room with ID: " + roomId);
     }
@@ -98,12 +100,24 @@ public class RoomService {
             throws RoomNotFoundException,
             PatientNotFoundException {
         Room room = getRoom(roomId);
-        Patient patient = patientService.getPatient(patientId);
+        Patient patient = getPatient(patientId);
         room.removePatient(patient);
         Logger.info("Removed patient from room with ID: " + roomId);
     }
 
     public boolean existsAnyRoomInDepartment(UUID departmentId) {
         return !roomRepository.findByDepartmentId(departmentId).isEmpty();
+    }
+
+    public Department getDepartment(UUID id)
+            throws DepartmentNotFoundException {
+        return departmentRepository.findById(id)
+                .orElseThrow(() -> new DepartmentNotFoundException("Department with this ID does not exist."));
+    }
+
+    public Patient getPatient(UUID id)
+            throws PatientNotFoundException {
+        return patientRepository.findById(id)
+                .orElseThrow(() -> new PatientNotFoundException("Patient with ID: " + id + " does not exist."));
     }
 }

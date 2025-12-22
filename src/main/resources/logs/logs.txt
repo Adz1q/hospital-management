@@ -1,0 +1,33 @@
+[2025-12-13 19:19:32] [WARN] Tried to assign null to the first name of person: 7e72ca26-4d05-49b1-829e-c52b8c263b4c
+[2025-12-20 19:18:57] [INFO] Hospital Management System started
+[2025-12-20 19:23:17] [INFO] Hospital Management System started
+[2025-12-20 19:23:42] [INFO] Hospital Management System started
+[2025-12-20 19:25:18] [INFO] Hospital Management System started
+[2025-12-20 19:31:04] [INFO] Hospital Management System started
+[2025-12-20 19:31:22] [INFO] User selected: Register New Patient
+[2025-12-20 19:31:43] [WARN] User entered invalid date: Text '2000-11-32' could not be parsed: Invalid value for DayOfMonth (valid values 1 - 28/31): 32
+[2025-12-20 19:31:58] [WARN] User entered invalid PESEL: 41414124124124124
+[2025-12-20 19:31:59] [INFO] Registered patient with ID: b73286bc-c4c2-46c4-95f9-ada0a2ed0ebb
+[2025-12-20 19:31:59] [ERROR] Error in Patient Menu: Cannot invoke "com.adz1q.hospital.management.model.Patient.getId()" because "patient" is null
+[2025-12-20 19:32:16] [INFO] User selected: Register New Patient
+[2025-12-20 19:32:23] [WARN] User entered invalid date: Text '2000-22-11' could not be parsed: Invalid value for MonthOfYear (valid values 1 - 12): 22
+[2025-12-20 19:32:36] [INFO] Registered patient with ID: 5b5e1c95-ee98-4251-badb-577f97e522ca
+[2025-12-20 19:32:36] [ERROR] Error in Patient Menu: Cannot invoke "com.adz1q.hospital.management.model.Patient.getId()" because "patient" is null
+[2025-12-20 19:32:49] [INFO] User returned to main menu from Patient Menu
+[2025-12-20 19:32:56] [INFO] User selected: Patient Status Report
+[2025-12-20 19:33:08] [WARN] User entered invalid UUID: Invalid UUID string: 2
+[2025-12-20 19:33:12] [WARN] User entered invalid UUID: Invalid UUID string: 3
+[2025-12-20 19:33:18] [WARN] User entered invalid UUID: Invalid UUID string: 6
+[2025-12-20 19:33:20] [WARN] User entered invalid UUID: Invalid UUID string: 6
+[2025-12-20 19:33:22] [WARN] User entered invalid UUID: Invalid UUID string: 6
+[2025-12-20 19:33:23] [WARN] User entered invalid UUID: Invalid UUID string: 6
+[2025-12-20 19:33:30] [WARN] User entered invalid UUID: Invalid UUID string: 6
+[2025-12-20 19:33:31] [WARN] User entered invalid UUID: Invalid UUID string: 6
+[2025-12-20 19:33:31] [WARN] User entered invalid UUID: Invalid UUID string: 6
+[2025-12-20 19:33:31] [WARN] User entered invalid UUID: Invalid UUID string: 6
+[2025-12-20 19:33:32] [WARN] User entered invalid UUID: Invalid UUID string: 325
+[2025-12-20 19:33:32] [WARN] User entered invalid UUID: Invalid UUID string: 325
+[2025-12-20 19:33:33] [WARN] User entered invalid UUID: Invalid UUID string: 235
+[2025-12-20 19:33:33] [WARN] User entered invalid UUID: Invalid UUID string: 235
+[2025-12-20 19:33:36] [ERROR] Error in Reports Menu: No input available. Please run in an interactive terminal.
+[2025-12-20 19:33:36] [ERROR] Unexpected error in main menu: No line found
