@@ -3,7 +3,7 @@ package com.adz1q.hospital.management.model;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Department implements Identifiable<UUID> {
+public class Department implements Identifiable<UUID>, Describable {
     private final UUID id;
     private String name;
     private boolean active;
@@ -14,12 +14,10 @@ public class Department implements Identifiable<UUID> {
         this.name = name;
     }
 
-    public void showDepartmentDetails() {
-        System.out.println("------------------------- DEPARTMENT -------------------------");
+    public void showDetails() {
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Active: " + active);
-        System.out.println("--------------------------------------------------------------");
     }
 
     private void validateName(String name) {

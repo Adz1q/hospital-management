@@ -2,7 +2,7 @@ package com.adz1q.hospital.management.model;
 
 import java.util.*;
 
-public class Room implements Identifiable<UUID> {
+public class Room implements Identifiable<UUID>, Describable {
     private final UUID id;
     private String name;
     private Department department;
@@ -23,14 +23,12 @@ public class Room implements Identifiable<UUID> {
         this.availableSlots = availableSlots;
     }
 
-    public void showRoomDetails() {
-        System.out.println("------------------------- ROOM -------------------------");
+    public void showDetails() {
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Department: " + department);
         System.out.println("Patients: " + patients);
         System.out.println("Available Slots: " + availableSlots);
-        System.out.println("---------------------------------------------------------");
     }
 
     private void validateName(String name) {

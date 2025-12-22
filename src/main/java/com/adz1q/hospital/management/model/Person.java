@@ -1,10 +1,12 @@
 package com.adz1q.hospital.management.model;
 
+import com.adz1q.hospital.management.util.PeselValidator;
+
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class Person implements Identifiable<UUID> {
+public abstract class Person implements Identifiable<UUID>, Describable {
     private final UUID id;
     private String pesel;
     private String firstName;
@@ -38,20 +40,8 @@ public abstract class Person implements Identifiable<UUID> {
         this.pesel = pesel;
     }
 
-    public abstract void showPersonalDetails();
-
     private void validatePesel(String pesel) {
-        if (pesel == null) {
-            throw new NullPointerException("PESEL cannot be null.");
-        }
-
-        if (pesel.isBlank()) {
-            throw new IllegalArgumentException("PESEL cannot be blank.");
-        }
-
-        if (pesel.length() != 11) {
-            throw new IllegalArgumentException("PESEL must contain exactly 11 digits.");
-        }
+        PeselValidator.isValid(pesel);
     }
 
     private void validateFirstName(String firstName) {

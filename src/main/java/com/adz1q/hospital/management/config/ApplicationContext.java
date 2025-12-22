@@ -4,6 +4,8 @@ import com.adz1q.hospital.management.repository.*;
 import com.adz1q.hospital.management.service.*;
 import com.adz1q.hospital.management.ui.ConsoleInputReader;
 import com.adz1q.hospital.management.ui.ConsoleMenu;
+import com.adz1q.hospital.management.ui.ConsoleViewFormatter;
+import com.adz1q.hospital.management.ui.menu.*;
 
 import java.nio.file.Path;
 import java.util.Scanner;
@@ -68,21 +70,48 @@ public class ApplicationContext {
     private final RehabilitationService rehabilitationService =
             new RehabilitationService(rehabilitationRepository);
 
+
     private final Scanner scanner = new Scanner(System.in);
     private final ConsoleInputReader consoleInputReader = new ConsoleInputReader(scanner);
+    private final ConsoleViewFormatter consoleViewFormatter = new ConsoleViewFormatter();
+
+    private final AppointmentMenu appointmentMenu =
+            new AppointmentMenu(consoleInputReader, consoleViewFormatter, appointmentService);
+    private final DiagnosisMenu diagnosisMenu =
+            new DiagnosisMenu(consoleInputReader, consoleViewFormatter, diagnosisService);
+    private final DepartmentMenu departmentMenu =
+            new DepartmentMenu(consoleInputReader, consoleViewFormatter, departmentService);
+    private final RoomMenu roomMenu =
+            new RoomMenu(consoleInputReader, consoleViewFormatter, roomService);
+    private final DoctorMenu doctorMenu =
+            new DoctorMenu(consoleInputReader, consoleViewFormatter, doctorService);
+    private final NurseMenu nurseMenu =
+            new NurseMenu(consoleInputReader, consoleViewFormatter, nurseService);
+    private final PatientMenu patientMenu =
+            new PatientMenu(consoleInputReader, consoleViewFormatter, patientService);
+    private final SurgeryMenu surgeryMenu =
+            new SurgeryMenu(consoleInputReader, consoleViewFormatter, surgeryService);
+    private final MedicationMenu medicationMenu =
+            new MedicationMenu(consoleInputReader, consoleViewFormatter, medicationService);
+    private final TherapyMenu therapyMenu =
+            new TherapyMenu(consoleInputReader, consoleViewFormatter, therapyService);
+    private final RehabilitationMenu rehabilitationMenu =
+            new RehabilitationMenu(consoleInputReader, consoleViewFormatter, rehabilitationService);
+
     private final ConsoleMenu consoleMenu = new ConsoleMenu(
             consoleInputReader,
-            appointmentService,
-            diagnosisService,
-            departmentService,
-            roomService,
-            doctorService,
-            nurseService,
-            patientService,
-            surgeryService,
-            medicationService,
-            therapyService,
-            rehabilitationService);
+            consoleViewFormatter,
+            appointmentMenu,
+            diagnosisMenu,
+            departmentMenu,
+            roomMenu,
+            doctorMenu,
+            nurseMenu,
+            patientMenu,
+            surgeryMenu,
+            medicationMenu,
+            therapyMenu,
+            rehabilitationMenu);
 
     public ConsoleMenu getConsoleMenu() {
         return consoleMenu;

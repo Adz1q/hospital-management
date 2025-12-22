@@ -26,15 +26,13 @@ public class Patient extends Person {
     }
 
     @Override
-    public void showPersonalDetails() {
-        System.out.println("------------------------- PATIENT -------------------------");
+    public void showDetails() {
         System.out.println("ID: " + super.getId());
         System.out.println("First Name: " + super.getFirstName());
         System.out.println("Last Name: " + super.getLastName());
         System.out.println("Birth Date: " + super.getBirthDate());
         if (super.getPesel() != null) System.out.println("PESEL: " + super.getPesel());
         System.out.println("Documentation: " + documentation);
-        System.out.println("-----------------------------------------------------------");
     }
 
     private void validateDiagnosis(Diagnosis diagnosis) {

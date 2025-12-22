@@ -29,8 +29,7 @@ public class Nurse extends Person {
     }
 
     @Override
-    public void showPersonalDetails() {
-        System.out.println("------------------------- NURSE ---------------------------");
+    public void showDetails() {
         System.out.println("ID: " + super.getId());
         System.out.println("First Name: " + super.getFirstName());
         System.out.println("Last Name: " + super.getLastName());
@@ -38,7 +37,6 @@ public class Nurse extends Person {
         if (super.getPesel() != null) System.out.println("PESEL: " + super.getPesel());
         System.out.println("Department: " + department.getName());
         System.out.println("Active: " + active);
-        System.out.println("-----------------------------------------------------------");
     }
 
     private void validateDepartment(Department department) {

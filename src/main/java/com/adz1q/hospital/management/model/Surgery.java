@@ -21,15 +21,13 @@ public class Surgery extends Treatment {
     }
 
     @Override
-    public void showTreatmentDetails() {
-        System.out.println("------------------------- SURGERY -------------------------");
+    public void showDetails() {
         System.out.println("ID: " + super.getId());
         System.out.println("Description: " + super.getDescription());
         System.out.println("Prescription Date: " + super.getPrescriptionDate());
         System.out.println("Doctor: " + doctor.getFullName());
         System.out.println("Surgery Date: " + surgeryDate);
         System.out.println("Status: " + status.getStatus());
-        System.out.println("-----------------------------------------------------------");
     }
 
     private void validateDoctor(Doctor doctor) {

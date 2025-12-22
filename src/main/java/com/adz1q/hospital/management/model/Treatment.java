@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
-public abstract class Treatment implements Identifiable<UUID> {
+public abstract class Treatment implements Identifiable<UUID>, Describable{
     private final UUID id;
     private final String description;
     private final LocalDate prescriptionDate;
@@ -18,8 +18,6 @@ public abstract class Treatment implements Identifiable<UUID> {
         this.description = description;
         this.prescriptionDate = prescriptionDate;
     }
-
-    public abstract void showTreatmentDetails();
 
     private void validateDescription(String description) {
         if (description == null) {

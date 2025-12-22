@@ -17,13 +17,11 @@ public class Medication extends Treatment {
     }
 
     @Override
-    public void showTreatmentDetails() {
-        System.out.println("------------------------- MEDICATION -------------------------");
+    public void showDetails() {
         System.out.println("ID: " + super.getId());
         System.out.println("Description: " + super.getDescription());
         System.out.println("Prescription Date: " + super.getPrescriptionDate());
         System.out.println("Medicines: " + medicines);
-        System.out.println("--------------------------------------------------------------");
     }
 
     private void validateMedicines(List<String> medicines) {

@@ -17,13 +17,11 @@ public class Rehabilitation extends Treatment {
     }
 
     @Override
-    public void showTreatmentDetails() {
-        System.out.println("------------------------- REHABILITATION -------------------------");
+    public void showDetails() {
         System.out.println("ID: " + super.getId());
         System.out.println("Description: " + super.getDescription());
         System.out.println("Prescription Date: " + super.getPrescriptionDate());
         System.out.println("Therapies: " + therapies);
-        System.out.println("------------------------------------------------------------------");
     }
 
     private void validateTherapies(List<String> therapies) {

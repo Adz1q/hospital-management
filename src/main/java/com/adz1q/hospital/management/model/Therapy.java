@@ -15,13 +15,11 @@ public class Therapy extends Treatment {
     }
 
     @Override
-    public void showTreatmentDetails() {
-        System.out.println("------------------------- THERAPY -------------------------");
+    public void showDetails() {
         System.out.println("ID: " + super.getId());
         System.out.println("Name: " + name);
         System.out.println("Description: " + super.getDescription());
         System.out.println("Prescription Date: " + super.getPrescriptionDate());
-        System.out.println("-----------------------------------------------------------");
     }
 
     private void validateName(String name) {

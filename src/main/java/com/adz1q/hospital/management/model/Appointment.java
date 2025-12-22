@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Appointment implements Identifiable<UUID> {
+public class Appointment implements Identifiable<UUID>, Describable {
     private final UUID id;
     private final Patient patient;
     private Doctor doctor;
@@ -26,15 +26,13 @@ public class Appointment implements Identifiable<UUID> {
         this.status = AppointmentStatus.SCHEDULED;
     }
 
-    public void showAppointmentDetails() {
-        System.out.println("------------------------- APPOINTMENT -------------------------");
+    public void showDetails() {
         System.out.println("ID: " + id);
         System.out.println("Patient's name: " + patient.getFullName());
         System.out.println("Doctor's name: " + doctor.getFullName());
         System.out.println("Date: " + date);
         if (diagnosis != null) System.out.println("Diagnosis: " + diagnosis);
         System.out.println("Status: " + status.getStatus());
-        System.out.println("---------------------------------------------------------------");
     }
 
     private void validatePatient(Patient patient) {

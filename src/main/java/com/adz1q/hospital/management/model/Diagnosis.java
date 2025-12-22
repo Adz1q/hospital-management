@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public class Diagnosis implements Identifiable<UUID> {
+public class Diagnosis implements Identifiable<UUID>, Describable {
     private final UUID id;
     private final String description;
     private final Set<Treatment> treatments;
@@ -20,12 +20,10 @@ public class Diagnosis implements Identifiable<UUID> {
         this.treatments = treatments;
     }
 
-    public void showDiagnosisDetails() {
-        System.out.println("------------------------- DIAGNOSIS -------------------------");
+    public void showDetails() {
         System.out.println("ID: " + id);
         System.out.println("Description: " + description);
         System.out.println("Treatments: " + treatments);
-        System.out.println("-------------------------------------------------------------");
     }
 
     private void validateDescription(String description) {
