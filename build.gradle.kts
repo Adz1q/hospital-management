@@ -11,7 +11,7 @@ repositories {
 }
 
 application {
-    mainClass.set("com.adz1q.hospital.management.Main")
+    mainClass.set("com.adz1q.hospital.management.application.HospitalManagementApplication")
 }
 
 dependencies {
