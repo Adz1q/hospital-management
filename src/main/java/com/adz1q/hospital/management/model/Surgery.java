@@ -105,4 +105,16 @@ public class Surgery extends Treatment {
     public SurgeryStatus getStatus() {
         return status;
     }
+
+    public boolean isCompleted() {
+        return status == SurgeryStatus.COMPLETED;
+    }
+
+    public boolean isCancelled() {
+        return status == SurgeryStatus.CANCELLED;
+    }
+
+    public boolean isScheduled() {
+        return status == SurgeryStatus.SCHEDULED;
+    }
 }

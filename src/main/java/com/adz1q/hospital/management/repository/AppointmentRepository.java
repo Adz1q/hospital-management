@@ -23,6 +23,7 @@ public class AppointmentRepository extends FileRepository<UUID, Appointment> {
                 .stream()
                 .anyMatch(appointment ->
                         appointment.getDoctor().getId().equals(doctorId)
-                                && appointment.getDate().equals(date));
+                                && appointment.getDate().equals(date)
+                                && appointment.isScheduled());
     }
 }

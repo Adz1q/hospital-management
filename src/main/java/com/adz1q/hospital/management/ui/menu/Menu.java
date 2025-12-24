@@ -13,4 +13,10 @@ public abstract class Menu implements Showable {
         this.consoleInputReader = consoleInputReader;
         this.consoleViewFormatter = consoleViewFormatter;
     }
+
+    protected boolean shouldReturn() {
+        consoleViewFormatter.printMessage("Press enter to return to the main menu or any key to retry.");
+        String input = consoleInputReader.readString();
+        return input.isBlank();
+    }
 }

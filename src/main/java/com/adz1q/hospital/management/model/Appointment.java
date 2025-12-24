@@ -156,4 +156,16 @@ public class Appointment implements Identifiable<UUID>, Describable {
     public AppointmentStatus getStatus() {
         return status;
     }
+
+    public boolean isCompleted() {
+        return this.status == AppointmentStatus.COMPLETED;
+    }
+
+    public boolean isCancelled() {
+        return this.status == AppointmentStatus.CANCELLED;
+    }
+
+    public boolean isScheduled() {
+        return this.status == AppointmentStatus.SCHEDULED;
+    }
 }

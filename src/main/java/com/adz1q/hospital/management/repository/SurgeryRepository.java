@@ -23,6 +23,7 @@ public class SurgeryRepository extends FileRepository<UUID, Surgery> {
                 .stream()
                 .anyMatch(surgery ->
                         surgery.getDoctor().getId().equals(doctorId)
-                                && surgery.getSurgeryDate().equals(surgeryDate));
+                                && surgery.getSurgeryDate().equals(surgeryDate)
+                                && surgery.isScheduled());
     }
 }

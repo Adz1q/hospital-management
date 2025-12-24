@@ -8,8 +8,8 @@ public class Medication extends Treatment {
     private final List<String> medicines;
 
     public Medication(
-            LocalDate prescriptionDate,
             String description,
+            LocalDate prescriptionDate,
             List<String> medicines) {
         super(description, prescriptionDate);
         validateMedicines(medicines);

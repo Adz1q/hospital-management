@@ -56,7 +56,7 @@ public class ConsoleInputReader {
                 String input = scanner.nextLine().trim();
 
                 if (input.isBlank()) {
-                    return null;
+                    throw new IllegalArgumentException("UUID input cannot be blank.");
                 }
 
                 return UUID.fromString(input);

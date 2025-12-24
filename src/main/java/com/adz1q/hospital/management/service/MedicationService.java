@@ -18,12 +18,12 @@ public class MedicationService {
     }
 
     public Medication prescribeMedication(
-            LocalDate prescriptionDate,
             String description,
+            LocalDate prescriptionDate,
             List<String> medicines) {
         Medication newMedication = new Medication(
-                prescriptionDate,
                 description,
+                prescriptionDate,
                 medicines);
         Logger.info("Prescribed medication with ID: " + newMedication.getId());
         return medicationRepository.save(newMedication);
