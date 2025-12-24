@@ -1,8 +1,13 @@
 package com.adz1q.hospital.management.ui.menu;
 
+import com.adz1q.hospital.management.exception.MedicationNotFoundException;
+import com.adz1q.hospital.management.model.Medication;
 import com.adz1q.hospital.management.service.MedicationService;
 import com.adz1q.hospital.management.ui.ConsoleInputReader;
 import com.adz1q.hospital.management.ui.ConsoleViewFormatter;
+
+import java.util.List;
+import java.util.UUID;
 
 public class MedicationMenu extends Menu {
     private final MedicationService medicationService;
@@ -16,5 +21,45 @@ public class MedicationMenu extends Menu {
     }
 
     @Override
-    public void show() {}
+    public void show() {
+        while (true) {
+            consoleViewFormatter.clearConsole();
+            consoleViewFormatter.showMedicationMenu();
+            int choice = consoleInputReader.readInt();
+
+            switch (choice) {
+                case 1 -> viewAllMedications();
+                case 2 -> viewMedicationById();
+                default -> {
+                    System.out.println("Exiting Medication Management Menu...");
+                    return;
+                }
+            }
+        }
+    }
+
+    private void viewAllMedications() {
+        List<Medication> medications = medicationService.getAllMedications();
+        consoleViewFormatter.printHeader("All Medications");
+        for (Medication medication : medications) {
+            consoleViewFormatter.showEntityDetails(medication);
+        }
+
+        consoleViewFormatter.printReturnPrompt();
+        consoleInputReader.readString();
+    }
+
+    private void viewMedicationById() {
+        do {
+            try {
+                UUID id = consoleInputReader.readUUIDPrompt("Enter Medication ID: ");
+                Medication medication = medicationService.getMedication(id);
+                consoleViewFormatter.showEntityDetails(medication);
+                if (shouldReturn()) return;
+            } catch (MedicationNotFoundException e) {
+                consoleViewFormatter.printMessage(e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
+    }
 }
