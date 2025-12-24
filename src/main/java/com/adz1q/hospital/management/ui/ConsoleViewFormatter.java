@@ -42,7 +42,7 @@ public class ConsoleViewFormatter {
     }
 
     public void printReturnPrompt() {
-        System.out.println("Press enter to return to main menu...");
+        System.out.println("Press enter to return to menu...");
     }
 
     public void printMessage(String message) {

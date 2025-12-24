@@ -45,8 +45,7 @@ public class RehabilitationMenu extends Menu {
             consoleViewFormatter.showEntityDetails(rehabilitation);
         }
 
-        consoleViewFormatter.printReturnPrompt();
-        consoleInputReader.readString();
+        returnToMenu();
     }
 
     private void viewRehabilitationById() {
@@ -55,7 +54,7 @@ public class RehabilitationMenu extends Menu {
                 UUID id = consoleInputReader.readUUIDPrompt("Enter Rehabilitation ID: ");
                 Rehabilitation rehabilitation = rehabilitationService.getRehabilitation(id);
                 consoleViewFormatter.showEntityDetails(rehabilitation);
-                if (shouldReturn()) return;
+                if (returnToMenu()) return;
             } catch (RehabilitationNotFoundException e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;

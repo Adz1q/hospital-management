@@ -84,13 +84,4 @@ public class DoctorService {
         doctor.addSpecialization(newSpecialization);
         Logger.info("Added new specialization to doctor with ID: " + doctor.getId());
     }
-
-    public void updateSpecializations(
-            UUID id,
-            Set<Specialization> newSpecializations)
-            throws DoctorNotFoundException {
-        for (Specialization newSpecialization : newSpecializations) {
-            updateSpecializations(id, newSpecialization);
-        }
-    }
 }

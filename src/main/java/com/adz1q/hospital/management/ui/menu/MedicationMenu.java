@@ -45,8 +45,7 @@ public class MedicationMenu extends Menu {
             consoleViewFormatter.showEntityDetails(medication);
         }
 
-        consoleViewFormatter.printReturnPrompt();
-        consoleInputReader.readString();
+        returnToMenu();
     }
 
     private void viewMedicationById() {
@@ -55,7 +54,7 @@ public class MedicationMenu extends Menu {
                 UUID id = consoleInputReader.readUUIDPrompt("Enter Medication ID: ");
                 Medication medication = medicationService.getMedication(id);
                 consoleViewFormatter.showEntityDetails(medication);
-                if (shouldReturn()) return;
+                if (returnToMenu()) return;
             } catch (MedicationNotFoundException e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;

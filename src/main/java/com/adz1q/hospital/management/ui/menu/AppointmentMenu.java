@@ -162,17 +162,16 @@ public class AppointmentMenu extends Menu {
             consoleViewFormatter.showEntityDetails(appointment);
         }
 
-        consoleViewFormatter.printReturnPrompt();
-        consoleInputReader.readString();
+        returnToMenu();
     }
 
     private void viewAppointmentById() {
         do {
             try {
-                UUID id = consoleInputReader.readUUIDPrompt("Enter Appointment ID: ");
-                Appointment appointment = appointmentService.getAppointment(id);
+                UUID surgeryId = consoleInputReader.readUUIDPrompt("Enter Appointment ID: ");
+                Appointment appointment = appointmentService.getAppointment(surgeryId);
                 consoleViewFormatter.showEntityDetails(appointment);
-                if (shouldReturn()) return;
+                if (returnToMenu()) return;
             } catch (AppointmentNotFoundException e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;
@@ -193,9 +192,9 @@ public class AppointmentMenu extends Menu {
 
                 Appointment appointment = appointmentService.scheduleAppointment(doctor, patient, date);
                 consoleViewFormatter.printMessage("Appointment scheduled successfully with ID: " + appointment.getId());
-                return;
+                if (returnToMenu()) return;
             } catch (Exception e) {
-                consoleViewFormatter.printMessage("Error scheduling appointment: " + e.getMessage());
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
                 if (shouldReturn()) return;
             }
         }
@@ -204,16 +203,15 @@ public class AppointmentMenu extends Menu {
     private void rescheduleAppointment() {
         while (true) {
             try {
-                UUID appointmentId = consoleInputReader.readUUIDPrompt("Enter Appointment ID: ");
+                UUID id = consoleInputReader.readUUIDPrompt("Enter Appointment ID: ");
                 String newDateStr = consoleInputReader.readStringPrompt("Enter New Appointment Date (YYYY-MM-DD): ");
                 LocalDate newDate = LocalDate.parse(newDateStr);
 
-                appointmentService.rescheduleAppointment(appointmentId, newDate);
+                appointmentService.rescheduleAppointment(id, newDate);
                 consoleViewFormatter.printMessage("Appointment rescheduled successfully.");
-                return;
+                if (returnToMenu()) return;
             } catch (Exception e) {
-                consoleViewFormatter.printMessage("Error rescheduling appointment: " + e.getMessage());
-                String input = consoleInputReader.readStringPrompt("Press enter to return or any key to retry: ");
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
                 if (shouldReturn()) return;
             }
         }
@@ -228,9 +226,9 @@ public class AppointmentMenu extends Menu {
                 Doctor newDoctor = doctorService.getDoctor(newDoctorId);
                 appointmentService.changeAppointmentDoctor(appointmentId, newDoctor);
                 consoleViewFormatter.printMessage("Appointment doctor changed successfully.");
-                return;
+                if (returnToMenu()) return;
             } catch (Exception e) {
-                consoleViewFormatter.printMessage("Error changing appointment doctor: " + e.getMessage());
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
                 if (shouldReturn()) return;
             }
         }
@@ -239,7 +237,7 @@ public class AppointmentMenu extends Menu {
     private void completeAppointment() {
         while (true) {
             try {
-                UUID appointmentId = consoleInputReader.readUUIDPrompt("Enter Appointment ID: ");
+                UUID id = consoleInputReader.readUUIDPrompt("Enter Appointment ID: ");
                 String diagnosisDescription = consoleInputReader.readStringPrompt("Enter Diagnosis Description: ");
 
                 Set<Treatment> treatments = new HashSet<>();
@@ -273,11 +271,11 @@ public class AppointmentMenu extends Menu {
                 } while (true);
 
                 Diagnosis diagnosis = diagnosisService.diagnosePatient(diagnosisDescription, treatments);
-                appointmentService.completeAppointment(appointmentId, diagnosis);
+                appointmentService.completeAppointment(id, diagnosis);
                 consoleViewFormatter.printMessage("Appointment completed successfully.");
-                return;
+                if (returnToMenu()) return;
             } catch (Exception e) {
-                consoleViewFormatter.printMessage("Error completing appointment: " + e.getMessage());
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
                 if (shouldReturn()) return;
             }
         }
@@ -286,12 +284,12 @@ public class AppointmentMenu extends Menu {
     private void cancelAppointment() {
         while (true) {
             try {
-                UUID appointmentId = consoleInputReader.readUUIDPrompt("Enter Appointment ID: ");
-                appointmentService.cancelAppointment(appointmentId);
+                UUID id = consoleInputReader.readUUIDPrompt("Enter Appointment ID: ");
+                appointmentService.cancelAppointment(id);
                 consoleViewFormatter.printMessage("Appointment cancelled successfully.");
-                return;
+                if (returnToMenu()) return;
             } catch (Exception e) {
-                consoleViewFormatter.printMessage("Error cancelling appointment: " + e.getMessage());
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
                 if (shouldReturn()) return;
             }
         }

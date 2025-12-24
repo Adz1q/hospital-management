@@ -45,8 +45,7 @@ public class TherapyMenu extends Menu {
             consoleViewFormatter.showEntityDetails(therapy);
         }
 
-        consoleViewFormatter.printReturnPrompt();
-        consoleInputReader.readString();
+        returnToMenu();
     }
 
     private void viewTherapyById() {
@@ -55,7 +54,7 @@ public class TherapyMenu extends Menu {
                 UUID id = consoleInputReader.readUUIDPrompt("Enter Therapy ID: ");
                 Therapy therapy = therapyService.getTherapy(id);
                 consoleViewFormatter.showEntityDetails(therapy);
-                if (shouldReturn()) return;
+                if (returnToMenu()) return;
             } catch (TherapyNotFoundException e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;

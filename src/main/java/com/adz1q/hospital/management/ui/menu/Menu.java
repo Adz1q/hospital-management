@@ -15,8 +15,14 @@ public abstract class Menu implements Showable {
     }
 
     protected boolean shouldReturn() {
-        consoleViewFormatter.printMessage("Press enter to return to the main menu or any key to retry.");
+        consoleViewFormatter.printMessage("Press enter to return to the menu or any key to retry.");
         String input = consoleInputReader.readString();
         return input.isBlank();
+    }
+
+    protected boolean returnToMenu() {
+        consoleViewFormatter.printReturnPrompt();
+        consoleInputReader.readString();
+        return true;
     }
 }

@@ -76,7 +76,7 @@ public class ApplicationContext {
     private final ConsoleViewFormatter consoleViewFormatter = new ConsoleViewFormatter();
 
     private final AppointmentMenu appointmentMenu =
-            new AppointmentMenu(consoleInputReader, consoleViewFormatter, appointmentService);
+            new AppointmentMenu(consoleInputReader, consoleViewFormatter, appointmentService, doctorService, patientService, diagnosisService, surgeryService, medicationService, therapyService, rehabilitationService);
     private final DiagnosisMenu diagnosisMenu =
             new DiagnosisMenu(consoleInputReader, consoleViewFormatter, diagnosisService);
     private final DepartmentMenu departmentMenu =
@@ -90,7 +90,7 @@ public class ApplicationContext {
     private final PatientMenu patientMenu =
             new PatientMenu(consoleInputReader, consoleViewFormatter, patientService);
     private final SurgeryMenu surgeryMenu =
-            new SurgeryMenu(consoleInputReader, consoleViewFormatter, surgeryService);
+            new SurgeryMenu(consoleInputReader, consoleViewFormatter, surgeryService, doctorService);
     private final MedicationMenu medicationMenu =
             new MedicationMenu(consoleInputReader, consoleViewFormatter, medicationService);
     private final TherapyMenu therapyMenu =
