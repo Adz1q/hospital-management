@@ -22,6 +22,7 @@ public class Appointment implements Identifiable<UUID>, Describable {
         this.id = UUID.randomUUID();
         this.patient = patient;
         this.doctor = doctor;
+        this.date = date;
         this.diagnosis = null;
         this.status = AppointmentStatus.SCHEDULED;
     }

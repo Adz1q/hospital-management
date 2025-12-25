@@ -97,10 +97,6 @@ public class NurseService {
         Logger.info("Changed department for nurse with ID: " + id);
     }
 
-    public boolean existsAnyNurseInDepartment(UUID departmentId) {
-        return !nurseRepository.findByDepartmentId(departmentId).isEmpty();
-    }
-
     public Department getDepartment(UUID id)
             throws DepartmentNotFoundException {
         return departmentRepository.findById(id)

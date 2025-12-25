@@ -112,10 +112,6 @@ public class RoomService {
         return roomRepository.findPatientsInRoom(room.getId());
     }
 
-    public boolean existsAnyRoomInDepartment(UUID departmentId) {
-        return !roomRepository.findByDepartmentId(departmentId).isEmpty();
-    }
-
     public Department getDepartment(UUID id)
             throws DepartmentNotFoundException {
         return departmentRepository.findById(id)

@@ -62,10 +62,6 @@ public abstract class Person implements Identifiable<UUID>, Describable {
         if (lastName.isBlank()) {
             throw new IllegalArgumentException("Last name cannot be blank.");
         }
-
-        if (!lastName.matches("^[\\p{L} .'-]+$")) {
-            throw new IllegalArgumentException("Last name contains invalid characters.");
-        }
     }
 
     private void validateBirthDate(LocalDate birthDate) {

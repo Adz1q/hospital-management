@@ -11,7 +11,7 @@ public class ConsoleInputReader {
     }
 
     public String readString() {
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 
     public String readStringPrompt(String prompt) {

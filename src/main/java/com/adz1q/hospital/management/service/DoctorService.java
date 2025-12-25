@@ -81,6 +81,10 @@ public class DoctorService {
             Specialization newSpecialization)
             throws DoctorNotFoundException {
         Doctor doctor = getDoctor(id);
+        if (doctor.getSpecializations().contains(newSpecialization)) {
+            throw new IllegalArgumentException("Doctor already has this specialization.");
+        }
+
         doctor.addSpecialization(newSpecialization);
         Logger.info("Added new specialization to doctor with ID: " + doctor.getId());
     }

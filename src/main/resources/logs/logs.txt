@@ -34,3 +34,25 @@
 [2025-12-25 12:38:21] [INFO] Hired doctor with ID: bc8d658d-49c4-4f55-845d-a19489428d66
 [2025-12-25 12:44:53] [INFO] Hired doctor with ID: 6b30647a-df0a-4dbb-9cb6-526520ea8071
 [2025-12-25 12:52:41] [INFO] Hired doctor with ID: 8353b5c2-1ff8-4d84-bffa-d3932debc129
+[2025-12-25 20:34:05] [INFO] Hired doctor with ID: a7abe669-18a0-4fb0-ad83-5dca77cd6829
+[2025-12-25 20:36:02] [INFO] Dismissed doctor with ID: a7abe669-18a0-4fb0-ad83-5dca77cd6829
+[2025-12-25 20:36:08] [INFO] Rehired doctor with ID: a7abe669-18a0-4fb0-ad83-5dca77cd6829
+[2025-12-25 20:42:58] [INFO] Registered patient with ID: aa8478c7-fde2-4022-82a5-1162749212a2
+[2025-12-25 20:43:38] [INFO] Scheduled new appointment with ID: 5204201e-28c0-4416-9b00-d7a64c9a8c21
+[2025-12-25 20:44:55] [INFO] Diagnosed new patient with diagnosis ID: 914d9599-3718-4834-94f6-834df83970c8
+[2025-12-25 20:44:55] [INFO] Updated patient documentation with ID: aa8478c7-fde2-4022-82a5-1162749212a2
+[2025-12-25 20:44:55] [INFO] Completed appointment with ID: 5204201e-28c0-4416-9b00-d7a64c9a8c21
+[2025-12-25 21:02:44] [INFO] Hired doctor with ID: 611fbd99-b015-4aab-ba3c-c8604f0701d3
+[2025-12-25 21:03:27] [INFO] Registered patient with ID: 0757417e-db9f-4b85-8e59-8ac040dcbf74
+[2025-12-25 21:03:57] [INFO] Scheduled new appointment with ID: 37c69e5e-cd6e-413d-87aa-5c9fa18a9a98
+[2025-12-25 21:05:01] [INFO] Prescribed rehabilitation with ID: f4d919b9-60d3-4ff2-88b0-55917413fb03
+[2025-12-25 21:05:53] [INFO] Prescribed medication with ID: 62624f1e-824a-4ab6-8abf-3464b913c937
+[2025-12-25 21:06:01] [INFO] Diagnosed new patient with diagnosis ID: c0941427-fae3-46f7-a11a-29730e392e6f
+[2025-12-25 21:06:01] [INFO] Updated patient documentation with ID: 0757417e-db9f-4b85-8e59-8ac040dcbf74
+[2025-12-25 21:06:01] [INFO] Completed appointment with ID: 37c69e5e-cd6e-413d-87aa-5c9fa18a9a98
+[2025-12-25 21:09:26] [INFO] Created department with ID: 75c59ea6-6f3d-4373-ac5d-ade0352d8e69
+[2025-12-25 21:09:45] [INFO] Created room with ID: 510c0cbe-f1b2-4ebf-b215-73e675376d8c
+[2025-12-25 21:10:00] [INFO] Assigned new patient to room with ID: 510c0cbe-f1b2-4ebf-b215-73e675376d8c
+[2025-12-25 21:11:00] [INFO] Removed patient from room with ID: 510c0cbe-f1b2-4ebf-b215-73e675376d8c
+[2025-12-25 21:12:13] [INFO] Renamed department with ID: 75c59ea6-6f3d-4373-ac5d-ade0352d8e69
+[2025-12-25 21:12:39] [INFO] Deleted room with ID: 510c0cbe-f1b2-4ebf-b215-73e675376d8c

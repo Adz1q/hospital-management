@@ -97,6 +97,14 @@ public class AppointmentService {
     public boolean existsAnyAppointmentForDoctorIdAndDate(
             UUID doctorId,
             LocalDate date) {
+        if (doctorId == null) {
+            throw new NullPointerException("Doctor ID cannot be null.");
+        }
+
+        if (date == null) {
+            throw new NullPointerException("Date cannot be null.");
+        }
+
         return appointmentRepository.existsByDoctorIdAndDate(doctorId, date);
     }
 

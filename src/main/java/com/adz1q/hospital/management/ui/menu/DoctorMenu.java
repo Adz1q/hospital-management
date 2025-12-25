@@ -161,7 +161,6 @@ public class DoctorMenu extends Menu {
         while (true) {
             try {
                 UUID id = consoleInputReader.readUUIDPrompt("Enter Doctor ID to update specializations: ");
-                Doctor doctor = doctorService.getDoctor(id);
                 Specialization specialization;
 
                 do {
@@ -174,7 +173,7 @@ public class DoctorMenu extends Menu {
                     }
                 } while (true);
 
-                doctor.addSpecialization(specialization);
+                doctorService.updateSpecializations(id, specialization);
                 consoleViewFormatter.printMessage("Doctor specializations updated successfully.");
                 if (returnToMenu()) return;
             } catch (Exception e) {

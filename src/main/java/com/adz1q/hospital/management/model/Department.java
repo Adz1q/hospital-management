@@ -12,6 +12,7 @@ public class Department implements Identifiable<UUID>, Describable {
         validateName(name);
         this.id = UUID.randomUUID();
         this.name = name;
+        this.active = true;
     }
 
     public void showDetails() {
@@ -31,6 +32,10 @@ public class Department implements Identifiable<UUID>, Describable {
     }
 
     public void rename(String name) {
+        if (!isActive()) {
+            throw new IllegalStateException("Cannot rename a closed department.");
+        }
+
         validateName(name);
         this.name = name;
     }

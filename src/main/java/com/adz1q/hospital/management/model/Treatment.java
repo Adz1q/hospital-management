@@ -52,15 +52,6 @@ public abstract class Treatment implements Identifiable<UUID>, Describable{
     }
 
     @Override
-    public String toString() {
-        return "Treatment{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", prescriptionDate=" + prescriptionDate +
-                '}';
-    }
-
-    @Override
     public UUID getId() {
         return id;
     }
