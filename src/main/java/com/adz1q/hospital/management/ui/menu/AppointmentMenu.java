@@ -1,6 +1,5 @@
 package com.adz1q.hospital.management.ui.menu;
 
-import com.adz1q.hospital.management.exception.AppointmentNotFoundException;
 import com.adz1q.hospital.management.model.*;
 import com.adz1q.hospital.management.service.*;
 import com.adz1q.hospital.management.ui.ConsoleInputReader;
@@ -158,6 +157,12 @@ public class AppointmentMenu extends Menu {
     private void viewAllAppointments() {
         List<Appointment> appointments = appointmentService.getAllAppointments();
         consoleViewFormatter.printHeader("All Appointments");
+
+        if (appointments.isEmpty()) {
+            consoleViewFormatter.printMessage("No appointments found.");
+            if (returnToMenu()) return;
+        }
+
         for (Appointment appointment : appointments) {
             consoleViewFormatter.showEntityDetails(appointment);
         }
@@ -172,7 +177,7 @@ public class AppointmentMenu extends Menu {
                 Appointment appointment = appointmentService.getAppointment(surgeryId);
                 consoleViewFormatter.showEntityDetails(appointment);
                 if (returnToMenu()) return;
-            } catch (AppointmentNotFoundException e) {
+            } catch (Exception e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;
             }

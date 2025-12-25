@@ -106,4 +106,30 @@ public class NurseService {
         return departmentRepository.findById(id)
                 .orElseThrow(() -> new DepartmentNotFoundException("Department with this ID does not exist."));
     }
+
+    public List<Nurse> getNursesByFirstNameAndLastName(
+            String firstName,
+            String lastName) {
+        if (firstName == null || lastName == null) {
+            throw new IllegalArgumentException("First name and last name cannot be null.");
+        }
+
+        if (firstName.isBlank() || lastName.isBlank()) {
+            throw new IllegalArgumentException("First name and last name cannot be blank.");
+        }
+
+        return nurseRepository.findByFirstNameAndLastName(firstName, lastName);
+    }
+
+    public List<Nurse> getNursesByLastName(String lastName) {
+        if (lastName == null) {
+            throw new IllegalArgumentException("Last name cannot be null.");
+        }
+
+        if (lastName.isBlank()) {
+            throw new IllegalArgumentException("Last name cannot be blank.");
+        }
+
+        return nurseRepository.findByLastName(lastName);
+    }
 }

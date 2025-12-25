@@ -1,6 +1,5 @@
 package com.adz1q.hospital.management.ui.menu;
 
-import com.adz1q.hospital.management.exception.RehabilitationNotFoundException;
 import com.adz1q.hospital.management.model.Rehabilitation;
 import com.adz1q.hospital.management.service.RehabilitationService;
 import com.adz1q.hospital.management.ui.ConsoleInputReader;
@@ -41,6 +40,12 @@ public class RehabilitationMenu extends Menu {
     private void viewAllRehabilitations() {
         List<Rehabilitation> rehabilitations = rehabilitationService.getAllRehabilitations();
         consoleViewFormatter.printHeader("All Rehabilitations");
+
+        if (rehabilitations.isEmpty()) {
+            consoleViewFormatter.printMessage("No rehabilitations found.");
+            if (returnToMenu()) return;
+        }
+
         for (Rehabilitation rehabilitation : rehabilitations) {
             consoleViewFormatter.showEntityDetails(rehabilitation);
         }
@@ -55,7 +60,7 @@ public class RehabilitationMenu extends Menu {
                 Rehabilitation rehabilitation = rehabilitationService.getRehabilitation(id);
                 consoleViewFormatter.showEntityDetails(rehabilitation);
                 if (returnToMenu()) return;
-            } catch (RehabilitationNotFoundException e) {
+            } catch (Exception e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;
             }

@@ -1,6 +1,5 @@
 package com.adz1q.hospital.management.ui.menu;
 
-import com.adz1q.hospital.management.exception.NurseNotFoundException;
 import com.adz1q.hospital.management.model.Department;
 import com.adz1q.hospital.management.model.Nurse;
 import com.adz1q.hospital.management.service.NurseService;
@@ -36,6 +35,8 @@ public class NurseMenu extends Menu {
                 case 4 -> dismissNurse();
                 case 5 -> rehireNurse();
                 case 6 -> changeNurseDepartment();
+                case 7 -> viewNursesByFirstNameAndLastName();
+                case 8 -> viewNursesByLastName();
                 default -> {
                     System.out.println("Exiting Nurse Management Menu...");
                     return;
@@ -47,6 +48,12 @@ public class NurseMenu extends Menu {
     private void viewAllNurses() {
         List<Nurse> nurses = nurseService.getAllNurses();
         consoleViewFormatter.printHeader("All Nurses");
+
+        if (nurses.isEmpty()) {
+            consoleViewFormatter.printMessage("No nurses found.");
+            if (returnToMenu()) return;
+        }
+
         for (Nurse nurse : nurses) {
             consoleViewFormatter.showEntityDetails(nurse);
         }
@@ -61,7 +68,7 @@ public class NurseMenu extends Menu {
                 Nurse nurse = nurseService.getNurse(id);
                 consoleViewFormatter.showEntityDetails(nurse);
                 if (returnToMenu()) return;
-            } catch (NurseNotFoundException e) {
+            } catch (Exception e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;
             }
@@ -113,7 +120,7 @@ public class NurseMenu extends Menu {
                 nurseService.dismissNurse(id);
                 consoleViewFormatter.printMessage("Nurse with ID " + id + " has been dismissed.");
                 if (returnToMenu()) return;
-            } catch (NurseNotFoundException e) {
+            } catch (Exception e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;
             }
@@ -127,7 +134,7 @@ public class NurseMenu extends Menu {
                 nurseService.rehireNurse(id);
                 consoleViewFormatter.printMessage("Nurse with ID " + id + " has been rehired.");
                 if (returnToMenu()) return;
-            } catch (NurseNotFoundException e) {
+            } catch (Exception e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;
             }
@@ -148,5 +155,54 @@ public class NurseMenu extends Menu {
                 if (shouldReturn()) return;
             }
         }
+    }
+
+    private void viewNursesByFirstNameAndLastName() {
+        do {
+            try {
+                String firstName = consoleInputReader.readStringPrompt("Enter First Name: ");
+                String lastName = consoleInputReader.readStringPrompt("Enter Last Name: ");
+                List<Nurse> nurses = nurseService.getNursesByFirstNameAndLastName(firstName, lastName);
+
+                consoleViewFormatter.printHeader("All Nurses with Name: " + firstName + " " + lastName);
+                if (nurses.isEmpty()) {
+                    consoleViewFormatter.printMessage("No nurses found with the given name.");
+                    if (returnToMenu()) return;
+                }
+
+                for (Nurse nurse : nurses) {
+                    consoleViewFormatter.showEntityDetails(nurse);
+                }
+
+                if (returnToMenu()) return;
+            } catch (Exception e) {
+                consoleViewFormatter.printMessage(e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
+    }
+
+    private void viewNursesByLastName() {
+        do {
+            try {
+                String lastName = consoleInputReader.readStringPrompt("Enter Last Name: ");
+                List<Nurse> nurses = nurseService.getNursesByLastName(lastName);
+
+                consoleViewFormatter.printHeader("All Nurses with Last Name: " + lastName);
+                if (nurses.isEmpty()) {
+                    consoleViewFormatter.printMessage("No nurses found with the given last name.");
+                    if (returnToMenu()) return;
+                }
+
+                for (Nurse nurse : nurses) {
+                    consoleViewFormatter.showEntityDetails(nurse);
+                }
+
+                if (returnToMenu()) return;
+            } catch (Exception e) {
+                consoleViewFormatter.printMessage(e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
     }
 }

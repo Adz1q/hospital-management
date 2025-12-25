@@ -2,6 +2,8 @@ package com.adz1q.hospital.management.service;
 
 import com.adz1q.hospital.management.exception.DepartmentNotFoundException;
 import com.adz1q.hospital.management.model.Department;
+import com.adz1q.hospital.management.model.Nurse;
+import com.adz1q.hospital.management.model.Room;
 import com.adz1q.hospital.management.repository.DepartmentRepository;
 import com.adz1q.hospital.management.repository.NurseRepository;
 import com.adz1q.hospital.management.repository.RoomRepository;
@@ -71,5 +73,13 @@ public class DepartmentService {
 
     public boolean existsAnyNurseInDepartment(UUID departmentId) {
         return !nurseRepository.findByDepartmentId(departmentId).isEmpty();
+    }
+
+    public List<Nurse> getNursesInDepartment(UUID departmentId) {
+        return nurseRepository.findByDepartmentId(departmentId);
+    }
+
+    public List<Room> getRoomsInDepartment(UUID departmentId) {
+        return roomRepository.findByDepartmentId(departmentId);
     }
 }

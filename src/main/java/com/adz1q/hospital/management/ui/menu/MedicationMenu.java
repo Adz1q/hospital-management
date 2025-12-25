@@ -1,6 +1,5 @@
 package com.adz1q.hospital.management.ui.menu;
 
-import com.adz1q.hospital.management.exception.MedicationNotFoundException;
 import com.adz1q.hospital.management.model.Medication;
 import com.adz1q.hospital.management.service.MedicationService;
 import com.adz1q.hospital.management.ui.ConsoleInputReader;
@@ -41,6 +40,12 @@ public class MedicationMenu extends Menu {
     private void viewAllMedications() {
         List<Medication> medications = medicationService.getAllMedications();
         consoleViewFormatter.printHeader("All Medications");
+
+        if (medications.isEmpty()) {
+            consoleViewFormatter.printMessage("No medications found.");
+            if (returnToMenu()) return;
+        }
+
         for (Medication medication : medications) {
             consoleViewFormatter.showEntityDetails(medication);
         }
@@ -55,7 +60,7 @@ public class MedicationMenu extends Menu {
                 Medication medication = medicationService.getMedication(id);
                 consoleViewFormatter.showEntityDetails(medication);
                 if (returnToMenu()) return;
-            } catch (MedicationNotFoundException e) {
+            } catch (Exception e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;
             }

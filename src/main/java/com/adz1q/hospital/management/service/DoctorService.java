@@ -84,4 +84,30 @@ public class DoctorService {
         doctor.addSpecialization(newSpecialization);
         Logger.info("Added new specialization to doctor with ID: " + doctor.getId());
     }
+
+    public List<Doctor> getDoctorsByFirstNameAndLastName(
+            String firstName,
+            String lastName) {
+        if (firstName == null || lastName == null) {
+            throw new IllegalArgumentException("First name and last name cannot be null.");
+        }
+
+        if (firstName.isBlank() || lastName.isBlank()) {
+            throw new IllegalArgumentException("First name and last name cannot be blank.");
+        }
+
+        return doctorRepository.findByFirstNameAndLastName(firstName, lastName);
+    }
+
+    public List<Doctor> getDoctorsByLastName(String lastName) {
+        if (lastName == null) {
+            throw new IllegalArgumentException("Last name cannot be null.");
+        }
+
+        if (lastName.isBlank()) {
+            throw new IllegalArgumentException("Last name cannot be blank.");
+        }
+
+        return doctorRepository.findByLastName(lastName);
+    }
 }

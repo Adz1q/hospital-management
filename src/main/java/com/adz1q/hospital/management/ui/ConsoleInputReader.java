@@ -56,12 +56,12 @@ public class ConsoleInputReader {
                 String input = scanner.nextLine().trim();
 
                 if (input.isBlank()) {
-                    throw new IllegalArgumentException("UUID input cannot be blank.");
+                    return null;
                 }
 
                 return UUID.fromString(input);
             } catch (IllegalArgumentException e) {
-                System.out.println("Invalid UUID format. Please enter a valid UUID: ");
+                System.out.println("Invalid UUID format. Please enter a valid UUID (or press enter to continue with null): ");
             }
         }
     }

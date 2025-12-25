@@ -4,6 +4,7 @@ import com.adz1q.hospital.management.model.Surgery;
 
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 public class SurgeryRepository extends FileRepository<UUID, Surgery> {
@@ -25,5 +26,12 @@ public class SurgeryRepository extends FileRepository<UUID, Surgery> {
                         surgery.getDoctor().getId().equals(doctorId)
                                 && surgery.getSurgeryDate().equals(surgeryDate)
                                 && surgery.isScheduled());
+    }
+
+    public List<Surgery> findByDoctorId(UUID doctorId) {
+        return data.values()
+                .stream()
+                .filter(surgery -> surgery.getDoctor().getId().equals(doctorId))
+                .toList();
     }
 }

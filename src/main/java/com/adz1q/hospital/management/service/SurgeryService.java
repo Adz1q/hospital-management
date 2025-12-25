@@ -1,8 +1,10 @@
 package com.adz1q.hospital.management.service;
 
+import com.adz1q.hospital.management.exception.DoctorNotFoundException;
 import com.adz1q.hospital.management.exception.SurgeryNotFoundException;
 import com.adz1q.hospital.management.model.Doctor;
 import com.adz1q.hospital.management.model.Surgery;
+import com.adz1q.hospital.management.repository.DoctorRepository;
 import com.adz1q.hospital.management.repository.SurgeryRepository;
 import com.adz1q.hospital.management.util.Logger;
 
@@ -12,10 +14,13 @@ import java.util.UUID;
 
 public class SurgeryService {
     private final SurgeryRepository surgeryRepository;
+    private final DoctorRepository doctorRepository;
 
     public SurgeryService(
-            SurgeryRepository surgeryRepository) {
+            SurgeryRepository surgeryRepository,
+            DoctorRepository doctorRepository) {
         this.surgeryRepository = surgeryRepository;
+        this.doctorRepository = doctorRepository;
     }
 
     public Surgery scheduleSurgery(
@@ -98,5 +103,17 @@ public class SurgeryService {
             UUID doctorId,
             LocalDate date) {
         return surgeryRepository.existsByDoctorIdAndSurgeryDate(doctorId, date);
+    }
+
+    public List<Surgery> getSurgeriesByDoctorId(UUID doctorId)
+            throws DoctorNotFoundException {
+        Doctor doctor = getDoctor(doctorId);
+        return surgeryRepository.findByDoctorId(doctor.getId());
+    }
+
+    public Doctor getDoctor(UUID id)
+            throws DoctorNotFoundException {
+        return doctorRepository.findById(id)
+                .orElseThrow(() -> new DoctorNotFoundException("Doctor with ID: " + id + " does not exits."));
     }
 }

@@ -35,11 +35,10 @@ public class SurgeryMenu extends Menu {
             switch (choice) {
                 case 1 -> viewAllSurgeries();
                 case 2 -> viewSurgeryById();
-                case 3 -> scheduleNewSurgery();
-                case 4 -> rescheduleSurgery();
-                case 5 -> changeSurgeryDoctor();
-                case 6 -> completeSurgery();
-                case 7 -> cancelSurgery();
+                case 3 -> rescheduleSurgery();
+                case 4 -> changeSurgeryDoctor();
+                case 5 -> completeSurgery();
+                case 6 -> cancelSurgery();
                 default -> {
                     System.out.println("Exiting Appointment Management Menu...");
                     return;
@@ -51,6 +50,12 @@ public class SurgeryMenu extends Menu {
     private void viewAllSurgeries() {
         List<Surgery> surgeries = surgeryService.getAllSurgeries();
         consoleViewFormatter.printHeader("All Surgeries");
+
+        if (surgeries.isEmpty()) {
+            consoleViewFormatter.printMessage("No surgeries found.");
+            if (returnToMenu()) return;
+        }
+
         for (Surgery surgery : surgeries) {
             consoleViewFormatter.showEntityDetails(surgery);
         }
@@ -70,27 +75,6 @@ public class SurgeryMenu extends Menu {
                 if (shouldReturn()) return;
             }
         } while (true);
-    }
-
-    private void scheduleNewSurgery() {
-        while (true) {
-            try {
-                String surgeryDescription = consoleInputReader.readStringPrompt("Enter Surgery Description: ");
-                String prescriptionDateStr = consoleInputReader.readStringPrompt("Enter Prescription Date (YYYY-MM-DD): ");
-                String surgeryDateStr = consoleInputReader.readStringPrompt("Enter Surgery Date (YYYY-MM-DD): ");
-                UUID doctorId = consoleInputReader.readUUIDPrompt("Enter Surgery Doctor ID: ");
-
-                LocalDate prescriptionDate = LocalDate.parse(prescriptionDateStr);
-                LocalDate surgeryDate = LocalDate.parse(surgeryDateStr);
-                Doctor doctor = doctorService.getDoctor(doctorId);
-                Surgery surgery = surgeryService.scheduleSurgery(surgeryDescription, prescriptionDate, doctor, surgeryDate);
-                consoleViewFormatter.printMessage("Surgery scheduled successfully with ID: " + surgery.getId());
-                if (returnToMenu()) return;
-            } catch (Exception e) {
-                consoleViewFormatter.printMessage("Error: " + e.getMessage());
-                if (shouldReturn()) return;
-            }
-        }
     }
 
     private void rescheduleSurgery() {

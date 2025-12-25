@@ -12,6 +12,7 @@ import com.adz1q.hospital.management.repository.RoomRepository;
 import com.adz1q.hospital.management.util.Logger;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class RoomService {
@@ -103,6 +104,12 @@ public class RoomService {
         Patient patient = getPatient(patientId);
         room.removePatient(patient);
         Logger.info("Removed patient from room with ID: " + roomId);
+    }
+
+    public Set<Patient> getPatientsInRoom(UUID roomId)
+            throws RoomNotFoundException {
+        Room room = getRoom(roomId);
+        return roomRepository.findPatientsInRoom(room.getId());
     }
 
     public boolean existsAnyRoomInDepartment(UUID departmentId) {

@@ -1,6 +1,5 @@
 package com.adz1q.hospital.management.ui.menu;
 
-import com.adz1q.hospital.management.exception.TherapyNotFoundException;
 import com.adz1q.hospital.management.model.Therapy;
 import com.adz1q.hospital.management.service.TherapyService;
 import com.adz1q.hospital.management.ui.ConsoleInputReader;
@@ -41,6 +40,12 @@ public class TherapyMenu extends Menu {
     private void viewAllTherapies() {
         List<Therapy> therapies = therapyService.getAllTherapies();
         consoleViewFormatter.printHeader("All Therapies");
+
+        if (therapies.isEmpty()) {
+            consoleViewFormatter.printMessage("No therapies found.");
+            if (returnToMenu()) return;
+        }
+
         for (Therapy therapy : therapies) {
             consoleViewFormatter.showEntityDetails(therapy);
         }
@@ -55,7 +60,7 @@ public class TherapyMenu extends Menu {
                 Therapy therapy = therapyService.getTherapy(id);
                 consoleViewFormatter.showEntityDetails(therapy);
                 if (returnToMenu()) return;
-            } catch (TherapyNotFoundException e) {
+            } catch (Exception e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;
             }

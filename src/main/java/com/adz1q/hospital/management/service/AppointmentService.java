@@ -90,7 +90,7 @@ public class AppointmentService {
             throws AppointmentNotFoundException {
         Appointment appointment = getAppointment(id);
         appointment.completeAppointment(diagnosis);
-        appointment.getPatient().addDiagnosis(diagnosis);
+        updateDocumentation(appointment.getPatient(), diagnosis);
         Logger.info("Completed appointment with ID: " + id);
     }
 
@@ -98,5 +98,12 @@ public class AppointmentService {
             UUID doctorId,
             LocalDate date) {
         return appointmentRepository.existsByDoctorIdAndDate(doctorId, date);
+    }
+
+    public void updateDocumentation(
+            Patient patient,
+            Diagnosis diagnosis) {
+        patient.addDiagnosis(diagnosis);
+        Logger.info("Updated patient documentation with ID: " + patient.getId());
     }
 }

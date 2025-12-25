@@ -62,7 +62,7 @@ public class ApplicationContext {
     private final PatientService patientService =
             new PatientService(patientRepository);
     private final SurgeryService surgeryService =
-            new SurgeryService(surgeryRepository);
+            new SurgeryService(surgeryRepository, doctorRepository);
     private final MedicationService medicationService =
             new MedicationService(medicationRepository);
     private final TherapyService therapyService =
@@ -84,7 +84,7 @@ public class ApplicationContext {
     private final RoomMenu roomMenu =
             new RoomMenu(consoleInputReader, consoleViewFormatter, roomService);
     private final DoctorMenu doctorMenu =
-            new DoctorMenu(consoleInputReader, consoleViewFormatter, doctorService);
+            new DoctorMenu(consoleInputReader, consoleViewFormatter, doctorService, surgeryService);
     private final NurseMenu nurseMenu =
             new NurseMenu(consoleInputReader, consoleViewFormatter, nurseService);
     private final PatientMenu patientMenu =

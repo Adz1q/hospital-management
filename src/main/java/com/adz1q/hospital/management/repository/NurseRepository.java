@@ -34,4 +34,19 @@ public class NurseRepository extends FileRepository<UUID, Nurse> {
                 .filter(nurse -> nurse.getDepartment().getId().equals(departmentId))
                 .toList();
     }
+
+    public List<Nurse> findByFirstNameAndLastName(String firstName, String lastName) {
+        return data.values()
+                .stream()
+                .filter(nurse -> nurse.getFirstName().equalsIgnoreCase(firstName))
+                .filter(nurse -> nurse.getLastName().equalsIgnoreCase(lastName))
+                .toList();
+    }
+
+    public List<Nurse> findByLastName(String lastName) {
+        return data.values()
+                .stream()
+                .filter(nurse -> nurse.getLastName().equalsIgnoreCase(lastName))
+                .toList();
+    }
 }

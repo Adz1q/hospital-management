@@ -1,7 +1,8 @@
 package com.adz1q.hospital.management.ui.menu;
 
-import com.adz1q.hospital.management.exception.PatientNotFoundException;
+import com.adz1q.hospital.management.model.Diagnosis;
 import com.adz1q.hospital.management.model.Patient;
+import com.adz1q.hospital.management.model.Treatment;
 import com.adz1q.hospital.management.service.PatientService;
 import com.adz1q.hospital.management.ui.ConsoleInputReader;
 import com.adz1q.hospital.management.ui.ConsoleViewFormatter;
@@ -32,6 +33,10 @@ public class PatientMenu extends Menu {
                 case 1 -> viewAllPatients();
                 case 2 -> viewPatientById();
                 case 3 -> registerNewPatient();
+                case 4 -> viewPatientsByFirstNameAndLastName();
+                case 5 -> viewPatientsByLastName();
+                case 6 -> viewPatientDocumentation();
+                case 7 -> viewPatientTreatmentHistory();
                 default -> {
                     System.out.println("Exiting Patient Management Menu...");
                     return;
@@ -43,6 +48,12 @@ public class PatientMenu extends Menu {
     private void viewAllPatients() {
         List<Patient> patients = patientService.getAllPatients();
         consoleViewFormatter.printHeader("All Patients");
+
+        if (patients.isEmpty()) {
+            consoleViewFormatter.printMessage("No patients found.");
+            if (returnToMenu()) return;
+        }
+
         for (Patient patient : patients) {
             consoleViewFormatter.showEntityDetails(patient);
         }
@@ -57,7 +68,7 @@ public class PatientMenu extends Menu {
                 Patient patient = patientService.getPatient(id);
                 consoleViewFormatter.showEntityDetails(patient);
                 if (returnToMenu()) return;
-            } catch (PatientNotFoundException e) {
+            } catch (Exception e) {
                 consoleViewFormatter.printMessage(e.getMessage());
                 if (shouldReturn()) return;
             }
@@ -93,5 +104,102 @@ public class PatientMenu extends Menu {
                 if (shouldReturn()) return;
             }
         }
+    }
+
+    private void viewPatientsByFirstNameAndLastName() {
+        do {
+            try {
+                String firstName = consoleInputReader.readStringPrompt("Enter First Name: ");
+                String lastName = consoleInputReader.readStringPrompt("Enter Last Name: ");
+                List<Patient> patients = patientService.getPatientsByFirstAndLastName(firstName, lastName);
+
+                consoleViewFormatter.printHeader("Patients with name: " + firstName + " " + lastName);
+                if (patients.isEmpty()) {
+                    consoleViewFormatter.printMessage("No patients found.");
+                    if (returnToMenu()) return;
+                }
+
+                for (Patient patient : patients) {
+                    consoleViewFormatter.showEntityDetails(patient);
+                }
+
+                if (returnToMenu()) return;
+            } catch (Exception e) {
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
+    }
+
+    private void viewPatientsByLastName() {
+        do {
+            try {
+                String lastName = consoleInputReader.readStringPrompt("Enter Last Name: ");
+                List<Patient> patients = patientService.getPatientsByLastName(lastName);
+
+                consoleViewFormatter.printHeader("Patients with last name: " + lastName);
+                if (patients.isEmpty()) {
+                    consoleViewFormatter.printMessage("No patients found.");
+                    if (returnToMenu()) return;
+                }
+
+                for (Patient patient : patients) {
+                    consoleViewFormatter.showEntityDetails(patient);
+                }
+
+                if (returnToMenu()) return;
+            } catch (Exception e) {
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
+    }
+
+    private void viewPatientDocumentation() {
+        do {
+            try {
+                UUID patientId = consoleInputReader.readUUIDPrompt("Enter Patient ID: ");
+                List<Diagnosis> documentation = patientService.getPatientDocumentation(patientId);
+
+                consoleViewFormatter.printHeader("Patient Documentation for ID: " + patientId);
+                if (documentation.isEmpty()) {
+                    consoleViewFormatter.printMessage("No documentation found for this patient.");
+                    if (returnToMenu()) return;
+                }
+
+                for (Diagnosis diagnosis : documentation) {
+                    consoleViewFormatter.showEntityDetails(diagnosis);
+                }
+
+                if (returnToMenu()) return;
+            } catch (Exception e) {
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
+    }
+
+    private void viewPatientTreatmentHistory() {
+        do {
+            try {
+                UUID patientId = consoleInputReader.readUUIDPrompt("Enter Patient ID: ");
+                List<Treatment> treatments = patientService.getPatientTreatments(patientId);
+
+                consoleViewFormatter.printHeader("Patient Treatment History for ID: " + patientId);
+                if (treatments.isEmpty()) {
+                    consoleViewFormatter.printMessage("No treatment history found for this patient.");
+                    if (returnToMenu()) return;
+                }
+
+                for (Treatment treatment : treatments) {
+                    consoleViewFormatter.showEntityDetails(treatment);
+                }
+
+                if (returnToMenu()) return;
+            } catch (Exception e) {
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
     }
 }

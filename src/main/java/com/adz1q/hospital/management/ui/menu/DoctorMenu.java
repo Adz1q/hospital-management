@@ -2,7 +2,9 @@ package com.adz1q.hospital.management.ui.menu;
 
 import com.adz1q.hospital.management.model.Doctor;
 import com.adz1q.hospital.management.model.Specialization;
+import com.adz1q.hospital.management.model.Surgery;
 import com.adz1q.hospital.management.service.DoctorService;
+import com.adz1q.hospital.management.service.SurgeryService;
 import com.adz1q.hospital.management.ui.ConsoleInputReader;
 import com.adz1q.hospital.management.ui.ConsoleViewFormatter;
 
@@ -14,13 +16,16 @@ import java.util.UUID;
 
 public class DoctorMenu extends Menu {
     private final DoctorService doctorService;
+    private final SurgeryService surgeryService;
 
     public DoctorMenu(
             ConsoleInputReader consoleInputReader,
             ConsoleViewFormatter consoleViewFormatter,
-            DoctorService doctorService) {
+            DoctorService doctorService,
+            SurgeryService surgeryService) {
         super(consoleInputReader, consoleViewFormatter);
         this.doctorService = doctorService;
+        this.surgeryService = surgeryService;
     }
 
     @Override
@@ -37,6 +42,9 @@ public class DoctorMenu extends Menu {
                 case 4 -> dismissDoctor();
                 case 5 -> rehireDoctor();
                 case 6 -> updateDoctorSpecializations();
+                case 7 -> viewDoctorsByFirstNameAndLastName();
+                case 8 -> viewDoctorsByLastName();
+                case 9 -> viewDoctorSurgeries();
                 default -> {
                     System.out.println("Exiting Doctor Management Menu...");
                     return;
@@ -48,6 +56,12 @@ public class DoctorMenu extends Menu {
     private void viewAllDoctors() {
         List<Doctor> doctors = doctorService.getAllDoctors();
         consoleViewFormatter.printHeader("All Doctors");
+
+        if (doctors.isEmpty()) {
+            consoleViewFormatter.printMessage("No doctors found.");
+            if (returnToMenu()) return;
+        }
+
         for (Doctor doctor : doctors) {
             consoleViewFormatter.showEntityDetails(doctor);
         }
@@ -168,5 +182,79 @@ public class DoctorMenu extends Menu {
                 if (shouldReturn()) return;
             }
         }
+    }
+
+    private void viewDoctorsByFirstNameAndLastName() {
+        do {
+            try {
+                String firstName = consoleInputReader.readStringPrompt("Enter First Name: ");
+                String lastName = consoleInputReader.readStringPrompt("Enter Last Name: ");
+                List<Doctor> doctors = doctorService.getDoctorsByFirstNameAndLastName(firstName, lastName);
+
+                consoleViewFormatter.printHeader("All Doctors with Name: " + firstName + " " + lastName);
+                if (doctors.isEmpty()) {
+                    consoleViewFormatter.printMessage("No doctors found with the given name.");
+                    if (returnToMenu()) return;
+                }
+
+                for (Doctor doctor : doctors) {
+                    consoleViewFormatter.showEntityDetails(doctor);
+                }
+
+                if (returnToMenu()) return;
+            } catch (Exception e) {
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
+    }
+
+    private void viewDoctorsByLastName() {
+        do {
+            try {
+                String lastName = consoleInputReader.readStringPrompt("Enter Last Name: ");
+                List<Doctor> doctors = doctorService.getDoctorsByLastName(lastName);
+
+                consoleViewFormatter.printHeader("All Doctors with Last Name: " + lastName);
+                if (doctors.isEmpty()) {
+                    consoleViewFormatter.printMessage("No doctors found with the given last name.");
+                    if (returnToMenu()) return;
+                }
+
+                for (Doctor doctor : doctors) {
+                    consoleViewFormatter.showEntityDetails(doctor);
+                }
+
+                if (returnToMenu()) return;
+            } catch (Exception e) {
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
+    }
+
+    private void viewDoctorSurgeries() {
+        do {
+            try {
+                UUID id = consoleInputReader.readUUIDPrompt("Enter Doctor ID: ");
+                Doctor doctor = doctorService.getDoctor(id);
+                List<Surgery> surgeries = surgeryService.getSurgeriesByDoctorId(id);
+
+                consoleViewFormatter.printHeader("Surgeries for Doctor: " + doctor.getFirstName() + " " + doctor.getLastName());
+                if (surgeries.isEmpty()) {
+                    consoleViewFormatter.printMessage("No surgeries found for this doctor.");
+                    if (returnToMenu()) return;
+                }
+
+                for (Surgery surgery : surgeries) {
+                    consoleViewFormatter.showEntityDetails(surgery);
+                }
+
+                if (returnToMenu()) return;
+            } catch (Exception e) {
+                consoleViewFormatter.printMessage("Error: " + e.getMessage());
+                if (shouldReturn()) return;
+            }
+        } while (true);
     }
 }

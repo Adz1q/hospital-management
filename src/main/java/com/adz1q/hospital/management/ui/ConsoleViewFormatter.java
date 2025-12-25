@@ -42,7 +42,7 @@ public class ConsoleViewFormatter {
     }
 
     public void printReturnPrompt() {
-        System.out.println("Press enter to return to menu...");
+        System.out.println("Press enter to return to main menu...");
     }
 
     public void printMessage(String message) {
@@ -97,8 +97,7 @@ public class ConsoleViewFormatter {
         String title = "Diagnosis Management";
         List<String> options = List.of(
                 "View All Diagnoses",
-                "View Diagnosis by ID",
-                "Diagnose Patient");
+                "View Diagnosis by ID");
 
         printHeader(title);
         printOptions(options);
@@ -113,7 +112,9 @@ public class ConsoleViewFormatter {
                 "View Department by ID",
                 "Create New Department",
                 "Rename Department",
-                "Close Department");
+                "Close Department",
+                "View Nurses in Department",
+                "View Rooms in Department");
 
         printHeader(title);
         printOptions(options);
@@ -131,7 +132,8 @@ public class ConsoleViewFormatter {
                 "Change Room Department",
                 "Assign Patient to Room",
                 "Remove Patient from Room",
-                "Delete Room");
+                "Delete Room",
+                "View Patients in Room");
 
         printHeader(title);
         printOptions(options);
@@ -147,7 +149,10 @@ public class ConsoleViewFormatter {
                 "Hire New Doctor",
                 "Dismiss Doctor",
                 "Rehire Doctor Specialty",
-                "Update Doctor Specializations");
+                "Update Doctor Specializations",
+                "View Doctors by First Name and Last Name",
+                "View Doctors by Last Name",
+                "View Doctor Surgeries");
 
         printHeader(title);
         printOptions(options);
@@ -163,7 +168,9 @@ public class ConsoleViewFormatter {
                 "Hire New Nurse",
                 "Dismiss Nurse",
                 "Rehire Nurse",
-                "Change Nurse Department");
+                "Change Nurse Department",
+                "View Nurses by First Name and Last Name",
+                "View Nurses by Last Name");
 
         printHeader(title);
         printOptions(options);
@@ -176,7 +183,11 @@ public class ConsoleViewFormatter {
         List<String> options = List.of(
                 "View All Patients",
                 "View Patient by ID",
-                "Register New Patient");
+                "Register New Patient",
+                "View Patients by First Name and Last Name",
+                "View Patients by Last Name",
+                "View Patient Documentation",
+                "View Patient Treatment History");
 
         printHeader(title);
         printOptions(options);
@@ -189,7 +200,6 @@ public class ConsoleViewFormatter {
         List<String> options = List.of(
                 "View All Surgeries",
                 "View Surgery by ID",
-                "Schedule New Surgery",
                 "Reschedule Surgery",
                 "Change Surgery Doctor",
                 "Complete Surgery",

@@ -1,9 +1,11 @@
 package com.adz1q.hospital.management.repository;
 
+import com.adz1q.hospital.management.model.Patient;
 import com.adz1q.hospital.management.model.Room;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class RoomRepository extends FileRepository<UUID, Room> {
@@ -24,5 +26,9 @@ public class RoomRepository extends FileRepository<UUID, Room> {
                 .filter(room -> room.getDepartment() != null)
                 .filter(room -> room.getDepartment().getId().equals(departmentId))
                 .toList();
+    }
+
+    public Set<Patient> findPatientsInRoom(UUID roomId) {
+        return data.get(roomId).getPatients();
     }
 }
