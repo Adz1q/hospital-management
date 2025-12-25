@@ -36,9 +36,12 @@ public class Medication extends Treatment {
 
     @Override
     public String toString() {
-        return "Medication{" +
-                "medicines=" + medicines +
-                '}';
+        return "Medication[" +
+                "ID: " + super.getId() +
+                " | Description: " + super.getDescription() +
+                " | Prescription Date: " + super.getPrescriptionDate() +
+                " | Medicines: " + medicines +
+                "]";
     }
 
     public List<String> getMedicines() {

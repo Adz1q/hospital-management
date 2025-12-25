@@ -85,10 +85,15 @@ public class Doctor extends Person {
 
     @Override
     public String toString() {
-        return "Doctor{" +
-                "specializations=" + specializations +
-                ", active=" + active +
-                '}';
+        return "Doctor[" +
+                "ID: " + super.getId() +
+                " | First Name: " + super.getFirstName() +
+                " | Last Name: " + super.getLastName() +
+                " | Birth Date: " + super.getBirthDate() +
+                (super.getPesel() != null ? " | PESEL: " + super.getPesel() : "") +
+                " | Specializations: " + specializations +
+                " | Active: " + active +
+                "]";
     }
 
     public Set<Specialization> getSpecializations() {

@@ -87,11 +87,14 @@ public class Surgery extends Treatment {
 
     @Override
     public String toString() {
-        return "Surgery{" +
-                "doctor=" + doctor +
-                ", surgeryDate=" + surgeryDate +
-                ", status=" + status +
-                '}';
+        return "Surgery[" +
+                "ID: " + super.getId() +
+                " | Description: " + super.getDescription() +
+                " | Prescription Date: " + super.getPrescriptionDate() +
+                " | Doctor: " + doctor.getFullName() +
+                " | Surgery Date: " + surgeryDate +
+                " | Status: " + status.getStatus() +
+                "]";
     }
 
     public Doctor getDoctor() {
@@ -100,18 +103,6 @@ public class Surgery extends Treatment {
 
     public LocalDate getSurgeryDate() {
         return surgeryDate;
-    }
-
-    public SurgeryStatus getStatus() {
-        return status;
-    }
-
-    public boolean isCompleted() {
-        return status == SurgeryStatus.COMPLETED;
-    }
-
-    public boolean isCancelled() {
-        return status == SurgeryStatus.CANCELLED;
     }
 
     public boolean isScheduled() {

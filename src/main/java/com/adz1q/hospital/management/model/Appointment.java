@@ -123,14 +123,14 @@ public class Appointment implements Identifiable<UUID>, Describable {
 
     @Override
     public String toString() {
-        return "Appointment{" +
-                "id=" + id +
-                ", patient=" + patient +
-                ", doctor=" + doctor +
-                ", date=" + date +
-                ", diagnosis=" + diagnosis +
-                ", status=" + status +
-                '}';
+        return "Appointment[" +
+                "ID: " + id +
+                " | Patient: " + patient.getFullName() +
+                " | Doctor: " + doctor.getFullName() +
+                " | Date: " + date +
+                (diagnosis != null ? " | Diagnosis: " + diagnosis : "") +
+                " | Status: " + status.getStatus() +
+                "]";
     }
 
     @Override

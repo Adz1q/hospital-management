@@ -36,9 +36,12 @@ public class Rehabilitation extends Treatment {
 
     @Override
     public String toString() {
-        return "Rehabilitation{" +
-                "therapies=" + therapies +
-                '}';
+        return "Rehabilitation[" +
+                "ID: " + super.getId() +
+                " | Description: " + super.getDescription() +
+                " | Prescription Date: " + super.getPrescriptionDate() +
+                " | Therapies: " + therapies +
+                "]";
     }
 
     public List<String> getTherapies() {

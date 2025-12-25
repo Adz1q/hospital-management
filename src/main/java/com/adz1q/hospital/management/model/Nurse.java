@@ -75,10 +75,15 @@ public class Nurse extends Person {
 
     @Override
     public String toString() {
-        return "Nurse{" +
-                "department=" + department +
-                ", active=" + active +
-                '}';
+        return "Nurse[" +
+                "ID: " + super.getId() +
+                " | First Name: " + super.getFirstName() +
+                " | Last Name: " + super.getLastName() +
+                " | Birth Date: " + super.getBirthDate() +
+                (super.getPesel() != null ? " | PESEL: " + super.getPesel() : "") +
+                " | Department: " + department.getName() +
+                " | Active: " + active +
+                "]";
     }
 
     public Department getDepartment() {

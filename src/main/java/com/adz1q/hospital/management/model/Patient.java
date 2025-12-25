@@ -48,10 +48,13 @@ public class Patient extends Person {
 
     @Override
     public String toString() {
-        return "Patient{" +
-                "person=" + super.toString() +
-                ", documentation=" + documentation +
-                '}';
+        return "Patient[" +
+                "ID: " + super.getId() +
+                " | First Name: " + super.getFirstName() +
+                " | Last Name: " + super.getLastName() +
+                " | Birth Date: " + super.getBirthDate() +
+                (super.getPesel() != null ? " | PESEL: " + super.getPesel() : "") +
+                "]";
     }
 
     public List<Diagnosis> getDocumentation() {

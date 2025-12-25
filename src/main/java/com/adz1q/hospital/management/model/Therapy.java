@@ -34,9 +34,12 @@ public class Therapy extends Treatment {
 
     @Override
     public String toString() {
-        return "Therapy{" +
-                "name='" + name + '\'' +
-                '}';
+        return "Therapy[" +
+                "ID: " + super.getId() +
+                " | Name: " + name +
+                " | Description: " + super.getDescription() +
+                " | Prescription Date: " + super.getPrescriptionDate() +
+                "]";
     }
 
     public String getName() {

@@ -74,21 +74,6 @@ public abstract class Person implements Identifiable<UUID>, Describable {
         }
     }
 
-    public void updatePesel(String pesel) {
-        validatePesel(pesel);
-        this.pesel = pesel;
-    }
-
-    public void changeFirstName(String firstName) {
-        validateFirstName(firstName);
-        this.firstName = firstName;
-    }
-
-    public void changeLastName(String lastName) {
-        validateLastName(lastName);
-        this.lastName = lastName;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

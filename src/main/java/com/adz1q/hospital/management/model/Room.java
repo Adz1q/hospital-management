@@ -101,13 +101,13 @@ public class Room implements Identifiable<UUID>, Describable {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", department=" + department +
-                ", patients=" + patients +
-                ", availableSlots=" + availableSlots +
-                '}';
+        return "Room[" +
+                "ID: " + id +
+                " | Name: " + name +
+                " | Department: " + department +
+                " | Patients: " + patients +
+                " | Available Slots: " + availableSlots +
+                "]";
     }
 
     @Override
@@ -125,9 +125,5 @@ public class Room implements Identifiable<UUID>, Describable {
 
     public Set<Patient> getPatients() {
         return Collections.unmodifiableSet(patients);
-    }
-
-    public int getAvailableSlots() {
-        return availableSlots;
     }
 }

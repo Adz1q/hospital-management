@@ -56,11 +56,11 @@ public class Diagnosis implements Identifiable<UUID>, Describable {
 
     @Override
     public String toString() {
-        return "Diagnosis{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", treatments=" + treatments +
-                '}';
+        return "Diagnosis[" +
+                "ID: " + id +
+                " | Description: " + description +
+                " | Treatments: " + treatments +
+                "]";
     }
 
     @Override

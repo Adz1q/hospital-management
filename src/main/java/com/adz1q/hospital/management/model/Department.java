@@ -70,11 +70,11 @@ public class Department implements Identifiable<UUID>, Describable {
 
     @Override
     public String toString() {
-        return "Department{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", active=" + active +
-                '}';
+        return "Department[" +
+                "ID: " + id +
+                " | Name: " + name +
+                " | Active: " + active +
+                "]";
     }
 
     @Override
