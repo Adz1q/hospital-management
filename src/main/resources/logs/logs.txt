@@ -31,3 +31,6 @@
 [2025-12-20 19:33:33] [WARN] User entered invalid UUID: Invalid UUID string: 235
 [2025-12-20 19:33:36] [ERROR] Error in Reports Menu: No input available. Please run in an interactive terminal.
 [2025-12-20 19:33:36] [ERROR] Unexpected error in main menu: No line found
+[2025-12-25 12:38:21] [INFO] Hired doctor with ID: bc8d658d-49c4-4f55-845d-a19489428d66
+[2025-12-25 12:44:53] [INFO] Hired doctor with ID: 6b30647a-df0a-4dbb-9cb6-526520ea8071
+[2025-12-25 12:52:41] [INFO] Hired doctor with ID: 8353b5c2-1ff8-4d84-bffa-d3932debc129

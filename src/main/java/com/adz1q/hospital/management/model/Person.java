@@ -52,10 +52,6 @@ public abstract class Person implements Identifiable<UUID>, Describable {
         if (firstName.isBlank()) {
             throw new IllegalArgumentException("First name cannot be blank.");
         }
-
-        if (!firstName.matches("^[\\p{L} .'-]+$")) {
-            throw new IllegalArgumentException("First name must contain only letters, spaces, hyphens or apostrophes.");
-        }
     }
 
     private void validateLastName(String lastName) {

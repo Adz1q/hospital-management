@@ -14,6 +14,7 @@ public class Doctor extends Person {
             LocalDate birthDate,
             Set<Specialization> specializations) {
         super(firstName, lastName, birthDate);
+        validateSpecializations(specializations);
         this.specializations = specializations;
         this.active = true;
     }

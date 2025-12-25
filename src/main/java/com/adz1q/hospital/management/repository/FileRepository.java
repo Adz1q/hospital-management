@@ -23,7 +23,8 @@ public abstract class FileRepository<ID, T extends Identifiable<ID>>
 
     @Override
     public T save(T entity) {
-        return data.put(entity.getId(), entity);
+        data.put(entity.getId(), entity);
+        return entity;
     }
 
     @Override
