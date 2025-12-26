@@ -68,3 +68,9 @@
 [2025-12-26 12:17:50] [INFO] Saving data to CSV files
 [2025-12-26 12:17:50] [INFO] Medications saved successfully to src\main\resources\csv\medications.csv
 [2025-12-26 12:17:50] [INFO] Data saved successfully
+[2025-12-26 23:02:06] [INFO] Loading data from CSV files
+[2025-12-26 23:02:06] [INFO] Medications loaded successfully from src\main\resources\csv\medications.csv
+[2025-12-26 23:02:06] [INFO] Data loading completed
+[2025-12-26 23:02:27] [INFO] Saving data to CSV files
+[2025-12-26 23:02:27] [INFO] Medications saved successfully to src\main\resources\csv\medications.csv
+[2025-12-26 23:02:27] [INFO] Data saved successfully
