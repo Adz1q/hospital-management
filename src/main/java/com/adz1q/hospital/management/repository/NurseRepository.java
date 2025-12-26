@@ -1,23 +1,23 @@
 package com.adz1q.hospital.management.repository;
 
+import com.adz1q.hospital.management.model.Department;
 import com.adz1q.hospital.management.model.Nurse;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
 public class NurseRepository extends FileRepository<UUID, Nurse> {
     public NurseRepository(Path filePath) {
         super(filePath);
-        loadFromFile();
     }
 
-    @Override
-    protected void loadFromFile() {}
+    public void loadFromFile(Map<UUID, Department> departments) {}
 
     @Override
-    protected void saveToFile() {}
+    public void saveToFile() {}
 
     public Optional<Nurse> findByPesel(String pesel) {
         return data.values()

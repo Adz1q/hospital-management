@@ -8,12 +8,10 @@ import java.util.UUID;
 public class TherapyRepository extends FileRepository<UUID, Therapy> {
     public TherapyRepository(Path filePath) {
         super(filePath);
-        loadFromFile();
     }
 
-    @Override
-    protected void loadFromFile() {}
+    public void loadFromFile() {}
 
     @Override
-    protected void saveToFile() {}
+    public void saveToFile() {}
 }

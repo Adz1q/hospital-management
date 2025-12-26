@@ -56,3 +56,15 @@
 [2025-12-25 21:11:00] [INFO] Removed patient from room with ID: 510c0cbe-f1b2-4ebf-b215-73e675376d8c
 [2025-12-25 21:12:13] [INFO] Renamed department with ID: 75c59ea6-6f3d-4373-ac5d-ade0352d8e69
 [2025-12-25 21:12:39] [INFO] Deleted room with ID: 510c0cbe-f1b2-4ebf-b215-73e675376d8c
+[2025-12-26 12:13:46] [INFO] Loading data from CSV files
+[2025-12-26 12:13:46] [INFO] Data loading completed
+[2025-12-26 12:14:55] [INFO] Hired doctor with ID: bcd819d4-cd64-4dd6-95a6-63e3886f6e94
+[2025-12-26 12:15:18] [INFO] Registered patient with ID: 5e2c4c07-53b4-480e-be28-a1da76dd0c1a
+[2025-12-26 12:15:44] [INFO] Scheduled new appointment with ID: 279f2723-3fe7-4959-87d3-206f8fa3a9cc
+[2025-12-26 12:17:14] [INFO] Prescribed medication with ID: 523b5731-568c-46c3-b3e1-6deb9f0b10a1
+[2025-12-26 12:17:21] [INFO] Diagnosed new patient with diagnosis ID: 931d9930-e4d3-4ab3-a57a-7eec5dcbd40c
+[2025-12-26 12:17:21] [INFO] Updated patient documentation with ID: 5e2c4c07-53b4-480e-be28-a1da76dd0c1a
+[2025-12-26 12:17:21] [INFO] Completed appointment with ID: 279f2723-3fe7-4959-87d3-206f8fa3a9cc
+[2025-12-26 12:17:50] [INFO] Saving data to CSV files
+[2025-12-26 12:17:50] [INFO] Medications saved successfully to src\main\resources\csv\medications.csv
+[2025-12-26 12:17:50] [INFO] Data saved successfully

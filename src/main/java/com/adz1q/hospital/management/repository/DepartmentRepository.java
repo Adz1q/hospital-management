@@ -8,12 +8,10 @@ import java.util.UUID;
 public class DepartmentRepository extends FileRepository<UUID, Department> {
     public DepartmentRepository(Path filepath) {
         super(filepath);
-        loadFromFile();
     }
 
-    @Override
-    protected void loadFromFile() {}
+    public void loadFromFile() {}
 
     @Override
-    protected void saveToFile() {}
+    public void saveToFile() {}
 }

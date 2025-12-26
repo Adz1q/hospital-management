@@ -23,6 +23,19 @@ public class Room implements Identifiable<UUID>, Describable {
         this.availableSlots = availableSlots;
     }
 
+    public Room(
+            UUID id,
+            String name,
+            Department department,
+            Set<Patient> patients,
+            int availableSlots) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.patients = patients;
+        this.availableSlots = availableSlots;
+    }
+
     public void showDetails() {
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);

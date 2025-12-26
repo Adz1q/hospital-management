@@ -15,6 +15,15 @@ public class Department implements Identifiable<UUID>, Describable {
         this.active = true;
     }
 
+    public Department(
+            UUID id,
+            String name,
+            boolean active) {
+        this.id = id;
+        this.name = name;
+        this.active = active;
+    }
+
     public void showDetails() {
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);

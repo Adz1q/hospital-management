@@ -1,24 +1,26 @@
 package com.adz1q.hospital.management.repository;
 
+import com.adz1q.hospital.management.model.Department;
 import com.adz1q.hospital.management.model.Patient;
 import com.adz1q.hospital.management.model.Room;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
 public class RoomRepository extends FileRepository<UUID, Room> {
     public RoomRepository(Path filepath) {
         super(filepath);
-        loadFromFile();
     }
 
-    @Override
-    protected void loadFromFile() {}
+    public void loadFromFile(
+            Map<UUID, Department> departments,
+            Map<UUID, Patient> patients) {}
 
     @Override
-    protected void saveToFile() {}
+    public void saveToFile() {}
 
     public List<Room> findByDepartmentId(UUID departmentId) {
         return data.values()

@@ -27,6 +27,21 @@ public class Appointment implements Identifiable<UUID>, Describable {
         this.status = AppointmentStatus.SCHEDULED;
     }
 
+    public Appointment(
+            UUID id,
+            Patient patient,
+            Doctor doctor,
+            LocalDate date,
+            Diagnosis diagnosis,
+            AppointmentStatus status) {
+        this.id = id;
+        this.patient = patient;
+        this.doctor = doctor;
+        this.date = date;
+        this.diagnosis = diagnosis;
+        this.status = status;
+    }
+
     public void showDetails() {
         System.out.println("ID: " + id);
         System.out.println("Patient's name: " + patient.getFullName());

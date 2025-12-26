@@ -3,6 +3,7 @@ package com.adz1q.hospital.management.model;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Set;
+import java.util.UUID;
 
 public class Doctor extends Person {
     private final Set<Specialization> specializations;
@@ -28,6 +29,19 @@ public class Doctor extends Person {
         super(firstName, lastName, birthDate, pesel);
         validateSpecializations(specializations);
         this.specializations = specializations;
+    }
+
+    public Doctor(
+            UUID id,
+            String pesel,
+            String firstName,
+            String lastName,
+            LocalDate birthDate,
+            Set<Specialization> specializations,
+            boolean active) {
+        super(id, pesel, firstName, lastName, birthDate);
+        this.specializations = specializations;
+        this.active = active;
     }
 
     @Override

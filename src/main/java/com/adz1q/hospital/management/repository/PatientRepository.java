@@ -6,20 +6,19 @@ import com.adz1q.hospital.management.model.Treatment;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
 public class PatientRepository extends FileRepository<UUID, Patient> {
     public PatientRepository(Path filePath) {
         super(filePath);
-        loadFromFile();
     }
 
-    @Override
-    protected void loadFromFile() {}
+    public void loadFromFile(Map<UUID, Diagnosis> diagnoses) {}
 
     @Override
-    protected void saveToFile() {}
+    public void saveToFile() {}
 
     public Optional<Patient> findByPesel(String pesel) {
         return findAll().stream()

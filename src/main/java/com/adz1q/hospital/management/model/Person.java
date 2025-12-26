@@ -40,6 +40,19 @@ public abstract class Person implements Identifiable<UUID>, Describable {
         this.pesel = pesel;
     }
 
+    public Person(
+            UUID id,
+            String pesel,
+            String firstName,
+            String lastName,
+            LocalDate birthDate) {
+        this.id = id;
+        this.pesel = pesel;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+    }
+
     private void validatePesel(String pesel) {
         PeselValidator.isValid(pesel);
     }
@@ -84,17 +97,6 @@ public abstract class Person implements Identifiable<UUID>, Describable {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", pesel='" + pesel + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthDate=" + birthDate +
-                '}';
     }
 
     @Override

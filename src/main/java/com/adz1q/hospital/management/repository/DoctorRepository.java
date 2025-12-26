@@ -10,14 +10,12 @@ import java.util.UUID;
 public class DoctorRepository extends FileRepository<UUID, Doctor> {
     public DoctorRepository(Path filePath) {
         super(filePath);
-        loadFromFile();
     }
 
-    @Override
-    protected void loadFromFile() {}
+    public void loadFromFile() {}
 
     @Override
-    protected void saveToFile() {}
+    public void saveToFile() {}
 
     public Optional<Doctor> findByPesel(String pesel) {
         return data.values()

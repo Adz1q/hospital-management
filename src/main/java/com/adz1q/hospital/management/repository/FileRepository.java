@@ -3,10 +3,7 @@ package com.adz1q.hospital.management.repository;
 import com.adz1q.hospital.management.model.Identifiable;
 
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public abstract class FileRepository<ID, T extends Identifiable<ID>>
         implements Repository<ID, T> {
@@ -18,8 +15,7 @@ public abstract class FileRepository<ID, T extends Identifiable<ID>>
         this.data = new HashMap<>();
     }
 
-    protected abstract void loadFromFile();
-    protected abstract void saveToFile();
+    public abstract void saveToFile();
 
     @Override
     public T save(T entity) {
@@ -42,5 +38,9 @@ public abstract class FileRepository<ID, T extends Identifiable<ID>>
     @Override
     public void deleteById(ID id) {
         data.remove(id);
+    }
+
+    public Map<ID, T> getData() {
+        return data;
     }
 }

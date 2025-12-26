@@ -19,6 +19,15 @@ public abstract class Treatment implements Identifiable<UUID>, Describable{
         this.prescriptionDate = prescriptionDate;
     }
 
+    public Treatment(
+            UUID id,
+            String description,
+            LocalDate prescriptionDate) {
+        this.id = id;
+        this.description = description;
+        this.prescriptionDate = prescriptionDate;
+    }
+
     private void validateDescription(String description) {
         if (description == null) {
             throw new NullPointerException("Description cannot be null.");

@@ -1,6 +1,7 @@
 package com.adz1q.hospital.management.model;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Surgery extends Treatment {
     private Doctor doctor;
@@ -18,6 +19,19 @@ public class Surgery extends Treatment {
         this.doctor = doctor;
         this.surgeryDate = surgeryDate;
         this.status = SurgeryStatus.SCHEDULED;
+    }
+
+    public Surgery(
+            UUID id,
+            String description,
+            LocalDate prescriptionDate,
+            Doctor doctor,
+            LocalDate surgeryDate,
+            SurgeryStatus status) {
+        super(id, description, prescriptionDate);
+        this.doctor = doctor;
+        this.surgeryDate = surgeryDate;
+        this.status = status;
     }
 
     @Override

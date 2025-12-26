@@ -1,6 +1,7 @@
 package com.adz1q.hospital.management.model;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Therapy extends Treatment {
     private final String name;
@@ -11,6 +12,15 @@ public class Therapy extends Treatment {
             String name) {
         super(description, prescriptionDate);
         validateName(name);
+        this.name = name;
+    }
+
+    public Therapy(
+            UUID id,
+            String description,
+            LocalDate prescriptionDate,
+            String name) {
+        super(id, description, prescriptionDate);
         this.name = name;
     }
 

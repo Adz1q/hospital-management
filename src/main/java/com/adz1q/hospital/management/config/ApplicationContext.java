@@ -6,6 +6,7 @@ import com.adz1q.hospital.management.ui.ConsoleInputReader;
 import com.adz1q.hospital.management.ui.ConsoleMenu;
 import com.adz1q.hospital.management.ui.ConsoleViewFormatter;
 import com.adz1q.hospital.management.ui.menu.*;
+import com.adz1q.hospital.management.util.Logger;
 
 import java.nio.file.Path;
 import java.util.Scanner;
@@ -24,28 +25,28 @@ public class ApplicationContext {
     private static final Path THERAPIES_CSV = Path.of(CSV_PATH + "therapies.csv");
     private static final Path REHABILITATIONS_CSV = Path.of(CSV_PATH + "rehabilitations.csv");
 
-    private final AppointmentRepository appointmentRepository =
-            new AppointmentRepository(APPOINTMENTS_CSV);
-    private final DiagnosisRepository diagnosisRepository =
-            new DiagnosisRepository(DIAGNOSES_CSV);
-    private final DepartmentRepository departmentRepository =
-            new DepartmentRepository(DEPARTMENTS_CSV);
-    private final RoomRepository roomRepository =
-            new RoomRepository(ROOMS_CSV);
-    private final DoctorRepository doctorRepository =
-            new DoctorRepository(DOCTORS_CSV);
-    private final NurseRepository nurseRepository =
-            new NurseRepository(NURSES_CSV);
-    private final PatientRepository patientRepository =
-            new PatientRepository(PATIENTS_CSV);
-    private final SurgeryRepository surgeryRepository =
-            new SurgeryRepository(SURGERIES_CSV);
     private final MedicationRepository medicationRepository =
             new MedicationRepository(MEDICATIONS_CSV);
     private final TherapyRepository therapyRepository =
             new TherapyRepository(THERAPIES_CSV);
     private final RehabilitationRepository rehabilitationRepository =
             new RehabilitationRepository(REHABILITATIONS_CSV);
+    private final DoctorRepository doctorRepository =
+            new DoctorRepository(DOCTORS_CSV);
+    private final DepartmentRepository departmentRepository =
+            new DepartmentRepository(DEPARTMENTS_CSV);
+    private final NurseRepository nurseRepository =
+            new NurseRepository(NURSES_CSV);
+    private final SurgeryRepository surgeryRepository =
+            new SurgeryRepository(SURGERIES_CSV);
+    private final DiagnosisRepository diagnosisRepository =
+            new DiagnosisRepository(DIAGNOSES_CSV);
+    private final PatientRepository patientRepository =
+            new PatientRepository(PATIENTS_CSV);
+    private final RoomRepository roomRepository =
+            new RoomRepository(ROOMS_CSV);
+    private final AppointmentRepository appointmentRepository =
+            new AppointmentRepository(APPOINTMENTS_CSV);
 
     private final AppointmentService appointmentService =
             new AppointmentService(appointmentRepository);
@@ -70,6 +71,30 @@ public class ApplicationContext {
     private final RehabilitationService rehabilitationService =
             new RehabilitationService(rehabilitationRepository);
 
+    private final DataLoader dataLoader = new DataLoader(
+            medicationRepository,
+            therapyRepository,
+            rehabilitationRepository,
+            doctorRepository,
+            departmentRepository,
+            nurseRepository,
+            surgeryRepository,
+            diagnosisRepository,
+            patientRepository,
+            roomRepository,
+            appointmentRepository);
+    private final DataSaver dataSaver = new DataSaver(
+            medicationRepository,
+            therapyRepository,
+            rehabilitationRepository,
+            doctorRepository,
+            departmentRepository,
+            nurseRepository,
+            surgeryRepository,
+            diagnosisRepository,
+            patientRepository,
+            roomRepository,
+            appointmentRepository);
 
     private final Scanner scanner = new Scanner(System.in);
     private final ConsoleInputReader consoleInputReader = new ConsoleInputReader(scanner);
@@ -112,6 +137,26 @@ public class ApplicationContext {
             medicationMenu,
             therapyMenu,
             rehabilitationMenu);
+
+    public void loadAllData() {
+        try {
+            consoleViewFormatter.printMessage("Loading data from files...");
+            dataLoader.loadAllData();
+        } catch (Exception e) {
+            consoleViewFormatter.printMessage("Error: " + e.getMessage());
+            Logger.warn("Failed to load data: " + e.getMessage());
+        }
+    }
+
+    public void saveAllData() {
+        try {
+            consoleViewFormatter.printMessage("Saving data to files...");
+            dataSaver.saveAllData();
+        } catch (Exception e) {
+            consoleViewFormatter.printMessage("Error: " + e.getMessage());
+            Logger.warn("Failed to save data: " + e.getMessage());
+        }
+    }
 
     public ConsoleMenu getConsoleMenu() {
         return consoleMenu;

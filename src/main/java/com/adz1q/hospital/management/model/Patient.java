@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 public class Patient extends Person {
     private final List<Diagnosis> documentation;
@@ -23,6 +24,17 @@ public class Patient extends Person {
             String pesel) {
         super(firstName, lastName, birthDate, pesel);
         this.documentation = new ArrayList<>();
+    }
+
+    public Patient(
+            UUID id,
+            String pesel,
+            String firstName,
+            String lastName,
+            LocalDate birthDate,
+            List<Diagnosis> documentation) {
+        super(id, pesel, firstName, lastName, birthDate);
+        this.documentation = documentation;
     }
 
     @Override

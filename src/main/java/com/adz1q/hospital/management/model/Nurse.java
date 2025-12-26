@@ -1,6 +1,7 @@
 package com.adz1q.hospital.management.model;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Nurse extends Person {
     private Department department;
@@ -26,6 +27,19 @@ public class Nurse extends Person {
         super(firstName, lastName, birthDate, pesel);
         validateDepartment(department);
         this.department = department;
+    }
+
+    public Nurse(
+            UUID id,
+            String pesel,
+            String firstName,
+            String lastName,
+            LocalDate birthDate,
+            Department department,
+            boolean active) {
+        super(id, pesel, firstName, lastName, birthDate);
+        this.department = department;
+        this.active = active;
     }
 
     @Override

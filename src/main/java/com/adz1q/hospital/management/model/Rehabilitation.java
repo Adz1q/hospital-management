@@ -3,6 +3,7 @@ package com.adz1q.hospital.management.model;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 public class Rehabilitation extends Treatment {
     private final List<String> therapies;
@@ -13,6 +14,15 @@ public class Rehabilitation extends Treatment {
             List<String> therapies) {
         super(description, prescriptionDate);
         validateTherapies(therapies);
+        this.therapies = therapies;
+    }
+
+    public Rehabilitation(
+            UUID id,
+            String description,
+            LocalDate prescriptionDate,
+            List<String> therapies) {
+        super(id, description, prescriptionDate);
         this.therapies = therapies;
     }
 

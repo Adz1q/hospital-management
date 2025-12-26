@@ -20,6 +20,15 @@ public class Diagnosis implements Identifiable<UUID>, Describable {
         this.treatments = treatments;
     }
 
+    public Diagnosis(
+            UUID id,
+            String description,
+            Set<Treatment> treatments) {
+        this.id = id;
+        this.description = description;
+        this.treatments = treatments;
+    }
+
     public void showDetails() {
         System.out.println("ID: " + id);
         System.out.println("Description: " + description);

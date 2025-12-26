@@ -1,0 +1,75 @@
+private void loadData() {
+        if (!Files.exists(filePath)) {
+            return;
+        }
+
+        long maxId = 0;
+        try (BufferedReader reader = Files.newBufferedReader(filePath, StandardCharsets.UTF_8)) {
+            CSVFormat format = CSVFormat.Builder.create()
+                    .setHeader("id", "name")
+                    .setSkipHeaderRecord(true)
+                    .setIgnoreHeaderCase(true)
+                    .setTrim(true)
+                    .build();
+
+            try (CSVParser parser = CSVParser.parse(reader, format)) {
+                for (CSVRecord record : parser) {
+                    try {
+                        long id = Long.parseLong(record.get("id"));
+                        String name = record.get("name");
+
+                        passengers.put(id, new Passenger(id, name));
+                        if (id > maxId) {
+                            maxId = id;
+                        }
+                    } catch (Exception e) {
+                        System.err.println("Skipping invalid record: " + record + " due to " + e.getMessage());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to load passengers from " + filePath, e);
+        }
+
+        nextId = maxId + 1;
+    }
+
+    public void saveData() {
+        Path tempFile = filePath.resolveSibling(filePath.getFileName() + ".tmp");
+
+        try (BufferedWriter writer = Files.newBufferedWriter(tempFile, StandardCharsets.UTF_8)) {
+            CSVFormat format = CSVFormat.Builder.create()
+                    .setHeader("id", "name")
+                    .build();
+
+            try (CSVPrinter printer = new CSVPrinter(writer, format)) {
+                for (Passenger passenger : passengers.values()) {
+                    printer.printRecord(passenger.id(), passenger.name());
+                }
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to save passengers to " + filePath, e);
+        }
+
+        try {
+            Files.move(tempFile, filePath, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to replace original file with temp file: " + filePath, e);
+        }
+    }
+
+
+Appointment: patient, doctor, diagnosis
+Diagnosis: rehabilitation, surgery, therapy, medication
+Nurse: department
+Patient: diagnosis
+Room: department, patient
+Surgery: doctor,
+
+1: medication, therapy, rehabilitation, doctor, department,
+2: nurse
+3: surgery
+4: diagnosis
+5: patient
+6: room
+7: appointment
