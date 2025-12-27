@@ -37,7 +37,6 @@ The project follows a **Layered Architecture** to enforce separation of concerns
 
 ### Class Diagram Snippet (Core)
 
-
 ```mermaid
 classDiagram
     %% Interfaces
