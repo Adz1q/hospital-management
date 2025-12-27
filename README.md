@@ -149,6 +149,7 @@ The system implements a rigorous "integrity check" mechanism upon startup:
 ## 👨‍💻 Author
 
 **Adz1q**
+
 _Java Developer | Clean Code Enthusiast_
 
 ---
