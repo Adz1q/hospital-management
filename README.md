@@ -18,6 +18,7 @@ The **Hospital Management System** is a modular application developed to streaml
 
 ### 🔄 Clinical Workflow (Smart Logic)
 *   **Integrated Care Cycle**: The system enforces a strict medical workflow where **treatments, surgeries, and rehabilitations are prescribed exclusively during the Appointment Completion phase**.
+*   **Comprehensive Health Reporting**: The diagnosis creation process serves as a formal health status report. Doctors document clinical findings and the patient's current condition in a detailed description field, creating a permanent record of the health assessment that drives further medical decisions.
 *   **Diagnosis-Driven**: A doctor cannot prescribe a treatment without a diagnosis. Upon completing a visit, the doctor assigns a Diagnosis, which encapsulates all necessary follow-up procedures (medications, surgeries), ensuring full traceability.
 
 ### 🛠️ Technical Highlights
@@ -39,35 +40,70 @@ The project follows a **Layered Architecture** to enforce separation of concerns
 
 ```mermaid
 classDiagram
-    Person <|-- Patient
-    Person <|-- Staff
-    Staff <|-- Doctor
-    Staff <|-- Nurse
+    %% Interfaces
+    class Identifiable { <<interface>> }
+    class Describable { <<interface>> }
 
+    %% Base Classes
+    class Person {
+        <<abstract>>
+        +String firstName
+        +String lastName
+    }
     class Treatment {
         <<abstract>>
+        +String description
+        +LocalDate prescriptionDate
     }
+
+    %% Inheritance Hierarchy
+    Identifiable <|.. Person
+    Identifiable <|.. Treatment
+    Identifiable <|.. Appointment
+    Identifiable <|.. Room
+    Identifiable <|.. Diagnosis
+    Identifiable <|.. Department
+    
+    Describable <|.. Treatment
+    Describable <|.. Appointment
+    Describable <|.. Diagnosis
+    
+    Person <|-- Patient
+    Person <|-- Doctor
+    Person <|-- Nurse
+
     Treatment <|-- Medication
     Treatment <|-- Surgery
     Treatment <|-- Rehabilitation
+    Treatment <|-- Therapy
 
-    Patient "1" *-- "*" Diagnosis
-    Diagnosis "1" o-- "*" Treatment
-    Appointment --> Doctor
-    Appointment --> Patient
+    %% Associations
+    Patient "1" *-- "*" Diagnosis : has documentation
+    Diagnosis "1" o-- "*" Treatment : prescribes
+    Appointment --> Doctor : managed by
+    Appointment --> Patient : attends
+    Doctor --> Specialization : has
+    Room --> Department : belongs to
+    Nurse --> Department : assigned to
 ```
 
 ## 📦 Data Structure (CSV)
 
 The system operates on a relational-like CSV structure where entities are linked via **UUIDs**.
 
-| File               | Description              | Key Relationships                       |
-| :----------------- | :----------------------- | :-------------------------------------- |
-| `patients.csv`     | Personal data \& history | Links to `diagnoses`                    |
-| `appointments.csv` | Visit scheduling         | Links to `patient_id`, `doctor_id`      |
-| `doctors.csv`      | Medical staff profiles   | Enum: `Specialization`                  |
-| `surgeries.csv`    | Surgical procedures      | Links to `doctor_id`                    |
-| `rooms.csv`        | Bed management           | Links to `department_id`, `patient_ids` |
+| File | Description | Key Relationships |
+| :-- | :-- | :-- |
+| `patients.csv` | Personal data \& history | Links to `diagnoses` (via ID list) |
+| `appointments.csv` | Visit scheduling | Links to `patient_id`, `doctor_id`, `diagnosis_id` |
+| `doctors.csv` | Medical staff profiles | Enum: `Specialization` |
+| `nurses.csv` | Nursing staff | Links to `department_id` |
+| `departments.csv` | Hospital units | Referenced by `rooms` and `nurses` |
+| `rooms.csv` | Bed management | Links to `department_id`, `patient_ids` |
+| `diagnoses.csv` | Medical conditions | Links to `treatment_ids` |
+| `surgeries.csv` | Surgical procedures | Links to `doctor_id` |
+| `medications.csv` | Prescribed drugs | Linked by `diagnoses` |
+| `therapies.csv` | Therapeutic sessions | Linked by `diagnoses` |
+| `rehabilitations.csv` | Rehab programs | Linked by `diagnoses` |
 
 ## 🔧 Setup \& Installation
 
