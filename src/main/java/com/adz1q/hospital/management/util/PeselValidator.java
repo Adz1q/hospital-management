@@ -1,5 +1,6 @@
 package com.adz1q.hospital.management.util;
 
+// Usage in Person commented because of UX reasons
 public class PeselValidator {
     public static void isValid(String pesel) {
         if (pesel == null) {

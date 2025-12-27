@@ -76,11 +76,6 @@ public class Doctor extends Person {
         specializations.add(specialization);
     }
 
-    public void removeSpecialization(Specialization specialization) {
-        validateSpecialization(specialization);
-        specializations.remove(specialization);
-    }
-
     public void rehire() {
         if (active) {
             throw new IllegalStateException("Doctor is already hired.");

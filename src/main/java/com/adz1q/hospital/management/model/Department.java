@@ -57,14 +57,6 @@ public class Department implements Identifiable<UUID>, Describable {
         this.active = false;
     }
 
-    public void reopen() {
-        if (active) {
-            throw new IllegalStateException("Department is already active.");
-        }
-
-        this.active = true;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
