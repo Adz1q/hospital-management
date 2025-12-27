@@ -126,13 +126,13 @@ git clone https://github.com/adz1q/hospital-management.git
 java --version
 ```
 
-3. **Build**
+4. **Build**
 
 ```bash
 ./gradlew clean shadowJar
 ```
 
-4. **Run**
+5. **Run**
 
 ```bash
 java -jar build/libs/hospital-management-1.0-all.jar
