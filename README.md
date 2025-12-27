@@ -18,6 +18,7 @@ The **Hospital Management System** is a modular application developed to streaml
 
 ### 🔄 Clinical Workflow (Smart Logic)
 *   **Integrated Care Cycle**: The system enforces a strict medical workflow where **treatments, surgeries, and rehabilitations are prescribed exclusively during the Appointment Completion phase**.
+*   **Comprehensive Health Reporting**: The diagnosis creation process serves as a formal health status report. Doctors document clinical findings and the patient's current condition in a detailed description field, creating a permanent record of the health assessment that drives further medical decisions.
 *   **Diagnosis-Driven**: A doctor cannot prescribe a treatment without a diagnosis. Upon completing a visit, the doctor assigns a Diagnosis, which encapsulates all necessary follow-up procedures (medications, surgeries), ensuring full traceability.
 
 ### 🛠️ Technical Highlights
