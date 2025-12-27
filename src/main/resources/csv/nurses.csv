@@ -1,1 +1,6 @@
 id;pesel;first_name;last_name;birth_date;active;department_id
+e0e0e0e0-e0e0-e0e0-e0e0-e0e0e0e0e0e0;90071256782;Florence;Nightingale;1990-07-12;true;c0c0c0c0-c0c0-c0c0-c0c0-c0c0c0c0c0c0
+f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0;95120112346;Clara;Barton;1995-12-01;true;d0d0d0d0-d0d0-d0d0-d0d0-d0d0d0d0d0d0
+23456789-bbbb-cccc-dddd-eeeeffff0000;92050567890;Ann;Perkins;1992-05-05;true;f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0
+34567890-cccc-dddd-eeee-ffff00001111;99010112345;Pam;Beesly;1999-01-01;true;11111111-2222-3333-4444-555555555555
+12345678-aaaa-bbbb-cccc-ddddeeeeffff;88020234567;Carla;Espinosa;1988-02-02;true;e0e0e0e0-e0e0-e0e0-e0e0-e0e0e0e0e0e0

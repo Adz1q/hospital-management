@@ -94,7 +94,7 @@ public class MedicationRepository extends FileRepository<UUID, Medication> {
             }
 
             Files.move(tempFile, filePath, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
-            Logger.info("Medications saved successfully to " + filePath);
+            Logger.info("Medications saved successfully. Count: " + data.size());
         } catch (IOException e) {
             Logger.warn("Error while saving medications to file: " + e.getMessage());
 

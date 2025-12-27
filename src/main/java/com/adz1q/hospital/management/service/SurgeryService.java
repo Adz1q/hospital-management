@@ -28,6 +28,10 @@ public class SurgeryService {
             LocalDate prescriptionDate,
             Doctor doctor,
             LocalDate surgeryDate) {
+        if (!doctor.isActive()) {
+            throw new IllegalArgumentException("Cannot schedule surgery with an inactive doctor.");
+        }
+
         if (existsAnySurgeryByDoctorIdAndDate(
                 doctor.getId(),
                 surgeryDate)) {
@@ -64,11 +68,18 @@ public class SurgeryService {
             Doctor newDoctor)
             throws SurgeryNotFoundException {
         Surgery surgery = getSurgery(surgeryId);
+        if (!newDoctor.isActive()) {
+            throw new IllegalArgumentException("Cannot assign an inactive doctor to the surgery.");
+        }
+
+        if (surgery.getDoctor().equals(newDoctor)) {
+            throw new IllegalArgumentException("New doctor is the same as the current doctor.");
+        }
 
         if (existsAnySurgeryByDoctorIdAndDate(
                 newDoctor.getId(),
                 surgery.getSurgeryDate())) {
-            throw new IllegalArgumentException("Doctor already has a surgery scheduled on this date.");
+            throw new IllegalArgumentException("New doctor already has a surgery scheduled on this date.");
         }
 
         surgery.changeDoctor(newDoctor);

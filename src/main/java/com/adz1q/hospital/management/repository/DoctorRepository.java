@@ -117,7 +117,7 @@ public class DoctorRepository extends FileRepository<UUID, Doctor> {
             }
 
             Files.move(tempFile, filePath, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
-            Logger.info("Doctors saved successfully to " + filePath);
+            Logger.info("Doctors saved successfully. Count: " + data.size());
         } catch (IOException e) {
             Logger.warn("Error while saving doctors to file: " + e.getMessage());
 

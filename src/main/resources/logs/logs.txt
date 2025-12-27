@@ -139,3 +139,342 @@
 [2025-12-27 15:24:54] [INFO] Rooms loaded successfully. Count: 0
 [2025-12-27 15:24:54] [INFO] Appointments loaded successfully. Count: 0
 [2025-12-27 15:24:54] [INFO] Data loading completed
+[2025-12-27 15:32:43] [INFO] Saving data to CSV files
+[2025-12-27 15:32:43] [INFO] Medications saved successfully to src\main\resources\csv\medications.csv
+[2025-12-27 15:32:43] [INFO] Therapies saved successfully to src\main\resources\csv\therapies.csv
+[2025-12-27 15:32:43] [INFO] Rehabilitation data successfully saved to file.
+[2025-12-27 15:32:43] [INFO] Doctors saved successfully to src\main\resources\csv\doctors.csv
+[2025-12-27 15:32:43] [INFO] Departments saved successfully. Count: 0
+[2025-12-27 15:32:43] [INFO] Nurses saved successfully. Count: 0
+[2025-12-27 15:32:43] [INFO] Surgeries saved successfully. Count: 0
+[2025-12-27 15:32:43] [INFO] Diagnoses saved successfully. Count: 0
+[2025-12-27 15:32:43] [INFO] Patients saved successfully. Count: 0
+[2025-12-27 15:32:43] [INFO] Rooms saved successfully to file: src\main\resources\csv\rooms.csv
+[2025-12-27 15:32:43] [INFO] Appointments saved successfully. Count: 0
+[2025-12-27 15:32:43] [INFO] Data saved successfully
+[2025-12-27 15:37:29] [INFO] Loading data from CSV files
+[2025-12-27 15:37:29] [INFO] Medications loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Therapies loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Rehabilitations loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Doctors loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Departments loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Nurses loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Surgeries loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Diagnoses loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Patients loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Rooms loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Appointments loaded successfully. Count: 0
+[2025-12-27 15:37:29] [INFO] Data loading completed
+[2025-12-27 15:38:21] [INFO] Hired doctor with ID: 07314872-7eda-4580-809b-8813f1f2dda4
+[2025-12-27 15:41:06] [INFO] Hired doctor with ID: 3cfc6103-4a66-45f2-a15e-cddc257e8690
+[2025-12-27 15:43:58] [INFO] Added new specialization to doctor with ID: 07314872-7eda-4580-809b-8813f1f2dda4
+[2025-12-27 15:45:45] [INFO] Registered patient with ID: bbcba070-ef75-4ca3-a30b-85ece089520d
+[2025-12-27 15:48:09] [INFO] Scheduled new appointment with ID: 979e6cd6-9606-46da-a559-f174c0160831
+[2025-12-27 16:03:47] [INFO] Prescribed rehabilitation with ID: 2b21e06d-89f4-4347-8375-f6889e2597c9
+[2025-12-27 16:03:51] [INFO] Diagnosed new patient with diagnosis ID: 3c3ea0cb-f4f9-4709-9092-208b7f800c16
+[2025-12-27 16:03:51] [INFO] Updated patient documentation with ID: bbcba070-ef75-4ca3-a30b-85ece089520d
+[2025-12-27 16:03:51] [INFO] Completed appointment with ID: 979e6cd6-9606-46da-a559-f174c0160831
+[2025-12-27 16:04:41] [INFO] Created department with ID: f599d9b1-ce62-4a30-b0a3-85c769262c0f
+[2025-12-27 16:05:26] [INFO] Hired nurse with ID: dc059306-53ee-4b5a-b99f-e2017b4aed04
+[2025-12-27 16:07:42] [INFO] Created room with ID: 6a9f1358-96cf-4ba1-aedc-f0c9e3125268
+[2025-12-27 16:09:13] [INFO] Renamed room with ID: 6a9f1358-96cf-4ba1-aedc-f0c9e3125268
+[2025-12-27 16:10:06] [INFO] Saving data to CSV files
+[2025-12-27 16:10:06] [INFO] Medications saved successfully to src\main\resources\csv\medications.csv
+[2025-12-27 16:10:06] [INFO] Therapies saved successfully to src\main\resources\csv\therapies.csv
+[2025-12-27 16:10:06] [INFO] Rehabilitation data successfully saved to file.
+[2025-12-27 16:10:06] [INFO] Doctors saved successfully to src\main\resources\csv\doctors.csv
+[2025-12-27 16:10:06] [INFO] Departments saved successfully. Count: 1
+[2025-12-27 16:10:06] [INFO] Nurses saved successfully. Count: 1
+[2025-12-27 16:10:06] [INFO] Surgeries saved successfully. Count: 0
+[2025-12-27 16:10:06] [INFO] Diagnoses saved successfully. Count: 1
+[2025-12-27 16:10:06] [INFO] Patients saved successfully. Count: 1
+[2025-12-27 16:10:06] [INFO] Rooms saved successfully to file: src\main\resources\csv\rooms.csv
+[2025-12-27 16:10:06] [INFO] Appointments saved successfully. Count: 1
+[2025-12-27 16:10:06] [INFO] Data saved successfully
+[2025-12-27 16:26:42] [INFO] Loading data from CSV files
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 1: Error at index 0 in: "m41in186"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 2: Error at index 0 in: "n52jo297"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 3: Error at index 0 in: "o63kp308"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 4: Error at index 0 in: "p74lq419"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 5: Error at index 0 in: "q85mr520"
+[2025-12-27 16:26:42] [INFO] Medications loaded successfully. Count: 0
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 1: Error at index 0 in: "t96ns631"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 2: Error at index 0 in: "u07ot742"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 3: Error at index 0 in: "v18pu853"
+[2025-12-27 16:26:42] [INFO] Therapies loaded successfully. Count: 0
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 1: Error at index 0 in: "r29qv964"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 2: Error at index 0 in: "s30rw075"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 3: Error at index 0 in: "t41sx186"
+[2025-12-27 16:26:42] [INFO] Rehabilitations loaded successfully. Count: 0
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 7: Error at index 4 in: "c74bg41f"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 8: Error at index 4 in: "d85ch520"
+[2025-12-27 16:26:42] [INFO] Doctors loaded successfully. Count: 6
+[2025-12-27 16:26:42] [INFO] Departments loaded successfully. Count: 5
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 1: Error at index 4 in: "e96di631"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 2: Error at index 4 in: "f07ej742"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 3: Error at index 4 in: "a18fk853"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 4: Error at index 3 in: "b29gl964"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 5: Error at index 3 in: "c30hm075"
+[2025-12-27 16:26:42] [INFO] Nurses loaded successfully. Count: 0
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 1: Error at index 0 in: "s52ty297"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 2: Error at index 0 in: "t63uz308"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 3: Error at index 0 in: "u74va419"
+[2025-12-27 16:26:42] [INFO] Surgeries loaded successfully. Count: 0
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 1: Error at index 3 in: "d85wb520"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 2: Error at index 3 in: "e96xc631"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 3: Error at index 3 in: "f07yd742"
+[2025-12-27 16:26:42] [INFO] Diagnoses loaded successfully. Count: 0
+[2025-12-27 16:26:42] [WARN] Failed to parse patient record: CSVRecord [comment='null', recordNumber=1, values=[p18ze853-1234-4567-8904-567890123456, 90051512351, Thomas, Anderson, 1990-05-15, d85wb520-8901-1234-5671-234567890123]]
+[2025-12-27 16:26:42] [WARN] Failed to parse patient record: CSVRecord [comment='null', recordNumber=2, values=[q29af964-2345-5678-9015-678901234567, 85082045673, Neo, Matrix, 1985-08-20, e96xc631-9012-2345-6782-345678901234]]
+[2025-12-27 16:26:42] [WARN] Failed to parse patient record: CSVRecord [comment='null', recordNumber=3, values=[r30bg075-3456-6789-0126-789012345678, 95110578915, Trinity, Moss, 1995-11-05, f07yd742-0123-3456-7893-456789012345]]
+[2025-12-27 16:26:42] [WARN] Failed to parse patient record: CSVRecord [comment='null', recordNumber=4, values=[s41ch186-4567-7890-1237-890123456789, 78021023467, Morpheus, Nebuchadnezzar, 1978-02-10, ]]
+[2025-12-27 16:26:42] [INFO] Patients loaded successfully. Count: 0
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 1: Error at index 0 in: "r85gl520"
+[2025-12-27 16:26:42] [ERROR] Skipping corrupted record at line 2: Error at index 0 in: "s96hm631"
+[2025-12-27 16:26:42] [INFO] Rooms loaded successfully. Count: 0
+[2025-12-27 16:26:42] [WARN] Failed to parse appointment record: CSVRecord [comment='null', recordNumber=1, values=[a52di297-5678-8901-2348-901234567890, 2025-12-20, COMPLETED, p18ze853-1234-4567-8904-567890123456, c1e5a8b9-1234-4567-890a-bcdef0123456, d85wb520-8901-1234-5671-234567890123]]. Error: Error at index 4 in: "a52di297"
+[2025-12-27 16:26:42] [WARN] Failed to parse appointment record: CSVRecord [comment='null', recordNumber=2, values=[b63ej308-6789-9012-3459-012345678901, 2025-12-30, SCHEDULED, q29af964-2345-5678-9015-678901234567, d2f6b9ca-2345-5678-901b-cdef01234567, ]]. Error: Error at index 4 in: "b63ej308"
+[2025-12-27 16:26:42] [WARN] Failed to parse appointment record: CSVRecord [comment='null', recordNumber=3, values=[c74fk419-7890-0123-4560-123456789012, 2025-12-25, CANCELLED, r30bg075-3456-6789-0126-789012345678, e307c0db-3456-6789-012c-def012345678, ]]. Error: Error at index 4 in: "c74fk419"
+[2025-12-27 16:26:42] [INFO] Appointments loaded successfully. Count: 0
+[2025-12-27 16:26:42] [INFO] Data loading completed
+[2025-12-27 16:43:03] [INFO] Saving data to CSV files
+[2025-12-27 16:43:03] [INFO] Medications saved successfully. Count: 0
+[2025-12-27 16:43:03] [INFO] Therapies saved successfully. Count: 0
+[2025-12-27 16:43:03] [INFO] Rehabilitations saved successfully. Count: 0
+[2025-12-27 16:43:03] [INFO] Doctors saved successfully. Count: 6
+[2025-12-27 16:43:03] [INFO] Departments saved successfully. Count: 5
+[2025-12-27 16:43:03] [INFO] Nurses saved successfully. Count: 0
+[2025-12-27 16:43:03] [INFO] Surgeries saved successfully. Count: 0
+[2025-12-27 16:43:03] [INFO] Diagnoses saved successfully. Count: 0
+[2025-12-27 16:43:03] [INFO] Patients saved successfully. Count: 0
+[2025-12-27 16:43:03] [INFO] Rooms saved successfully. Count: 0
+[2025-12-27 16:43:03] [INFO] Appointments saved successfully. Count: 0
+[2025-12-27 16:43:03] [INFO] Data saved successfully
+[2025-12-27 16:43:47] [INFO] Loading data from CSV files
+[2025-12-27 16:43:47] [INFO] Medications loaded successfully. Count: 0
+[2025-12-27 16:43:47] [INFO] Therapies loaded successfully. Count: 0
+[2025-12-27 16:43:47] [INFO] Rehabilitations loaded successfully. Count: 0
+[2025-12-27 16:43:47] [INFO] Doctors loaded successfully. Count: 6
+[2025-12-27 16:43:47] [INFO] Departments loaded successfully. Count: 5
+[2025-12-27 16:43:47] [INFO] Nurses loaded successfully. Count: 0
+[2025-12-27 16:43:47] [INFO] Surgeries loaded successfully. Count: 0
+[2025-12-27 16:43:47] [INFO] Diagnoses loaded successfully. Count: 0
+[2025-12-27 16:43:47] [INFO] Patients loaded successfully. Count: 0
+[2025-12-27 16:43:47] [INFO] Rooms loaded successfully. Count: 0
+[2025-12-27 16:43:47] [INFO] Appointments loaded successfully. Count: 0
+[2025-12-27 16:43:47] [INFO] Data loading completed
+[2025-12-27 16:47:23] [INFO] Saving data to CSV files
+[2025-12-27 16:47:23] [INFO] Medications saved successfully. Count: 0
+[2025-12-27 16:47:23] [INFO] Therapies saved successfully. Count: 0
+[2025-12-27 16:47:23] [INFO] Rehabilitations saved successfully. Count: 0
+[2025-12-27 16:47:23] [INFO] Doctors saved successfully. Count: 6
+[2025-12-27 16:47:23] [INFO] Departments saved successfully. Count: 5
+[2025-12-27 16:47:23] [INFO] Nurses saved successfully. Count: 0
+[2025-12-27 16:47:23] [INFO] Surgeries saved successfully. Count: 0
+[2025-12-27 16:47:23] [INFO] Diagnoses saved successfully. Count: 0
+[2025-12-27 16:47:23] [INFO] Patients saved successfully. Count: 0
+[2025-12-27 16:47:23] [INFO] Rooms saved successfully. Count: 0
+[2025-12-27 16:47:23] [INFO] Appointments saved successfully. Count: 0
+[2025-12-27 16:47:23] [INFO] Data saved successfully
+[2025-12-27 16:51:08] [INFO] Loading data from CSV files
+[2025-12-27 16:51:08] [INFO] Medications loaded successfully. Count: 3
+[2025-12-27 16:51:08] [INFO] Therapies loaded successfully. Count: 0
+[2025-12-27 16:51:08] [INFO] Rehabilitations loaded successfully. Count: 2
+[2025-12-27 16:51:08] [WARN] Unknown specialization 'INTERNIST' for doctor ID aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+[2025-12-27 16:51:08] [INFO] Doctors loaded successfully. Count: 2
+[2025-12-27 16:51:08] [INFO] Departments loaded successfully. Count: 2
+[2025-12-27 16:51:08] [INFO] Nurses loaded successfully. Count: 2
+[2025-12-27 16:51:08] [INFO] Surgeries loaded successfully. Count: 2
+[2025-12-27 16:51:08] [INFO] Diagnoses loaded successfully. Count: 2
+[2025-12-27 16:51:08] [WARN] Failed to parse patient record: CSVRecord [comment='null', recordNumber=1, values=[paaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa, 55010112345, Walter, White, 1955-01-01, daaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa]]
+[2025-12-27 16:51:08] [WARN] Failed to parse patient record: CSVRecord [comment='null', recordNumber=2, values=[pbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb, 98050567890, Jesse, Pinkman, 1998-05-05, dbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb]]
+[2025-12-27 16:51:08] [WARN] Failed to parse patient record: CSVRecord [comment='null', recordNumber=3, values=[pcccccccc-cccc-cccc-cccc-cccccccccccc, 00210112345, Skyler, White, 2000-01-01, ]]
+[2025-12-27 16:51:08] [INFO] Patients loaded successfully. Count: 0
+[2025-12-27 16:51:08] [ERROR] Skipping corrupted record at line 1: Error at index 0 in: "raaaaaaa"
+[2025-12-27 16:51:08] [ERROR] Skipping corrupted record at line 2: Error at index 0 in: "rbbbbbbb"
+[2025-12-27 16:51:08] [INFO] Rooms loaded successfully. Count: 0
+[2025-12-27 16:51:08] [WARN] Failed to parse appointment record: CSVRecord [comment='null', recordNumber=1, values=[aaaaaaaa-1111-1111-1111-111111111111, 2025-10-01, COMPLETED, paaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa, aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa, daaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa]]. Error: Error at index 0 in: "paaaaaaa"
+[2025-12-27 16:51:08] [WARN] Failed to parse appointment record: CSVRecord [comment='null', recordNumber=2, values=[bbbbbbbb-2222-2222-2222-222222222222, 2026-01-15, SCHEDULED, pbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb, bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb, dbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb]]. Error: Error at index 0 in: "pbbbbbbb"
+[2025-12-27 16:51:08] [WARN] Failed to parse appointment record: CSVRecord [comment='null', recordNumber=3, values=[cccccccc-3333-3333-3333-333333333333, 2025-12-28, CANCELLED, pcccccccc-cccc-cccc-cccc-cccccccccccc, aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa, ]]. Error: UUID string too large
+[2025-12-27 16:51:08] [INFO] Appointments loaded successfully. Count: 0
+[2025-12-27 16:51:08] [INFO] Data loading completed
+[2025-12-27 16:55:20] [INFO] Saving data to CSV files
+[2025-12-27 16:55:20] [INFO] Medications saved successfully. Count: 3
+[2025-12-27 16:55:20] [INFO] Therapies saved successfully. Count: 0
+[2025-12-27 16:55:20] [INFO] Rehabilitations saved successfully. Count: 2
+[2025-12-27 16:55:20] [INFO] Doctors saved successfully. Count: 2
+[2025-12-27 16:55:20] [INFO] Departments saved successfully. Count: 2
+[2025-12-27 16:55:20] [INFO] Nurses saved successfully. Count: 2
+[2025-12-27 16:55:20] [INFO] Surgeries saved successfully. Count: 2
+[2025-12-27 16:55:20] [INFO] Diagnoses saved successfully. Count: 2
+[2025-12-27 16:55:20] [INFO] Patients saved successfully. Count: 0
+[2025-12-27 16:55:20] [INFO] Rooms saved successfully. Count: 0
+[2025-12-27 16:55:20] [INFO] Appointments saved successfully. Count: 0
+[2025-12-27 16:55:20] [INFO] Data saved successfully
+[2025-12-27 16:56:30] [INFO] Loading data from CSV files
+[2025-12-27 16:56:30] [INFO] Medications loaded successfully. Count: 3
+[2025-12-27 16:56:30] [INFO] Therapies loaded successfully. Count: 2
+[2025-12-27 16:56:30] [INFO] Rehabilitations loaded successfully. Count: 2
+[2025-12-27 16:56:30] [INFO] Doctors loaded successfully. Count: 2
+[2025-12-27 16:56:30] [INFO] Departments loaded successfully. Count: 2
+[2025-12-27 16:56:30] [INFO] Nurses loaded successfully. Count: 2
+[2025-12-27 16:56:30] [INFO] Surgeries loaded successfully. Count: 2
+[2025-12-27 16:56:30] [INFO] Diagnoses loaded successfully. Count: 2
+[2025-12-27 16:56:30] [INFO] Patients loaded successfully. Count: 3
+[2025-12-27 16:56:30] [INFO] Rooms loaded successfully. Count: 2
+[2025-12-27 16:56:30] [INFO] Appointments loaded successfully. Count: 3
+[2025-12-27 16:56:30] [INFO] Data loading completed
+[2025-12-27 18:11:13] [INFO] Rescheduled appointment with ID: bb222222-2222-2222-2222-222222222222
+[2025-12-27 18:11:43] [INFO] Renamed department with ID: c0c0c0c0-c0c0-c0c0-c0c0-c0c0c0c0c0c0
+[2025-12-27 18:12:59] [INFO] Renamed room with ID: 40000000-0000-0000-0000-000000000004
+[2025-12-27 18:13:07] [INFO] Changed department of room with ID: 40000000-0000-0000-0000-000000000004
+[2025-12-27 18:19:35] [INFO] Changed doctor for appointment with ID: bb222222-2222-2222-2222-222222222222
+[2025-12-27 18:19:51] [INFO] Cancelled appointment with ID: bb222222-2222-2222-2222-222222222222
+[2025-12-27 18:21:02] [INFO] Assigned new patient to room with ID: 50000000-0000-0000-0000-000000000005
+[2025-12-27 18:21:19] [INFO] Removed patient from room with ID: 50000000-0000-0000-0000-000000000005
+[2025-12-27 18:22:15] [INFO] Removed patient from room with ID: 50000000-0000-0000-0000-000000000005
+[2025-12-27 18:22:27] [INFO] Deleted room with ID: 50000000-0000-0000-0000-000000000005
+[2025-12-27 18:23:44] [INFO] Rescheduled surgery with ID: 99999999-9999-9999-9999-999999999999
+[2025-12-27 18:26:34] [INFO] Changed doctor for surgery with ID: 99999999-9999-9999-9999-999999999999
+[2025-12-27 18:27:03] [INFO] Completed surgery with ID: 99999999-9999-9999-9999-999999999999
+[2025-12-27 18:28:11] [INFO] Scheduled new appointment with ID: 9bd865ef-54ff-421c-9e65-b13b5a36bbff
+[2025-12-27 18:28:59] [INFO] Scheduled surgery with ID: 75b3828a-0249-4981-b06a-6f221a32ce2a
+[2025-12-27 18:29:01] [INFO] Diagnosed new patient with diagnosis ID: 15ea269f-5b1e-43ab-971a-4d2848ca6d3b
+[2025-12-27 18:29:01] [INFO] Updated patient documentation with ID: 30000000-0000-0000-0000-000000000003
+[2025-12-27 18:29:01] [INFO] Completed appointment with ID: 9bd865ef-54ff-421c-9e65-b13b5a36bbff
+[2025-12-27 18:29:32] [INFO] Cancelled surgery with ID: 75b3828a-0249-4981-b06a-6f221a32ce2a
+[2025-12-27 18:30:08] [INFO] Scheduled new appointment with ID: 395d180d-e81c-4575-b88d-b8a200f58e45
+[2025-12-27 18:30:13] [INFO] Cancelled appointment with ID: 395d180d-e81c-4575-b88d-b8a200f58e45
+[2025-12-27 18:31:39] [INFO] Dismissed doctor with ID: b0b0b0b0-b0b0-b0b0-b0b0-b0b0b0b0b0b0
+[2025-12-27 18:31:45] [INFO] Rehired doctor with ID: b0b0b0b0-b0b0-b0b0-b0b0-b0b0b0b0b0b0
+[2025-12-27 18:33:56] [INFO] Added new specialization to doctor with ID: b0b0b0b0-b0b0-b0b0-b0b0-b0b0b0b0b0b0
+[2025-12-27 18:34:57] [INFO] Dismissed nurse with ID: f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0
+[2025-12-27 18:35:07] [INFO] Rehired nurse with ID: f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0
+[2025-12-27 18:35:32] [INFO] Changed department for nurse with ID: f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0
+[2025-12-27 18:40:23] [INFO] Scheduled new appointment with ID: dabd7e46-b793-4a99-bb65-f2f5a57d9cd3
+[2025-12-27 18:41:21] [INFO] Scheduled surgery with ID: f26b03e9-c118-46d9-b77a-c7340fcc7c13
+[2025-12-27 18:41:22] [INFO] Diagnosed new patient with diagnosis ID: 474999a4-f9a5-42ef-bc0e-3322344fd72a
+[2025-12-27 18:41:22] [INFO] Updated patient documentation with ID: 30000000-0000-0000-0000-000000000003
+[2025-12-27 18:41:22] [INFO] Completed appointment with ID: dabd7e46-b793-4a99-bb65-f2f5a57d9cd3
+[2025-12-27 18:58:09] [INFO] Saving data to CSV files
+[2025-12-27 18:58:09] [INFO] Medications saved successfully. Count: 3
+[2025-12-27 18:58:09] [INFO] Therapies saved successfully. Count: 2
+[2025-12-27 18:58:09] [INFO] Rehabilitations saved successfully. Count: 2
+[2025-12-27 18:58:09] [INFO] Doctors saved successfully. Count: 2
+[2025-12-27 18:58:09] [INFO] Departments saved successfully. Count: 2
+[2025-12-27 18:58:09] [INFO] Nurses saved successfully. Count: 2
+[2025-12-27 18:58:09] [INFO] Surgeries saved successfully. Count: 4
+[2025-12-27 18:58:09] [INFO] Diagnoses saved successfully. Count: 4
+[2025-12-27 18:58:09] [INFO] Patients saved successfully. Count: 3
+[2025-12-27 18:58:09] [INFO] Rooms saved successfully. Count: 1
+[2025-12-27 18:58:09] [INFO] Appointments saved successfully. Count: 6
+[2025-12-27 18:58:09] [INFO] Data saved successfully
+[2025-12-27 18:58:49] [INFO] Loading data from CSV files
+[2025-12-27 18:58:49] [INFO] Medications loaded successfully. Count: 3
+[2025-12-27 18:58:49] [INFO] Therapies loaded successfully. Count: 2
+[2025-12-27 18:58:49] [INFO] Rehabilitations loaded successfully. Count: 2
+[2025-12-27 18:58:49] [INFO] Doctors loaded successfully. Count: 2
+[2025-12-27 18:58:49] [INFO] Departments loaded successfully. Count: 2
+[2025-12-27 18:58:49] [INFO] Nurses loaded successfully. Count: 2
+[2025-12-27 18:58:49] [INFO] Surgeries loaded successfully. Count: 4
+[2025-12-27 18:58:49] [INFO] Diagnoses loaded successfully. Count: 4
+[2025-12-27 18:58:49] [INFO] Patients loaded successfully. Count: 3
+[2025-12-27 18:58:49] [INFO] Rooms loaded successfully. Count: 1
+[2025-12-27 18:58:49] [INFO] Appointments loaded successfully. Count: 6
+[2025-12-27 18:58:49] [INFO] Data loading completed
+[2025-12-27 19:06:44] [INFO] Saving data to CSV files
+[2025-12-27 19:06:44] [INFO] Medications saved successfully. Count: 3
+[2025-12-27 19:06:44] [INFO] Therapies saved successfully. Count: 2
+[2025-12-27 19:06:44] [INFO] Rehabilitations saved successfully. Count: 2
+[2025-12-27 19:06:44] [INFO] Doctors saved successfully. Count: 2
+[2025-12-27 19:06:44] [INFO] Departments saved successfully. Count: 2
+[2025-12-27 19:06:44] [INFO] Nurses saved successfully. Count: 2
+[2025-12-27 19:06:44] [INFO] Surgeries saved successfully. Count: 4
+[2025-12-27 19:06:44] [INFO] Diagnoses saved successfully. Count: 4
+[2025-12-27 19:06:44] [INFO] Patients saved successfully. Count: 3
+[2025-12-27 19:06:44] [INFO] Rooms saved successfully. Count: 1
+[2025-12-27 19:06:44] [INFO] Appointments saved successfully. Count: 6
+[2025-12-27 19:06:44] [INFO] Data saved successfully
+[2025-12-27 19:11:11] [INFO] Loading data from CSV files
+[2025-12-27 19:11:11] [INFO] Medications loaded successfully. Count: 5
+[2025-12-27 19:11:11] [INFO] Therapies loaded successfully. Count: 5
+[2025-12-27 19:11:11] [INFO] Rehabilitations loaded successfully. Count: 5
+[2025-12-27 19:11:11] [INFO] Doctors loaded successfully. Count: 5
+[2025-12-27 19:11:11] [INFO] Departments loaded successfully. Count: 5
+[2025-12-27 19:11:11] [INFO] Nurses loaded successfully. Count: 5
+[2025-12-27 19:11:11] [INFO] Surgeries loaded successfully. Count: 5
+[2025-12-27 19:11:11] [ERROR] Skipping corrupted record at line 3: UUID string too large
+[2025-12-27 19:11:11] [INFO] Diagnoses loaded successfully. Count: 4
+[2025-12-27 19:11:11] [WARN] Failed to parse patient record: CSVRecord [comment='null', recordNumber=4, values=[40000000-0000-0000-0000-000000000004, 15261512345, Kevin, McCallister, 2015-06-15, dcccccccc-cccc-cccc-cccc-cccccccccccc]]
+[2025-12-27 19:11:11] [INFO] Patients loaded successfully. Count: 5
+[2025-12-27 19:11:11] [INFO] Rooms loaded successfully. Count: 5
+[2025-12-27 19:11:11] [WARN] Failed to parse appointment record: CSVRecord [comment='null', recordNumber=4, values=[dd444444-4444-4444-4444-444444444444, 2025-12-24, COMPLETED, 40000000-0000-0000-0000-000000000004, c0c0c0c0-1234-5678-90ab-cdef12345678, dcccccccc-cccc-cccc-cccc-cccccccccccc]]. Error: UUID string too large
+[2025-12-27 19:11:11] [INFO] Appointments loaded successfully. Count: 5
+[2025-12-27 19:11:11] [INFO] Data loading completed
+[2025-12-27 19:13:32] [INFO] Saving data to CSV files
+[2025-12-27 19:13:32] [INFO] Medications saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Therapies saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Rehabilitations saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Doctors saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Departments saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Nurses saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Surgeries saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Diagnoses saved successfully. Count: 4
+[2025-12-27 19:13:32] [INFO] Patients saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Rooms saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Appointments saved successfully. Count: 5
+[2025-12-27 19:13:32] [INFO] Data saved successfully
+[2025-12-27 19:14:29] [INFO] Loading data from CSV files
+[2025-12-27 19:14:29] [INFO] Medications loaded successfully. Count: 5
+[2025-12-27 19:14:29] [INFO] Therapies loaded successfully. Count: 5
+[2025-12-27 19:14:29] [INFO] Rehabilitations loaded successfully. Count: 5
+[2025-12-27 19:14:29] [INFO] Doctors loaded successfully. Count: 5
+[2025-12-27 19:14:29] [INFO] Departments loaded successfully. Count: 5
+[2025-12-27 19:14:29] [INFO] Nurses loaded successfully. Count: 5
+[2025-12-27 19:14:29] [INFO] Surgeries loaded successfully. Count: 5
+[2025-12-27 19:14:29] [INFO] Diagnoses loaded successfully. Count: 4
+[2025-12-27 19:14:29] [WARN] Failed to parse patient record: CSVRecord [comment='null', recordNumber=4, values=[40000000-0000-0000-0000-000000000004, 15261512345, Kevin, McCallister, 2015-06-15, dcccccccc-cccc-cccc-cccc-cccccccccccc]]
+[2025-12-27 19:14:29] [INFO] Patients loaded successfully. Count: 5
+[2025-12-27 19:14:29] [INFO] Rooms loaded successfully. Count: 5
+[2025-12-27 19:14:29] [WARN] Failed to parse appointment record: CSVRecord [comment='null', recordNumber=4, values=[dd444444-4444-4444-4444-444444444444, 2025-12-24, COMPLETED, 40000000-0000-0000-0000-000000000004, c0c0c0c0-1234-5678-90ab-cdef12345678, dcccccccc-cccc-cccc-cccc-cccccccccccc]]. Error: UUID string too large
+[2025-12-27 19:14:29] [INFO] Appointments loaded successfully. Count: 5
+[2025-12-27 19:14:29] [INFO] Data loading completed
+[2025-12-27 19:14:32] [INFO] Saving data to CSV files
+[2025-12-27 19:14:32] [INFO] Medications saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Therapies saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Rehabilitations saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Doctors saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Departments saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Nurses saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Surgeries saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Diagnoses saved successfully. Count: 4
+[2025-12-27 19:14:32] [INFO] Patients saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Rooms saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Appointments saved successfully. Count: 5
+[2025-12-27 19:14:32] [INFO] Data saved successfully
+[2025-12-27 19:17:26] [INFO] Loading data from CSV files
+[2025-12-27 19:17:26] [INFO] Medications loaded successfully. Count: 5
+[2025-12-27 19:17:26] [INFO] Therapies loaded successfully. Count: 5
+[2025-12-27 19:17:26] [INFO] Rehabilitations loaded successfully. Count: 5
+[2025-12-27 19:17:26] [INFO] Doctors loaded successfully. Count: 5
+[2025-12-27 19:17:26] [INFO] Departments loaded successfully. Count: 5
+[2025-12-27 19:17:26] [INFO] Nurses loaded successfully. Count: 5
+[2025-12-27 19:17:26] [INFO] Surgeries loaded successfully. Count: 5
+[2025-12-27 19:17:26] [INFO] Diagnoses loaded successfully. Count: 5
+[2025-12-27 19:17:26] [INFO] Patients loaded successfully. Count: 6
+[2025-12-27 19:17:26] [INFO] Rooms loaded successfully. Count: 5
+[2025-12-27 19:17:26] [INFO] Appointments loaded successfully. Count: 6
+[2025-12-27 19:17:26] [INFO] Data loading completed
+[2025-12-27 19:17:28] [INFO] Saving data to CSV files
+[2025-12-27 19:17:28] [INFO] Medications saved successfully. Count: 5
+[2025-12-27 19:17:28] [INFO] Therapies saved successfully. Count: 5
+[2025-12-27 19:17:28] [INFO] Rehabilitations saved successfully. Count: 5
+[2025-12-27 19:17:28] [INFO] Doctors saved successfully. Count: 5
+[2025-12-27 19:17:28] [INFO] Departments saved successfully. Count: 5
+[2025-12-27 19:17:28] [INFO] Nurses saved successfully. Count: 5
+[2025-12-27 19:17:28] [INFO] Surgeries saved successfully. Count: 5
+[2025-12-27 19:17:28] [INFO] Diagnoses saved successfully. Count: 5
+[2025-12-27 19:17:28] [INFO] Patients saved successfully. Count: 6
+[2025-12-27 19:17:28] [INFO] Rooms saved successfully. Count: 5
+[2025-12-27 19:17:28] [INFO] Appointments saved successfully. Count: 6
+[2025-12-27 19:17:28] [INFO] Data saved successfully

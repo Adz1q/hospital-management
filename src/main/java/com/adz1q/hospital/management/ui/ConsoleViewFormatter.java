@@ -1,6 +1,7 @@
 package com.adz1q.hospital.management.ui;
 
 import com.adz1q.hospital.management.model.Describable;
+import com.adz1q.hospital.management.model.Specialization;
 
 import java.util.List;
 
@@ -53,6 +54,29 @@ public class ConsoleViewFormatter {
         printHeader(entity.getClass().getName());
         entity.showDetails();
         printBottomSeparator(entity.getClass().getName());
+    }
+
+    public void showDoctorSpecializations() {
+        String title = "Doctor Specializations";
+        printHeader(title);
+        for (Specialization specialization : Specialization.values()) {
+            printMessage(specialization.getName());
+        }
+        printBottomSeparator(title);
+    }
+
+    public void showTreatmentMethods() {
+        String title = "Treatment Methods";
+        List<String> methods = List.of(
+                "Surgery",
+                "Medication",
+                "Therapy",
+                "Rehabilitation");
+        printHeader(title);
+        for (String method : methods) {
+            printMessage(method);
+        }
+        printBottomSeparator(title);
     }
 
     public void showMainMenu() {
@@ -148,7 +172,7 @@ public class ConsoleViewFormatter {
                 "View Doctor by ID",
                 "Hire New Doctor",
                 "Dismiss Doctor",
-                "Rehire Doctor Specialty",
+                "Rehire Doctor",
                 "Update Doctor Specializations",
                 "View Doctors by First Name and Last Name",
                 "View Doctors by Last Name",

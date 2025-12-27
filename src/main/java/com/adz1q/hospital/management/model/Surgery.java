@@ -74,9 +74,10 @@ public class Surgery extends Treatment {
 
         validateSurgeryDate(surgeryDate);
 
-        if (surgeryDate.isBefore(LocalDate.now())) {
-            throw new IllegalArgumentException("Invalid surgery date.");
-        }
+//          For better UX
+//        if (surgeryDate.isBefore(LocalDate.now())) {
+//            throw new IllegalArgumentException("Invalid surgery date.");
+//        }
 
         this.surgeryDate = surgeryDate;
     }

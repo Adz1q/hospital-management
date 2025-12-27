@@ -43,9 +43,10 @@ public abstract class Treatment implements Identifiable<UUID>, Describable{
             throw new NullPointerException("Prescription date cannot be null");
         }
 
-        if (prescriptionDate.isAfter(LocalDate.now())) {
-            throw new IllegalArgumentException("Prescription date cannot be from future.");
-        }
+//        For better UX
+//        if (prescriptionDate.isAfter(LocalDate.now())) {
+//            throw new IllegalArgumentException("Prescription date cannot be from future.");
+//        }
     }
 
     @Override

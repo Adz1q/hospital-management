@@ -1,0 +1,14 @@
+Appointment: patient, doctor, diagnosis
+Diagnosis: rehabilitation, surgery, therapy, medication
+Nurse: department
+Patient: diagnosis
+Room: department, patient
+Surgery: doctor,
+
+1: medication, therapy, rehabilitation, doctor, department,
+2: nurse
+3: surgery
+4: diagnosis
+5: patient
+6: room
+7: appointment

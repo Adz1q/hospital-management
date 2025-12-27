@@ -94,6 +94,7 @@ public class DoctorMenu extends Menu {
                 Doctor newDoctor;
 
                 do {
+                    consoleViewFormatter.showDoctorSpecializations();
                     String specializationStr = consoleInputReader.readStringPrompt("Enter Specialization (or press enter to finish): ");
                     if (specializationStr.isBlank()) break;
 
@@ -165,6 +166,7 @@ public class DoctorMenu extends Menu {
 
                 do {
                     try {
+                        consoleViewFormatter.showDoctorSpecializations();
                         String specializationStr = consoleInputReader.readStringPrompt("Enter Specialization (or press enter to finish): ");
                         specialization = Specialization.valueOf(specializationStr.trim().toUpperCase());
                         break;

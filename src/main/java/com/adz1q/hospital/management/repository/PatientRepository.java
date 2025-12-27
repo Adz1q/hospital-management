@@ -157,8 +157,7 @@ public class PatientRepository extends FileRepository<UUID, Patient> {
     }
 
     public List<Treatment> findPatientTreatments(UUID patientId) {
-        return data.get(patientId)
-                .getDocumentation()
+        return data.get(patientId).getDocumentation()
                 .stream()
                 .flatMap(diagnosis -> diagnosis.getTreatments().stream())
                 .toList();

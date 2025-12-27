@@ -95,7 +95,7 @@ public class RehabilitationRepository extends FileRepository<UUID, Rehabilitatio
             }
 
             Files.move(tempFile, filePath, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
-            Logger.info("Rehabilitation data successfully saved to file.");
+            Logger.info("Rehabilitations saved successfully. Count: " + data.size());
         } catch (IOException e) {
             Logger.warn("Failed to save rehabilitation data to file: " + e.getMessage());
 

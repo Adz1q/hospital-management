@@ -247,6 +247,7 @@ public class AppointmentMenu extends Menu {
 
                 Set<Treatment> treatments = new HashSet<>();
                 do {
+                    consoleViewFormatter.showTreatmentMethods();
                     String treatmentStr = consoleInputReader.readStringPrompt("Enter Treatment Name (or press enter to finish): ");
                     if (treatmentStr.isBlank()) {
                         break;

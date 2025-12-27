@@ -1,7 +1,5 @@
 package com.adz1q.hospital.management.model;
 
-import com.adz1q.hospital.management.util.PeselValidator;
-
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
@@ -54,7 +52,8 @@ public abstract class Person implements Identifiable<UUID>, Describable {
     }
 
     private void validatePesel(String pesel) {
-        PeselValidator.isValid(pesel);
+//        For better UX (user don't have to pass real PESEL for testing the system)
+//        PeselValidator.isValid(pesel);
     }
 
     private void validateFirstName(String firstName) {

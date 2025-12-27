@@ -49,7 +49,7 @@ public class Nurse extends Person {
         System.out.println("Last Name: " + super.getLastName());
         System.out.println("Birth Date: " + super.getBirthDate());
         if (super.getPesel() != null) System.out.println("PESEL: " + super.getPesel());
-        System.out.println("Department: " + department.getName());
+        System.out.println("Department: " + department);
         System.out.println("Active: " + active);
     }
 

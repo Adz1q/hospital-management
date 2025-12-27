@@ -85,7 +85,7 @@ public class TherapyRepository extends FileRepository<UUID, Therapy> {
             }
 
             Files.move(tempFile, filePath, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
-            Logger.info("Therapies saved successfully to " + filePath);
+            Logger.info("Therapies saved successfully. Count: " + data.size());
         } catch (IOException e) {
             Logger.warn("Error while saving therapies to file: " + e.getMessage());
 

@@ -122,7 +122,7 @@ public class RoomRepository extends FileRepository<UUID, Room> {
             }
 
             Files.move(tempFile, filePath, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
-            Logger.info("Rooms saved successfully to file: " + filePath);
+            Logger.info("Rooms saved successfully. Count: " + data.size());
         } catch (IOException e) {
             Logger.warn("Failed to save rooms to file: " + filePath);
 

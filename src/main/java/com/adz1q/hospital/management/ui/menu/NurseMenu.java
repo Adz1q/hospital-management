@@ -104,7 +104,7 @@ public class NurseMenu extends Menu {
                             department);
                 }
 
-                consoleViewFormatter.printMessage("Patient registered successfully with ID: " + newNurse.getId());
+                consoleViewFormatter.printMessage("Nurse registered successfully with ID: " + newNurse.getId());
                 if (returnToMenu()) return;
             } catch (Exception e) {
                 consoleViewFormatter.printMessage("Error: " + e.getMessage());

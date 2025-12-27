@@ -24,6 +24,10 @@ public class AppointmentService {
             Doctor doctor,
             Patient patient,
             LocalDate date) {
+        if (!doctor.isActive()) {
+            throw new IllegalArgumentException("Cannot schedule appointment with an inactive doctor.");
+        }
+
         if (existsAnyAppointmentForDoctorIdAndDate(doctor.getId(), date)) {
             throw new IllegalArgumentException("Doctor already has an appointment on this date.");
         }
@@ -57,6 +61,14 @@ public class AppointmentService {
             Doctor newDoctor)
             throws AppointmentNotFoundException {
         Appointment appointment = getAppointment(appointmentId);
+        if (!newDoctor.isActive()) {
+            throw new IllegalArgumentException("Cannot assign an inactive doctor to the appointment.");
+        }
+
+
+        if (appointment.getDoctor().equals(newDoctor)) {
+            throw new IllegalArgumentException("New doctor is the same as the current doctor.");
+        }
 
         if (existsAnyAppointmentForDoctorIdAndDate(
                 newDoctor.getId(),
@@ -76,8 +88,8 @@ public class AppointmentService {
 
         if (existsAnyAppointmentForDoctorIdAndDate(
                 appointment.getDoctor().getId(),
-                appointment.getDate())) {
-            throw new IllegalArgumentException("New doctor already has an appointment on this date.");
+                newDate)) {
+            throw new IllegalArgumentException("Doctor already has an appointment on this date.");
         }
 
         appointment.changeDate(newDate);
@@ -90,7 +102,6 @@ public class AppointmentService {
             throws AppointmentNotFoundException {
         Appointment appointment = getAppointment(id);
         appointment.completeAppointment(diagnosis);
-        updateDocumentation(appointment.getPatient(), diagnosis);
         Logger.info("Completed appointment with ID: " + id);
     }
 
@@ -106,12 +117,5 @@ public class AppointmentService {
         }
 
         return appointmentRepository.existsByDoctorIdAndDate(doctorId, date);
-    }
-
-    public void updateDocumentation(
-            Patient patient,
-            Diagnosis diagnosis) {
-        patient.addDiagnosis(diagnosis);
-        Logger.info("Updated patient documentation with ID: " + patient.getId());
     }
 }

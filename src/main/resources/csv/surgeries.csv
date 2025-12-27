@@ -1,1 +1,6 @@
 id;description;prescription_date;surgery_date;status;doctor_id
+88888888-8888-8888-8888-888888888888;Heart Bypass Surgery;2025-10-10;2025-10-15;COMPLETED;a0a0a0a0-a0a0-a0a0-a0a0-a0a0a0a0a0a0
+99999999-9999-9999-9999-999999999999;ACL Reconstruction;2025-12-01;2026-01-20;SCHEDULED;b0b0b0b0-b0b0-b0b0-b0b0-b0b0b0b0b0b0
+aa00aa00-aa00-aa00-aa00-aa00aa00aa00;Craniotomy (Tumor removal);2025-12-15;2026-01-05;SCHEDULED;d0d0d0d0-2345-6789-01cd-ef0123456789
+bb00bb00-bb00-bb00-bb00-bb00bb00bb00;Skin Grafting;2025-11-20;2025-11-25;COMPLETED;e0e0e0e0-3456-7890-12ef-012345678901
+cc00cc00-cc00-cc00-cc00-cc00cc00cc00;Appendectomy (Emergency);2025-12-24;2025-12-24;COMPLETED;c0c0c0c0-1234-5678-90ab-cdef12345678
