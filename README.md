@@ -12,6 +12,7 @@ The **Hospital Management System** is a modular application developed to streaml
 
 ### 👨‍⚕️ Core Modules
 *   **Patient Management**: Registration, medical history tracking (diagnoses, treatments), and comprehensive documentation access.
+*   **Identity Resolution**: Implements a "search-first" workflow allowing users to query entities by name to retrieve unique identifiers (UUIDs). This ensures precision in operations like scheduling, eliminating ambiguity in case of duplicate names.
 *   **Staff Coordination**: Management of Doctors (by specialization) and Nurses, including shift/department assignments.
 *   **Appointment System**: Scheduling logic with conflict detection (no double-booking), status tracking (`SCHEDULED`, `COMPLETED`, `CANCELLED`), and historical logs.
 *   **Infrastructure**: Real-time tracking of room occupancy and department resources.
