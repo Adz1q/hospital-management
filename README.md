@@ -115,9 +115,11 @@ git clone https://github.com/adz1q/hospital-management.git
 ```
 
 2. **Open in IDE**
+
    Import the project as a Gradle project in IntelliJ IDEA or Eclipse.
 
 3. **Verify Java Version**
+
    Ensure you have **JDK 21** installed and configured in your path.
 
 ```bash
