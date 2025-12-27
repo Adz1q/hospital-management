@@ -530,3 +530,29 @@
 [2025-12-27 20:01:02] [INFO] Rooms saved successfully. Count: 5
 [2025-12-27 20:01:02] [INFO] Appointments saved successfully. Count: 6
 [2025-12-27 20:01:02] [INFO] Data saved successfully
+[2025-12-27 21:52:32] [INFO] Loading data from CSV files
+[2025-12-27 21:52:32] [INFO] Medications loaded successfully. Count: 5
+[2025-12-27 21:52:32] [INFO] Therapies loaded successfully. Count: 5
+[2025-12-27 21:52:32] [INFO] Rehabilitations loaded successfully. Count: 5
+[2025-12-27 21:52:32] [INFO] Doctors loaded successfully. Count: 5
+[2025-12-27 21:52:32] [INFO] Departments loaded successfully. Count: 5
+[2025-12-27 21:52:32] [INFO] Nurses loaded successfully. Count: 5
+[2025-12-27 21:52:32] [INFO] Surgeries loaded successfully. Count: 5
+[2025-12-27 21:52:32] [INFO] Diagnoses loaded successfully. Count: 5
+[2025-12-27 21:52:32] [INFO] Patients loaded successfully. Count: 6
+[2025-12-27 21:52:32] [INFO] Rooms loaded successfully. Count: 5
+[2025-12-27 21:52:32] [INFO] Appointments loaded successfully. Count: 6
+[2025-12-27 21:52:32] [INFO] Data loading completed
+[2025-12-27 21:52:34] [INFO] Saving data to CSV files
+[2025-12-27 21:52:34] [INFO] Medications saved successfully. Count: 5
+[2025-12-27 21:52:34] [INFO] Therapies saved successfully. Count: 5
+[2025-12-27 21:52:34] [INFO] Rehabilitations saved successfully. Count: 5
+[2025-12-27 21:52:34] [INFO] Doctors saved successfully. Count: 5
+[2025-12-27 21:52:34] [INFO] Departments saved successfully. Count: 5
+[2025-12-27 21:52:34] [INFO] Nurses saved successfully. Count: 5
+[2025-12-27 21:52:34] [INFO] Surgeries saved successfully. Count: 5
+[2025-12-27 21:52:34] [INFO] Diagnoses saved successfully. Count: 5
+[2025-12-27 21:52:34] [INFO] Patients saved successfully. Count: 6
+[2025-12-27 21:52:34] [INFO] Rooms saved successfully. Count: 5
+[2025-12-27 21:52:34] [INFO] Appointments saved successfully. Count: 6
+[2025-12-27 21:52:34] [INFO] Data saved successfully
