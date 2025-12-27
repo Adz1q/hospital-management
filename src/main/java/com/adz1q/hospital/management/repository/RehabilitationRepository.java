@@ -1,7 +1,6 @@
 package com.adz1q.hospital.management.repository;
 
 import com.adz1q.hospital.management.model.Rehabilitation;
-import com.adz1q.hospital.management.model.Therapy;
 import com.adz1q.hospital.management.util.Logger;
 import org.apache.commons.csv.*;
 

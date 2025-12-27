@@ -139,4 +139,8 @@ public class Room implements Identifiable<UUID>, Describable {
     public Set<Patient> getPatients() {
         return Collections.unmodifiableSet(patients);
     }
+
+    public int getAvailableSlots() {
+        return availableSlots;
+    }
 }

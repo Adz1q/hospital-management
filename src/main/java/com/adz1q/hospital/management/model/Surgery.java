@@ -119,6 +119,10 @@ public class Surgery extends Treatment {
         return surgeryDate;
     }
 
+    public SurgeryStatus getStatus() {
+        return status;
+    }
+
     public boolean isScheduled() {
         return status == SurgeryStatus.SCHEDULED;
     }

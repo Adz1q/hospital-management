@@ -74,3 +74,68 @@
 [2025-12-26 23:02:27] [INFO] Saving data to CSV files
 [2025-12-26 23:02:27] [INFO] Medications saved successfully to src\main\resources\csv\medications.csv
 [2025-12-26 23:02:27] [INFO] Data saved successfully
+[2025-12-27 15:15:04] [INFO] Loading data from CSV files
+[2025-12-27 15:15:04] [INFO] Medications loaded successfully. Count: 1
+[2025-12-27 15:15:04] [INFO] Therapies loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Rehabilitations loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Doctors loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Departments loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Nurses loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Surgeries loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Diagnoses loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Patients loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Rooms loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Appointments loaded successfully. Count: 0
+[2025-12-27 15:15:04] [INFO] Data loading completed
+[2025-12-27 15:15:07] [INFO] Saving data to CSV files
+[2025-12-27 15:15:07] [INFO] Medications saved successfully to src\main\resources\csv\medications.csv
+[2025-12-27 15:15:07] [INFO] Therapies saved successfully to src\main\resources\csv\therapies.csv
+[2025-12-27 15:15:07] [INFO] Rehabilitation data successfully saved to file.
+[2025-12-27 15:15:07] [INFO] Doctors saved successfully to src\main\resources\csv\doctors.csv
+[2025-12-27 15:15:07] [INFO] Departments saved successfully. Count: 0
+[2025-12-27 15:15:07] [INFO] Nurses saved successfully. Count: 0
+[2025-12-27 15:15:07] [INFO] Surgeries saved successfully. Count: 0
+[2025-12-27 15:15:07] [INFO] Diagnoses saved successfully. Count: 0
+[2025-12-27 15:15:07] [INFO] Patients saved successfully. Count: 0
+[2025-12-27 15:15:07] [INFO] Rooms saved successfully to file: src\main\resources\csv\rooms.csv
+[2025-12-27 15:15:07] [INFO] Appointments saved successfully. Count: 0
+[2025-12-27 15:15:07] [INFO] Data saved successfully
+[2025-12-27 15:22:53] [INFO] Loading data from CSV files
+[2025-12-27 15:22:53] [INFO] Medications loaded successfully. Count: 1
+[2025-12-27 15:22:53] [INFO] Therapies loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Rehabilitations loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Doctors loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Departments loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Nurses loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Surgeries loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Diagnoses loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Patients loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Rooms loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Appointments loaded successfully. Count: 0
+[2025-12-27 15:22:53] [INFO] Data loading completed
+[2025-12-27 15:23:20] [INFO] Saving data to CSV files
+[2025-12-27 15:23:20] [INFO] Medications saved successfully to src\main\resources\csv\medications.csv
+[2025-12-27 15:23:20] [INFO] Therapies saved successfully to src\main\resources\csv\therapies.csv
+[2025-12-27 15:23:20] [INFO] Rehabilitation data successfully saved to file.
+[2025-12-27 15:23:20] [INFO] Doctors saved successfully to src\main\resources\csv\doctors.csv
+[2025-12-27 15:23:20] [INFO] Departments saved successfully. Count: 0
+[2025-12-27 15:23:20] [INFO] Nurses saved successfully. Count: 0
+[2025-12-27 15:23:20] [INFO] Surgeries saved successfully. Count: 0
+[2025-12-27 15:23:20] [INFO] Diagnoses saved successfully. Count: 0
+[2025-12-27 15:23:20] [INFO] Patients saved successfully. Count: 0
+[2025-12-27 15:23:20] [INFO] Rooms saved successfully to file: src\main\resources\csv\rooms.csv
+[2025-12-27 15:23:20] [INFO] Appointments saved successfully. Count: 0
+[2025-12-27 15:23:20] [INFO] Data saved successfully
+[2025-12-27 15:24:54] [INFO] Loading data from CSV files
+[2025-12-27 15:24:54] [INFO] Medications loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Therapies loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Rehabilitations loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Doctors loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Departments loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Nurses loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Surgeries loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Diagnoses loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Patients loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Rooms loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Appointments loaded successfully. Count: 0
+[2025-12-27 15:24:54] [INFO] Data loading completed
