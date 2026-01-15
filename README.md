@@ -150,7 +150,7 @@ The system implements a rigorous "integrity check" mechanism upon startup:
 
 **Adz1q**
 
-_Java Developer | Clean Code Enthusiast_
+_Java Developer_
 
 ---
 
