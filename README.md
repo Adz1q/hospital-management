@@ -115,16 +115,24 @@ git clone https://github.com/adz1q/hospital-management.git
 ```
 
 2. **Open in IDE**
+
    Import the project as a Gradle project in IntelliJ IDEA or Eclipse.
 
-3. **Build**
-   Ensure you have JDK 21 installed.
+3. **Verify Java Version**
+
+   Ensure you have **JDK 21** installed and configured in your path.
+
+```bash
+java --version
+```
+
+4. **Build**
 
 ```bash
 ./gradlew clean shadowJar
 ```
 
-4. **Run**
+5. **Run**
 
 ```bash
 java -jar build/libs/hospital-management-1.0-all.jar
@@ -141,6 +149,7 @@ The system implements a rigorous "integrity check" mechanism upon startup:
 ## 👨‍💻 Author
 
 **Adz1q**
+
 _Java Developer | Clean Code Enthusiast_
 
 ---
